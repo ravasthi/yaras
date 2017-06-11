@@ -17,6 +17,8 @@
 */
 html {
   box-sizing: border-box;
+
+  @include body-text;
 }
 
 *,

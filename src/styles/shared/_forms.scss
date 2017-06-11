@@ -77,6 +77,10 @@ button,
 a.button {
   display: inline-block;
 
+  border-style: none;
+  border-radius: $button-border-radius;
+  padding: 0 $column-width;
+
   color: $button-text-color;
   background-color: $button-base-bg;
 
@@ -93,8 +97,13 @@ a.button {
   }
 
   &.secondary {
+    border: 1px solid $secondary-button-border-color;
+
     color: $secondary-button-text-color;
     background-color: $secondary-button-base-bg;
+
+    $secondary-button-line-height: rem-to-px($button-height) - 2 * $secondary-button-border-width;
+    line-height: $secondary-button-line-height;
 
     &:hover {
       background-color: $secondary-button-hover-bg;
