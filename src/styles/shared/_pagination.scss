@@ -4,7 +4,7 @@
 .pagination {
   margin-top: $body-text-line-height - (2 * $vertical-nudge);
 
-  white-space-collapse: discard;
+  font-size: 0;
 
   .first,
   .prev,
@@ -14,10 +14,11 @@
     display: inline-block;
 
     margin-right: $column-width / 2;
+    border-radius: 6px;
 
     background-color: darken($greyish-white, 3);
 
-    border-radius: 6px;
+    font-size: 1rem;
 
     a {
       display: block;

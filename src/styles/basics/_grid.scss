@@ -16,7 +16,7 @@ $section-spacing  : 2 * $body-text-line-height;
 */
 $susy: (
   columns: 12,
-  gutters: .25
+  gutters: 0.25
 );
 
 @include layout($susy);

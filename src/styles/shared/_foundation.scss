@@ -9,9 +9,9 @@
 | non-semantic styles
 */
 
-
 /*----------[ tags ]------------------------------------------------------------
 */
+
 /*
 ** * { box-sizing: border-box; } FTW: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
@@ -22,8 +22,8 @@ html {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -170,6 +170,7 @@ pre {
 
 code {
   padding: 2px 3px;
+
   background-color: $accent-bg;
 }
 
@@ -188,6 +189,7 @@ strong {
 sub,
 sup {
   font-size: 80%;
+
   /*
   ** A non-zero line-height on a sub or sup element will alter the line-height
   ** of your paragraph text. To keep your vertical rhythm nice and smooth, set
