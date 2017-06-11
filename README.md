@@ -1,6 +1,13 @@
 # yaras
 
-Yet another React app starter.
+Yet another React app starter. Based on Create React App (see instructions below), with the following additions:
+
+* Styles in Sass (scss format)
+* Stylelint and Eslint configs
+* .editorconfig
+* A basic set of styles based on [css3-foundation](https://github.com/ravasthi/css3-foundation)
+
+* * *
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
