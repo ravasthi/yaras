@@ -14,7 +14,7 @@ trim_trailing_whitespace = true
 indent_size = 4
 
 [*.{js,jsx,rb}]
-indent_size = 4
+indent_size = 2
 
 [Makefile]
 indent_style = tab
@@ -24,4 +24,3 @@ indent_size = 2
 
 [*.{html,dust}]
 indent_size = 2
-
