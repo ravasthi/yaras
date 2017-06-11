@@ -15,6 +15,7 @@
 
 // ----- Icon fonts
 $fa-font-path: '../node_modules/font-awesome/fonts';
+
 @import 'font-awesome/scss/font-awesome';
 
 // Basics
@@ -24,6 +25,7 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 
 // Shared
 @import 'shared/animations';
+@import 'shared/functions';
 @import 'shared/mixins';
 @import 'shared/foundation';
 @import 'shared/page';

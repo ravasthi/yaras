@@ -1,0 +1,11 @@
+/*-----[ functions ]------------------------------------------------------------
+*/
+@function pxToRem($size) {
+  $remSize: $size / $body-text-size;
+  @return #{$remSize}rem;
+}
+
+@function remToPx($size) {
+  $pxSize: ($size / 1rem) * $body-text-size;
+  @return #{$pxSize}px;
+}

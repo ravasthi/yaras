@@ -16,19 +16,47 @@
 | transparently.
 */
 // Main palette
-$eggplant-purple : #4a1a2b;
-$teal            : #207861;
-$leaf-green      : #9fad00;
-$bright-yellow   : #ffcc00;
-$orange          : #ff8400;
-$blue            : #1673a1;
-$red             : #e53b19;
+$dark-green: #2e7d5c;
+$green: #50ae88;
+$faded-green: #8ad9b8;
+$light-green: #d4f5e9;
+$pale-green: #ebfcf6;
+
+$dark-purple: #523948;
+$purple: #855c76;
+$faded-purple: #ae8da4;
+$light-purple: #e9d4e1;
+$pale-purple: #fbebf5;
+
+$dark-blue: #082939;
+$blue: #275f78;
+$faded-blue: #669fb8;
+$light-blue: #c0e1ee;
+$pale-blue: #e5f3f9;
+
+$dark-gold: #ae8421;
+$gold: #c99f3b;
+$faded-gold: #ddb860;
+$light-gold: #efd494;
+$pale-gold: #fdf3dd;
+
+$dark-brown: #522c12;
+$brown: #885231;
+$faded-brown: #bb835c;
+$light-brown: #eecab3;
+$pale-brown: #fdefe6;
+
+$dark-red: #8d3e36;
+$red: #bd5548;
+$faded-red: #d2766c;
+$light-red: #ebccc7;
+$pale-red: #f7e7e4;
 
 // Greys
-$charcoal        : #444444;
-$grey            : #808080;
-$silver          : #c0c0c0;
-$greyish-white   : #f0f0f0;
+$charcoal: #444;
+$grey: #808080;
+$silver: #c0c0c0;
+$greyish-white: #f0f0f0;
 
 /*----------[ backgrounds and borders ]-----------------------------------------
 | From this point on, we create semantic variables and assign our color values
@@ -45,43 +73,44 @@ $greyish-white   : #f0f0f0;
 | page background or link color—or change the palette entirely—in just one
 | place without a lot of tedious search-and-replace.
 */
-$page-bg         : white;
-$accent-bg       : $greyish-white;
-
-$stroke          : darken($silver, 15);
-$light-stroke    : darken($greyish-white, 10);
-$disabled-stroke : $silver;
+$page-bg: white;
+$accent-bg: $greyish-white;
+$stroke: darken($silver, 15);
+$light-stroke: darken($greyish-white, 10);
+$disabled-stroke: $silver;
 
 /*----------[ text ]------------------------------------------------------------
 */
-$body-text-color        : $charcoal;
-$secondary-text-color   : $grey;
-$light-text-color       : lighten($grey, 15);
-$disabled-text-color    : $silver;
+$body-text-color: $charcoal;
+$secondary-text-color: $grey;
+$light-text-color: lighten($grey, 15);
+$disabled-text-color: $silver;
 
-$link                   : $blue;
-$visited-link           : $eggplant-purple;
+$link: $blue;
+$active-link: $faded-blue;
+$visited-link: $link;
 
-$highlighted-text-color : white;
-$heading-text-color     : $leaf-green;
-$subheading-text-color  : $orange;
+$highlighted-text-color: white;
+$heading-text-color: $body-text-color;
+$subheading-text-color: $secondary-text-color;
 
-$success-feedback       : darken($leaf-green, 3);
-$success-feedback-bg    : desaturate(lighten($success-feedback, 55), 20);
-$warning-feedback       : darken($bright-yellow, 10);
-$warning-feedback-bg    : lighten($warning-feedback, 48);
-$error-feedback         : darken($red, 10);
-$error-feedback-bg      : lighten($error-feedback, 55);
+$success-feedback: $green;
+$success-feedback-bg: $pale-green;
+$warning-feedback: $dark-gold;
+$warning-feedback-bg: $pale-gold;
+$error-feedback: $red;
+$error-feedback-bg: $pale-red;
 
 /*----------[ forms ]-----------------------------------------------------------
 */
-$button-base-bg                : darken($orange, 3);
-$button-text-color             : white;
+$button-base-bg: $purple;
+$button-hover-bg: $dark-purple;
+$button-text-color: white;
 
-$destructive-button-base-bg    : $red;
-$destructive-button-text-color : white;
+$secondary-button-base-bg: $white;
+$secondary-button-hover-bg: $pale-purple;
+$secondary-button-border: $purple;
+$secondary-button-text-color: $purple;
 
-$disabled-button-base-bg       : lighten($silver, 3);
-$disabled-button-text-color    : lighten($grey, 5);
-
-
+$disabled-button-base-bg: lighten($silver, 3);
+$disabled-button-text-color: lighten($grey, 5);
