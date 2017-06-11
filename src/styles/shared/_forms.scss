@@ -79,7 +79,7 @@ a.button {
 
   border-style: none;
   border-radius: $button-border-radius;
-  padding: 0 $column-width;
+  padding: 0 $horizontal-spacing;
 
   color: $button-text-color;
   background-color: $button-base-bg;
@@ -135,7 +135,7 @@ a.button {
   display: inline-block;
 
   margin: 0;
-  margin-right: $column-width / 2;
+  margin-right: $horizontal-spacing / 2;
 }
 
 .button-bar > a {
@@ -166,7 +166,7 @@ table.form {
   }
 
   .field-label {
-    padding-right: $column-width;
+    padding-right: $horizontal-spacing;
 
     font-weight: normal;
 
@@ -241,7 +241,7 @@ table.form {
 
   ul.error-explanation {
     margin: $vertical-nudge;
-    margin-left: $column-width;
+    margin-left: $horizontal-spacing;
 
     color: $error-feedback;
 

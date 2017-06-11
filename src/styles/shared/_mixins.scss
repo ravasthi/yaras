@@ -39,6 +39,21 @@
   white-space: nowrap;
 }
 
+@mixin module-padding {
+  padding: $vertical-spacing $horizontal-spacing;
+}
+
+/*----------[ lists ]-----------------------------------------------------------
+*/
+@mixin list-with-no-bullets {
+  &,
+  li {
+    margin-left: 0;
+
+    list-style: none;
+  }
+}
+
 @mixin inline-list($spacing: 0.33em) {
   display: inline;
 
@@ -57,7 +72,7 @@
   }
 }
 
-@mixin inline-block-list($spacing: $column-width) {
+@mixin inline-block-list($spacing: $horizontal-spacing) {
   margin: 0;
 
   list-style-type: none;
@@ -75,7 +90,7 @@
 
 // Put this on a UL to get text and bullets colored differently.
 @mixin colored-bullets(
-  $gutter-size: $column-width,
+  $gutter-size: $horizontal-spacing,
   $bullet-character: '\2022',
   $color: $secondary-text-color
 ) {

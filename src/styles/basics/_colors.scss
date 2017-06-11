@@ -55,6 +55,7 @@ $pale-red: #f7e7e4;
 $charcoal: #444;
 $grey: #808080;
 $silver: #c0c0c0;
+$pale-grey: #e0e0e0;
 $greyish-white: #f0f0f0;
 
 /*----------[ backgrounds and borders ]-----------------------------------------
@@ -113,3 +114,9 @@ $secondary-button-text-color: $purple;
 
 $disabled-button-base-bg: lighten($silver, 3);
 $disabled-button-text-color: lighten($grey, 5);
+
+/*----------[ nav ]-------------------------------------------------------------
+*/
+$primary-nav-bg: $dark-blue;
+$primary-nav-item-text-color: $greyish-white;
+$primary-nav-item-hover-text-color: $light-gold;

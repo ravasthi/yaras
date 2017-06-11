@@ -1,31 +1,16 @@
-.app {
-  text-align: center;
-}
-
-.app-logo {
-  height: 80px;
-
-  animation: app-logo-spin infinite 20s linear;
-}
+@import 'styles/all-shared';
 
 .app-header {
-  padding: 20px;
-  min-height: 150px;
+  background-color: $pale-grey;
 
-  color: white;
-  background-color: #222;
+  @include module-padding();
+
+  h1 {
+    margin: 0;
+  }
 }
 
 .app-intro {
-  font-size: large;
-}
-
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  @include module-padding();
+  @include large-text();
 }

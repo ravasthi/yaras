@@ -2,13 +2,13 @@
 | Style specifying the dimensions of the basic page grid and other common
 | measures.
 */
-$column-width     : 20px;
-$horizontal-nudge : $column-width / 4;
+$horizontal-spacing: 20px;
+$horizontal-nudge: $horizontal-spacing / 4;
+$gutter-width: 1.5 * $horizontal-spacing;
 
-$gutter-width     : 1.5 * $column-width;
-
-$vertical-nudge   : $body-text-line-height / 4;
-$section-spacing  : 2 * $body-text-line-height;
+$vertical-spacing: 20px;
+$vertical-nudge: $vertical-spacing / 4;
+$section-spacing: 2 * $vertical-spacing;
 
 /*----------[ susy grid setup ]-------------------------------------------------
 | Use this for responsive grid layouts. Tweak as necessary for your needs.
@@ -31,6 +31,10 @@ $screen-md-max: 991px;
 $screen-lg-min: 992px;
 $screen-lg-max: 1199px;
 $screen-xl-min: 1200px;
+
+/*----------[ nav ]-------------------------------------------------------------
+*/
+$primary-nav-width: 200px;
 
 /*----------[ buttons ]---------------------------------------------------------
 */

@@ -1,0 +1,36 @@
+/*-----[ navigation ]-----------------------------------------------------------
+*/
+.primary-nav-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow-y: auto;
+  width: $primary-nav-width;
+}
+
+nav.primary {
+  min-height: 100vh;
+
+  background-color: $primary-nav-bg;
+
+  @include module-padding();
+
+  ul {
+    margin: 0;
+
+    @include list-with-no-bullets();
+  }
+
+  li,
+  a {
+    color: $primary-nav-item-text-color;
+
+    transition: color $default-transition-duration $default-transition-timing-function;
+  }
+
+  a:hover {
+    color: $primary-nav-item-hover-text-color;
+  }
+}
