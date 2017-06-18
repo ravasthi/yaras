@@ -30,6 +30,14 @@
       $module-shadow-blur $module-shadow-spread $module-shadow-color;
 
     @include module-padding;
+
+    & > p:first-of-type {
+      margin-top: 0;
+    }
+
+    & > p:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   .annotation,

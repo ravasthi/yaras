@@ -12,25 +12,22 @@ function Home() {
         </DocumentTitle>
       </div>
       <div className="module">
-        <div className="intro">
-          <p>
-            This is a React app starter bootstrapped by <a
-            href="https://github.com/facebookincubator/create-react-app">Create React App</a>, with
-            a few additional conveniences:
-          </p>
+        <p>
+          This is a React app starter bootstrapped by <a
+          href="https://github.com/facebookincubator/create-react-app">Create React App</a>, with
+          a few additional conveniences:
+        </p>
 
-          <ul>
-            <li>A style framework similar to the one in
-              <a href="https://github.com/ravasthi/css3-foundation"> css3-foundation</a></li>
-            <li>Integration with
-              <a href="https://github.com/reacttraining/react-router"> react-router</a></li>
-          </ul>
+        <ul>
+          <li>A style framework similar to the one in
+            <a href="https://github.com/ravasthi/css3-foundation"> css3-foundation</a></li>
+          <li>Integration with
+            <a href="https://github.com/reacttraining/react-router"> react-router</a></li>
+        </ul>
 
-          <p>
-            To get started, edit <code>src/Home.js</code> and save to reload.
-          </p>
-
-        </div>
+        <p>
+          To get started, edit <code>src/Home.js</code> and save to reload.
+        </p>
       </div>
     </div>
   );

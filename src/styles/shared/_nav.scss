@@ -1,12 +1,13 @@
 /*-----[ navigation ]-----------------------------------------------------------
 */
 .primary-nav-container {
+  overflow-y: auto;
+
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
 
-  overflow-y: auto;
   width: $primary-nav-width;
 }
 
@@ -26,9 +27,10 @@ nav.primary {
   li,
   a {
     color: $primary-nav-item-text-color;
-    text-decoration: none;
 
     transition: color $default-transition-duration $default-transition-timing-function;
+
+    text-decoration: none;
   }
 
   a:hover {
