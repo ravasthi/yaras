@@ -8,6 +8,30 @@
     margin-left: $primary-nav-width;
   }
 
+  .page-content-header {
+    background-color: $pale-grey;
+
+    @include module-padding();
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .module {
+    margin: $vertical-spacing $horizontal-spacing;
+    border-style: none;
+    border-radius: $module-border-radius;
+
+    background-color: $content-bg;
+
+    box-shadow:
+      $module-shadow-offset $module-shadow-offset
+      $module-shadow-blur $module-shadow-spread $module-shadow-color;
+
+    @include module-padding;
+  }
+
   .annotation,
   .fine-print,
   .form-help {

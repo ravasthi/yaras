@@ -2,6 +2,7 @@
 */
 #font-weight-tester {
   $font-family-to-test: 'Metropolis';
+  $module-gutter-width: 100px;
 
   font-family: $font-family-to-test;
 
@@ -18,9 +19,9 @@
 
       &::before {
         position: absolute;
-        left: -100px;
+        left: -$module-gutter-width;
 
-        width: 80px;
+        width: $module-gutter-width - $horizontal-spacing;
 
         color: $secondary-text-color;
 
@@ -53,5 +54,9 @@
 
       @include large-text;
     }
+  }
+
+  .module {
+    padding-left: $horizontal-spacing + $module-gutter-width;
   }
 }

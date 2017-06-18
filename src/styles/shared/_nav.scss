@@ -26,6 +26,7 @@ nav.primary {
   li,
   a {
     color: $primary-nav-item-text-color;
+    text-decoration: none;
 
     transition: color $default-transition-duration $default-transition-timing-function;
   }
