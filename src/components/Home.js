@@ -32,6 +32,11 @@ function Home() {
             Integration with
             <a href="https://github.com/reacttraining/react-router"> react-router</a>.
           </li>
+          <li>
+            Tests with <a href="https://mochajs.org">Mocha</a>, <a href="http://chaijs.com"
+            title="Chai">Chai</a>, and <a href="http://airbnb.io/enzyme/" title="Introduction |
+            Enzyme">Enzyme</a>.
+          </li>
         </ul>
 
         <p>

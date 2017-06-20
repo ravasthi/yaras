@@ -6,6 +6,7 @@ Yet another React app starter. Based on Create React App (see instructions below
 * Stylelint and Eslint configs
 * .editorconfig
 * A basic set of styles based on [css3-foundation](https://github.com/ravasthi/css3-foundation)
+* Testing with Mocha, Chai, and Enzyme
 
 * * *
 
