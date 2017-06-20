@@ -65,7 +65,8 @@ var eslintConfig = {
   },
   globals: {
     chai: true,
-    sinon: true
+    sinon: true,
+    expect: true,
   }
 };
 

@@ -13,8 +13,8 @@ function Home() {
       </div>
       <div className="module">
         <p>
-          This is a React app starter bootstrapped by <a
-          href="https://github.com/facebookincubator/create-react-app">Create React App</a>, with
+          This is a React app starter bootstrapped by
+          <a href="https://github.com/facebookincubator/create-react-app">Create React App</a>, with
           a few additional conveniences:
         </p>
 
@@ -33,9 +33,9 @@ function Home() {
             <a href="https://github.com/reacttraining/react-router"> react-router</a>.
           </li>
           <li>
-            Tests with <a href="https://mochajs.org">Mocha</a>, <a href="http://chaijs.com"
-            title="Chai">Chai</a>, and <a href="http://airbnb.io/enzyme/" title="Introduction |
-            Enzyme">Enzyme</a>.
+            Tests with <a href="https://mochajs.org">Mocha</a>,
+            <a href="http://chaijs.com" title="Chai"> Chai</a>, and
+            <a href="http://airbnb.io/enzyme/" title="Introduction | Enzyme"> Enzyme</a>.
           </li>
         </ul>
 
