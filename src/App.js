@@ -1,12 +1,12 @@
 import './app.css';
 
 import {
-  BrowserRouter as Router,
-  Route,
   Link,
+  Route,
+  BrowserRouter as Router,
 } from 'react-router-dom';
-import FontWeightTester from './pages/FontWeightTester';
-import Home from './pages/Home';
+import FontWeightTester from 'components/FontWeightTester';
+import Home from 'components/Home';
 import React, { Component } from 'react';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -26,9 +26,9 @@ class App extends Component {
           </div>
           <div className="page-content-container">
             <div className="page-content">
-              <Route exact path="/" component={Home}/>
-              <Route path="/font-weight-tester" component={FontWeightTester}/>
-              {/* <Route path="/typeface-tester" component={TypefaceTester}/> */}
+              <Route exact path="/" component={Home} />
+              <Route path="/font-weight-tester" component={FontWeightTester} />
+              {/* <Route path="/typeface-tester" component={TypefaceTester} /> */}
             </div>
           </div>
         </div>
