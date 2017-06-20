@@ -6,11 +6,6 @@
 
   font-family: $font-family-to-test;
 
-  .page {
-    margin: $section-spacing auto;
-    max-width: 40em;
-  }
-
   @each $weight in (100, 200, 300, 400, 500, 600, 700, 800, 900) {
     .w#{$weight} {
       position: relative;
@@ -48,7 +43,7 @@
       position: absolute;
       bottom: -($body-text-line-height + $large-text-line-height);
 
-      font-weight: bold;
+      font-weight: 600;
 
       content: '#{$font-family-to-test}';
 

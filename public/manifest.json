@@ -1,10 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "YARAS",
+  "name": "Yet Another React App Starter",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "192x192",
+      "src": "favicon-196x196.png",
+      "sizes": "196x196",
       "type": "image/png"
     }
   ],

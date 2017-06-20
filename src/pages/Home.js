@@ -19,10 +19,19 @@ function Home() {
         </p>
 
         <ul>
-          <li>A style framework similar to the one in
-            <a href="https://github.com/ravasthi/css3-foundation"> css3-foundation</a></li>
-          <li>Integration with
-            <a href="https://github.com/reacttraining/react-router"> react-router</a></li>
+          <li>
+            Styles in Sass, including a style framework similar to the one in
+            <a href="https://github.com/ravasthi/css3-foundation"> css3-foundation</a>.
+          </li>
+          <li>
+            <a href="https://stylelint.io">Stylelint</a> and <a href="http://eslint.org">ESLint </a>
+            configurations in accordance with my preferred
+            <a href="http://ravasthi.github.io/code-guide/"> coding standards</a>.
+          </li>
+          <li>
+            Integration with
+            <a href="https://github.com/reacttraining/react-router"> react-router</a>.
+          </li>
         </ul>
 
         <p>
