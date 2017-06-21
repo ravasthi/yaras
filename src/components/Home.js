@@ -14,8 +14,8 @@ function Home() {
       <div className="module">
         <p>
           This is a React app starter bootstrapped by
-          <a href="https://github.com/facebookincubator/create-react-app">Create React App</a>, with
-          a few additional conveniences:
+          <a href="https://github.com/facebookincubator/create-react-app"> Create React App</a>,
+          with a few additional conveniences:
         </p>
 
         <ul>
