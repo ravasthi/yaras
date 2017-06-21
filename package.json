@@ -6,6 +6,7 @@
     "cross-env": "^5.0.1",
     "font-awesome": "^4.7.0",
     "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.6.1",

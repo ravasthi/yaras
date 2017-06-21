@@ -22,18 +22,14 @@ input[type=url],
 select,
 textarea {
   margin: 0;
+  border-radius: $form-input-border-radius;
   border: 1px solid $stroke;
-  padding: (($body-text-line-height - $secondary-text-size - 2)/2) $horizontal-nudge;
+  padding: 0 2 * $horizontal-nudge;
 
   background-color: white;
 
   font-family: $body-text-family;
   font-size: $secondary-text-size;
-  line-height: 1;
-
-  &::-webkit-input-placeholder {
-    line-height: $body-text-line-height - 2;
-  }
 }
 
 input[type=email][disabled],
