@@ -26,10 +26,15 @@ class FontWeightTester extends Component {
   updateFamily(event) {
     event.preventDefault();
 
-    const family = this.textInput.value || '';
-    this.setState({
-      family: family.trim(),
-    });
+    let family = this.textInput.value || '';
+    family = family.trim();
+
+    if (family !== '') {
+      this.setState({ family });
+      this.textInput.value = family;
+    } else {
+      this.textInput.value = '';
+    }
   }
 
   render() {
