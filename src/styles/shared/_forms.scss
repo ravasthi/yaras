@@ -22,8 +22,8 @@ input[type=url],
 select,
 textarea {
   margin: 0;
-  border-radius: $form-input-border-radius;
   border: 1px solid $stroke;
+  border-radius: $form-input-border-radius;
   padding: 0 2 * $horizontal-nudge;
 
   background-color: white;
