@@ -59,7 +59,7 @@
     "start": "run-p watch-css start-js",
     "build": "yarn run build-css && cross-env NODE_PATH=./src react-scripts build",
     "test-js": "cross-env NODE_ENV=development NODE_PATH=./src mocha --require ignore-styles --require jsdom-global/register --compilers js:babel-core/register src/**/*.test.js",
-    "test": "yarn run lint-scss && yarn run lint-js && yarn run test-js",
+    "test": "yarn run lint-scss && yarn run lint-js && yarn run build-css && yarn run test-js",
     "eject": "react-scripts eject"
   }
 }
