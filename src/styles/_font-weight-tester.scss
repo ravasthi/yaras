@@ -1,14 +1,7 @@
 /*-----[ font-weight-tester ]---------------------------------------------------
 */
 #font-weight-tester {
-  $font-family-to-test: 'Metropolis';
-
-  font-family: $font-family-to-test;
-
-  .page {
-    margin: $section-spacing auto;
-    max-width: 40em;
-  }
+  $module-gutter-width: 100px;
 
   @each $weight in (100, 200, 300, 400, 500, 600, 700, 800, 900) {
     .w#{$weight} {
@@ -18,9 +11,9 @@
 
       &::before {
         position: absolute;
-        left: -100px;
+        left: -$module-gutter-width;
 
-        width: 80px;
+        width: $module-gutter-width - $horizontal-spacing;
 
         color: $secondary-text-color;
 
@@ -39,19 +32,24 @@
   .instructions {
     position: relative;
 
-    margin-bottom: 2 * $body-text-line-height + $large-text-line-height;
+    margin-bottom: $body-text-line-height;
+  }
 
-    &::after {
-      display: block;
+  input.family {
+    margin-right: $horizontal-spacing;
+    min-width: 350px;
+    height: $button-height;
+  }
 
-      position: absolute;
-      bottom: -($body-text-line-height + $large-text-line-height);
+  .family-under-test {
+    margin-bottom: $body-text-line-height;
 
-      font-weight: bold;
+    font-weight: 600;
 
-      content: '#{$font-family-to-test}';
+    @include large-text;
+  }
 
-      @include large-text;
-    }
+  .module {
+    padding-left: $horizontal-spacing + $module-gutter-width;
   }
 }

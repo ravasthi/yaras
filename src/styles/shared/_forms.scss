@@ -23,17 +23,13 @@ select,
 textarea {
   margin: 0;
   border: 1px solid $stroke;
-  padding: (($body-text-line-height - $secondary-text-size - 2)/2) $horizontal-nudge;
+  border-radius: $form-input-border-radius;
+  padding: 0 2 * $horizontal-nudge;
 
   background-color: white;
 
   font-family: $body-text-family;
-  font-size: $secondary-text-size;
-  line-height: 1;
-
-  &::-webkit-input-placeholder {
-    line-height: $body-text-line-height - 2;
-  }
+  font-size: $body-text-size;
 }
 
 input[type=email][disabled],

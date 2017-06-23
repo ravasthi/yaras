@@ -73,11 +73,15 @@ $greyish-white: #f0f0f0;
 | page background or link color—or change the palette entirely—in just one
 | place without a lot of tedious search-and-replace.
 */
-$page-bg: white;
-$accent-bg: $greyish-white;
+$page-bg: $greyish-white;
+$content-bg: white;
+$code-snippet-bg: lighten(desaturate($pale-green, 8), 2);
+
 $stroke: darken($silver, 15);
 $light-stroke: darken($greyish-white, 10);
 $disabled-stroke: $silver;
+
+$module-shadow-color: $pale-grey;
 
 /*----------[ text ]------------------------------------------------------------
 */
@@ -86,12 +90,12 @@ $secondary-text-color: $grey;
 $light-text-color: lighten($grey, 15);
 $disabled-text-color: $silver;
 
-$link: $blue;
-$active-link: $faded-blue;
+$link: $faded-blue;
+$active-link: $blue;
 $visited-link: $link;
 
 $highlighted-text-color: white;
-$heading-text-color: $body-text-color;
+$heading-text-color: $dark-green;
 $subheading-text-color: $secondary-text-color;
 
 $success-feedback: $green;
@@ -118,5 +122,5 @@ $disabled-button-text-color: lighten($grey, 5);
 /*----------[ nav ]-------------------------------------------------------------
 */
 $primary-nav-bg: $dark-blue;
-$primary-nav-item-text-color: $greyish-white;
+$primary-nav-item-text-color: $pale-grey;
 $primary-nav-item-hover-text-color: $light-gold;

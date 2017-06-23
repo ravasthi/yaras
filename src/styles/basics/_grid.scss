@@ -36,10 +36,21 @@ $screen-xl-min: 1200px;
 */
 $primary-nav-width: 200px;
 
-/*----------[ buttons ]---------------------------------------------------------
+/*----------[ modules ]---------------------------------------------------------
 */
-$button-border-radius: 3px;
+$module-border-radius: 6px;
+$module-shadow-offset: 2px;
+$module-shadow-blur: 2px;
+$module-shadow-spread: 1px;
+
+/*----------[ buttons & forms ]-------------------------------------------------
+*/
+$default-border-radius: 3px;
+
+$button-border-radius: $default-border-radius;
 $button-height: 2rem;
 $button-vertical-padding: ($button-height - $button-text-size) / 2;
+
+$form-input-border-radius: $default-border-radius;
 
 $secondary-button-border-width: 1px;

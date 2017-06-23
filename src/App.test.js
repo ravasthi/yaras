@@ -1,8 +1,24 @@
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {
+  cleanUpTests,
+  initTests,
+} from 'lib/testCommon';
+import { mount } from 'enzyme';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+import App from 'App';
+import React from 'react';
+
+describe('App', () => {
+  before(() => {
+    initTests();
+  });
+
+  after(() => {
+    cleanUpTests();
+  });
+
+  it('renders properly', () => {
+    const app = mount(<App />);
+
+    expect(app.find('nav.primary')).to.have.length(1);
+  });
 });
