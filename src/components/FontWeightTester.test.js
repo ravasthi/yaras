@@ -77,7 +77,6 @@ describe('FontWeightTester', () => {
       expect(component.state('family')).to.equal('Avenir Next');
       expect(component.find('.family-under-test')).to.have.text().equal('Avenir Next');
       expect(component.find('.displayed-font')).to.have.style('font-family', 'Avenir Next');
-
     });
   });
 });
