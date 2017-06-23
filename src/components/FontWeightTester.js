@@ -31,10 +31,9 @@ class FontWeightTester extends Component {
 
     if (family !== '') {
       this.setState({ family });
-      this.textInput.value = family;
-    } else {
-      this.textInput.value = '';
     }
+
+    this.textInput.value = family;
   }
 
   render() {
