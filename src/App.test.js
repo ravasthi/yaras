@@ -20,5 +20,7 @@ describe('App', () => {
     const app = mount(<App />);
 
     expect(app.find('nav.primary')).to.have.length(1);
+    expect(app.find('Link')).to.have.length(3);
+    expect(app.find('Route')).to.have.length(3);
   });
 });
