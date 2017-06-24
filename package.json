@@ -30,6 +30,7 @@
     "babel-preset-react-app": "^3.0.0",
     "chai": "^4.0.2",
     "chai-enzyme": "^0.7.1",
+    "coveralls": "^2.13.1",
     "dirty-chai": "^2.0.0",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
@@ -91,6 +92,7 @@
     "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
     "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
     "test": "yarn run test:js",
+    "posttest": "nyc report --reporter=text-lcov | coveralls",
     "eject": "react-scripts eject"
   }
 }
