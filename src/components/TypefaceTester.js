@@ -100,7 +100,9 @@ class TypefaceTester extends Component {
             </div>
             <button onClick={this.updateFamily}>Change typeface</button>
           </form>
+        </div>
 
+        <div className="module">
           <div id="snippet-content" style={textStyle}>
             {textContent}
           </div>

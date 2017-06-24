@@ -4,7 +4,9 @@ function ScandalinBohemia() {
   return (
     <article id="scandal-in-bohemia" className="book-snippet">
       <div className="book-info">
-        <h1 className="book-title">The Adventures of Sherlock Holmes</h1>
+        <h1 className="book-title">
+          The Adventures of <span className="keep-together">Sherlock Holmes</span>
+        </h1>
         <p className="attribution">
           <span className="author">Sir Arthur Conan Doyle</span>
         </p>

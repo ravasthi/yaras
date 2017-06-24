@@ -4,6 +4,7 @@
 #typeface-tester {
   .field {
     display: inline-block;
+
     margin-right: $horizontal-spacing;
 
     label {
@@ -16,7 +17,7 @@
   }
 
   select,
-  input[type="text"] {
+  input[type='text'] {
     height: $button-height;
   }
 
