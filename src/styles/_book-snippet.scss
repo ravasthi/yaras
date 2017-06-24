@@ -29,6 +29,8 @@ $snippet-divider-height: 2px;
   }
 
   .subtitle {
+    margin-top: $vertical-spacing / 2;
+
     color: $snippet-subtitle-color;
 
     font-style: italic;

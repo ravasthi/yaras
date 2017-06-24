@@ -48,8 +48,6 @@ class TypefaceTester extends Component {
   }
 
   render() {
-    console.log('this.state.snippet: ' + this.state.snippet);
-
     const textContent = snippets[this.state.snippet].component();
     const textStyle = {
       fontFamily: this.state.family,
@@ -98,12 +96,12 @@ class TypefaceTester extends Component {
                 ref={(input) => { this.textInput = input; }}
               />
             </div>
-            <button onClick={this.updateFamily}>Change typeface</button>
+            <button className="update-family" onClick={this.updateFamily}>Change typeface</button>
           </form>
         </div>
 
         <div className="module">
-          <div id="snippet-content" style={textStyle}>
+          <div className="snippet-content" style={textStyle}>
             {textContent}
           </div>
         </div>
