@@ -9,6 +9,9 @@ Yet another React app starter. Based on Create React App (see instructions below
 * Integration with [React Router](https://github.com/reacttraining/react-router)
 * Testing with Mocha, Chai, and Enzyme
 
+[![CircleCI](https://circleci.com/gh/ravasthi/yaras.svg?style=svg)](https://circleci.com/gh/ravasthi/yaras)
+[![Coverage Status](https://coveralls.io/repos/github/ravasthi/yaras/badge.svg?branch=feature%2Ftypeface-tester)](https://coveralls.io/github/ravasthi/yaras?branch=feature%2Ftypeface-tester)
+
 * * *
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

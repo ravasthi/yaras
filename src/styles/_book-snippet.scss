@@ -1,0 +1,93 @@
+/*-----[ book snippets ]--------------------------------------------------------
+| Styles for the book snippets used in the typeface tester
+*/
+
+$snippet-subtitle-color: $secondary-text-color;
+$snippet-meta-color: $light-text-color;
+$snippet-divider-color: $light-gold;
+
+$snippet-title-size: 3.3333333333rem; // 60px
+$snippet-title-line-height: 4rem;     // 72px
+
+$snippet-divider-height: 2px;
+
+.book-snippet {
+  margin-top: $section-spacing;
+  max-width: 37em;
+
+  .book-info,
+  .story-info,
+  .chapter-info {
+    text-align: center;
+  }
+
+  .book-title {
+    margin-bottom: 0;
+
+    font-size: $snippet-title-size;
+    line-height: $snippet-title-line-height;
+  }
+
+  .subtitle {
+    margin-top: $vertical-spacing / 2;
+
+    color: $snippet-subtitle-color;
+
+    font-style: italic;
+
+    @include large-text();
+  }
+
+  .author {
+    @include large-text();
+
+    &::before {
+      display: inline-block;
+
+      margin-right: 0.3em;
+
+      color: $snippet-meta-color;
+
+      content: 'by';
+    }
+  }
+
+  hr {
+    $body-text-line-height-px: rem-to-px($body-text-line-height);
+    margin: ($body-text-line-height-px / 2 - 1) auto;
+    height: $snippet-divider-height;
+
+    background-color: $snippet-divider-color;
+  }
+
+  .story-info,
+  .chapter-info {
+    margin-bottom: $vertical-spacing;
+  }
+
+  .story-number,
+  .chapter-number {
+    margin-right: 0.3em;
+
+    color: $snippet-meta-color;
+  }
+
+  .story-title,
+  .chapter-title {
+    color: $body-text-color;
+  }
+
+  .chapter-info {
+    font-variant: small-caps;
+  }
+
+  .emphasis {
+    font-style: italic;
+  }
+
+  .chapter {
+    p:first-of-type::first-line {
+      font-weight: 500;
+    }
+  }
+}

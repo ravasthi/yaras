@@ -4,10 +4,10 @@ import {
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import App from 'App';
+import Home from 'components/Home';
 import React from 'react';
 
-describe('App', () => {
+describe('Home', () => {
   before(() => {
     initTests();
   });
@@ -17,10 +17,9 @@ describe('App', () => {
   });
 
   it('renders properly', () => {
-    const app = mount(<App />);
+    const component = mount(<Home />);
 
-    expect(app.find('nav.primary')).to.have.length(1);
-    expect(app.find('Link')).to.have.length(3);
-    expect(app.find('Route')).to.have.length(3);
+    expect(component.find('h1').text())
+      .to.equal('Yet another React app starter');
   });
 });

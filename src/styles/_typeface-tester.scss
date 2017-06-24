@@ -1,0 +1,27 @@
+/*-----[ typeface tester ]------------------------------------------------------
+*/
+
+#typeface-tester {
+  .field {
+    display: inline-block;
+
+    margin-right: $horizontal-spacing;
+
+    label {
+      display: block;
+
+      color: $secondary-text-color;
+
+      @include secondary-text();
+    }
+  }
+
+  select,
+  input[type='text'] {
+    height: $button-height;
+  }
+
+  input.family {
+    min-width: 350px;
+  }
+}

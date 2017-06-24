@@ -1,0 +1,46 @@
+version: 1
+jobs:
+  build:
+    working_directory: ~/yaras
+
+    docker:
+      - image: circleci/node:latest
+
+    dependencies:
+      override:
+        - yarn
+      cache_directories:
+        - ~/.cache/yarn
+
+    test:
+      override:
+        - yarn test
+
+    steps:
+      - checkout
+      # - run:
+      #     name: update-npm
+      #     command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-packages
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: test
+          command: yarn run test
+      # - run:
+      #     name: code-coverage
+      #     command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: test-results.xml

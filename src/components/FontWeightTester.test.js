@@ -55,6 +55,14 @@ describe('FontWeightTester', () => {
       expect(component.find('.displayed-font')).to.have.style('font-family', 'Georgia');
     });
 
+    it('should handle an empty input', () => {
+      component.find('form.choose-family').simulate('submit');
+
+      expect(component.state('family')).to.equal('Avenir Next');
+      expect(component.find('.family-under-test')).to.have.text().equal('Avenir Next');
+      expect(component.find('.displayed-font')).to.have.style('font-family', 'Avenir Next');
+    });
+
     it('should handle extraneous spaces', () => {
       const input = component.find('input.family');
 
