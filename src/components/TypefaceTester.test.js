@@ -4,8 +4,8 @@ import {
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import TypefaceTester from 'components/TypefaceTester';
 import React from 'react';
+import TypefaceTester from 'components/TypefaceTester';
 
 describe('TypefaceTester', () => {
   let component;
@@ -67,6 +67,13 @@ describe('TypefaceTester', () => {
 
       expect(component.state('family')).to.equal('Georgia');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Georgia');
+    });
+
+    it('should handle an empty input', () => {
+      component.find('button.update-family').simulate('click');
+
+      expect(component.state('family')).to.equal('Avenir Next');
+      expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
     });
 
     it('should handle extraneous spaces', () => {

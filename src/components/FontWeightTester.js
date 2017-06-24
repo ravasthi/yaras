@@ -16,6 +16,11 @@ class FontWeightTester extends Component {
   constructor(props) {
     super(props);
 
+    /*
+    ** Ugh: https://github.com/gotwarlost/istanbul/issues/690
+    ** Workaround: https://github.com/gotwarlost/istanbul/issues/690#issuecomment-265718617
+    */
+    /* istanbul ignore next */
     this.updateFamily = this.updateFamily.bind(this);
 
     this.state = {

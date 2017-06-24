@@ -19,6 +19,11 @@ class TypefaceTester extends Component {
   constructor(props) {
     super(props);
 
+    /*
+    ** Ugh: https://github.com/gotwarlost/istanbul/issues/690
+    ** Workaround: https://github.com/gotwarlost/istanbul/issues/690#issuecomment-265718617
+    */
+    /* istanbul ignore next */
     this.updateText = this.updateText.bind(this);
     this.updateFamily = this.updateFamily.bind(this);
 
