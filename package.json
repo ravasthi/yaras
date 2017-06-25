@@ -86,7 +86,7 @@
     "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
     "lint:js": "eslint --config=.eslintrc.js .",
     "start:js": "cross-env NODE_PATH=./src react-scripts start",
-    "start": "run-p watch-css start:js",
+    "start": "run-p watch:css start:js",
     "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
     "test:js": "cross-env NODE_ENV=test NODE_PATH=./src nyc mocha --opts .mocharc 'src/**/*.test.js'",
     "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
