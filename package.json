@@ -82,7 +82,7 @@
   },
   "scripts": {
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch:css": "yarn run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
     "lint:js": "eslint --config=.eslintrc.js .",
     "start:js": "cross-env NODE_PATH=./src react-scripts start",
