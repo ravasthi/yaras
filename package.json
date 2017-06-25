@@ -92,7 +92,7 @@
     "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
     "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
     "test": "yarn run test:js",
-    "posttest": "nyc report --reporter=text-lcov | coveralls",
+    "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi",
     "eject": "react-scripts eject"
   }
 }
