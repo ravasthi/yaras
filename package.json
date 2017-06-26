@@ -20,6 +20,7 @@
     "react-document-title": "^2.0.3",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
+    "redux-actions": "^2.0.3",
     "reset-css": "^2.2.0",
     "susy": "^2.2.12"
   },
