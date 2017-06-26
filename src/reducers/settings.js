@@ -37,6 +37,10 @@ const settingsReducer = handleActions({
   ),
 
   REMOVE_GLOBAL_SETTING: (state, action) => {
+    if (isUndefinedOrEmpty(action.payload.name)) {
+      return state;
+    }
+
     if (state.settings[action.payload.name]) {
       delete state.settings[action.payload.name];
     }

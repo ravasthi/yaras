@@ -80,7 +80,7 @@ describe.only('reducers for settings', () => {
     });
 
     it('should use the default prior state if none is supplied', () => {
-      const newState = settingsReducer(null, addGlobalSetting('foo', 'bar'));
+      const newState = settingsReducer(undefined, addGlobalSetting('foo', 'bar'));
 
       expect(newState).to.deep.equal({
         settings: {
@@ -128,6 +128,48 @@ describe.only('reducers for settings', () => {
       expect(newState2).to.deep.equal(priorStateWithGlobalSettings);
       expect(newState3).to.deep.equal(priorStateWithGlobalSettings);
       expect(newState4).to.deep.equal(priorStateWithGlobalSettings);
+    });
+  });
+
+  describe('removing a global setting', () => {
+    it('should properly remove an existing global setting', () => {
+      const newState = settingsReducer(priorStateWithGlobalSettings, removeGlobalSetting('theme'));
+
+      expect(newState).to.deep.equal({
+        settings: {
+          foo: 'baz',
+        },
+      });
+    });
+
+    it('should use the default prior state if none is supplied', () => {
+      const newState = settingsReducer(undefined, removeGlobalSetting('theme'));
+
+      expect(newState).to.deep.equal(priorStateEmpty);
+    });
+
+    it('should return the prior state if the setting name is missing or empty', () => {
+      const newState1 = settingsReducer(
+        priorStateWithGlobalSettings,
+        removeGlobalSetting('')
+      );
+
+      const newState2 = settingsReducer(
+        priorStateWithGlobalSettings,
+        removeGlobalSetting(undefined)
+      );
+
+      expect(newState1).to.deep.equal(priorStateWithGlobalSettings);
+      expect(newState2).to.deep.equal(priorStateWithGlobalSettings);
+    });
+
+    it('should return the prior state if the setting name does not exist in settings', () => {
+      const newState = settingsReducer(
+        priorStateWithGlobalSettings,
+        removeGlobalSetting('blah')
+      );
+
+      expect(newState).to.deep.equal(priorStateWithGlobalSettings);
     });
   });
 
