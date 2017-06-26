@@ -1,12 +1,12 @@
 import {
-  addGlobalSetting,
-  addSettingForPage,
   ADD_GLOBAL_SETTING,
   ADD_SETTING_FOR_PAGE,
-  removeGlobalSetting,
-  removeSettingForPage,
+  addGlobalSetting,
+  addSettingForPage,
   REMOVE_GLOBAL_SETTING,
   REMOVE_SETTING_FOR_PAGE,
+  removeGlobalSetting,
+  removeSettingForPage,
 } from 'actions/settings';
 import {
   cleanUpTests,

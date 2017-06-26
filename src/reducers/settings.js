@@ -2,22 +2,37 @@ import { handleActions } from 'redux-actions';
 
 import _ from 'lodash';
 
+function isUndefinedOrEmpty(value) {
+  return (
+    _.isNull(value) ||
+    _.isUndefined(value) ||
+    (!_.isNumber(value) && _.isEmpty(value))
+  );
+}
+
 const settingsReducer = handleActions({
-  ADD_GLOBAL_SETTING: (state, action) => (
-    _.merge({}, state, {
+  ADD_GLOBAL_SETTING: (state, action) => {
+    if (
+      isUndefinedOrEmpty(action.payload.name) ||
+      isUndefinedOrEmpty(action.payload.value)
+    ) {
+      return state;
+    }
+
+    return _.merge({}, state, {
       settings: {
         [action.payload.name]: action.payload.value,
       },
-    })
-  ),
+    });
+  },
 
   ADD_SETTING_FOR_PAGE: (state, action) => (
     _.merge({}, state, {
       settings: {
         [action.payload.page]: {
           [action.payload.name]: action.payload.value,
-        }
-      }
+        },
+      },
     })
   ),
 
@@ -39,4 +54,7 @@ const settingsReducer = handleActions({
   },
 }, { settings: {} });
 
-export default settingsReducer;
+export {
+  isUndefinedOrEmpty,
+  settingsReducer,
+};
