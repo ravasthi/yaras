@@ -5,8 +5,10 @@ import {
   Route,
   BrowserRouter as Router,
 } from 'react-router-dom';
+
 import FontWeightTester from 'components/FontWeightTester';
 import Home from 'components/Home';
+import logo from 'images/logo.svg';
 import React, { Component } from 'react';
 import TypefaceTester from 'components/TypefaceTester';
 
@@ -18,6 +20,9 @@ class App extends Component {
         <div className="page">
           <div className="primary-nav-container">
             <nav className="primary">
+              <Link className="logo-container" to="/">
+                <img className="logo" src={logo} alt="logo" />
+              </Link>
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/font-weight-tester">Font weight tester</Link></li>

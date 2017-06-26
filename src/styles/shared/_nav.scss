@@ -18,6 +18,18 @@ nav.primary {
 
   @include module-padding();
 
+  a.logo-container {
+    display: block;
+
+    margin: 0 auto $vertical-spacing;
+    width: $logo-size;
+    height: $logo-size;
+  }
+
+  .logo {
+    width: $logo-size;
+  }
+
   ul {
     margin: 0;
 
