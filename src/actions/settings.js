@@ -17,12 +17,12 @@ const removeGlobalSetting = createAction(
 
 const addSettingForPage = createAction(
   ADD_SETTING_FOR_PAGE,
-  (name, page, value) => ({ name, page, value })
+  (page, name, value) => ({ page, name, value })
 );
 
 const removeSettingForPage = createAction(
   REMOVE_SETTING_FOR_PAGE,
-  (name, page) => ({ name, page })
+  (page, name) => ({ page, name })
 );
 
 export {

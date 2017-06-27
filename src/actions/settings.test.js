@@ -42,7 +42,7 @@ describe('actions for settings', () => {
   });
 
   it('should create the correct action for adding a page setting', () => {
-    expect(addSettingForPage('family', 'typefaceTester', 'Avenir')).to.deep.equal({
+    expect(addSettingForPage('typefaceTester', 'family', 'Avenir')).to.deep.equal({
       type: ADD_SETTING_FOR_PAGE,
       payload: {
         name: 'family',
@@ -53,7 +53,7 @@ describe('actions for settings', () => {
   });
 
   it('should create the correct action for removing a page setting', () => {
-    expect(removeSettingForPage('family', 'typefaceTester')).to.deep.equal({
+    expect(removeSettingForPage('typefaceTester', 'family')).to.deep.equal({
       type: REMOVE_SETTING_FOR_PAGE,
       payload: {
         name: 'family',
