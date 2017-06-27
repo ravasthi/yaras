@@ -20,9 +20,7 @@ const settingsReducer = handleActions({
     }
 
     return _.merge({}, state, {
-      settings: {
-        [action.payload.name]: action.payload.value,
-      },
+      [action.payload.name]: action.payload.value,
     });
   },
 
@@ -36,10 +34,8 @@ const settingsReducer = handleActions({
     }
 
     return _.merge({}, state, {
-      settings: {
-        [action.payload.page]: {
-          [action.payload.name]: action.payload.value,
-        },
+      [action.payload.page]: {
+        [action.payload.name]: action.payload.value,
       },
     });
   },
@@ -49,8 +45,8 @@ const settingsReducer = handleActions({
       return state;
     }
 
-    if (state.settings[action.payload.name]) {
-      delete state.settings[action.payload.name];
+    if (state[action.payload.name]) {
+      delete state[action.payload.name];
     }
 
     return _.merge({}, state);
@@ -64,14 +60,14 @@ const settingsReducer = handleActions({
       return state;
     }
 
-    if (state.settings[action.payload.page] &&
-        state.settings[action.payload.page][action.payload.name]) {
-      delete state.settings[action.payload.page][action.payload.name];
+    if (state[action.payload.page] &&
+        state[action.payload.page][action.payload.name]) {
+      delete state[action.payload.page][action.payload.name];
     }
 
     return _.merge({}, state);
   },
-}, { settings: {} });
+}, {});
 
 export {
   isUndefinedOrEmpty,

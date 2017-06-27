@@ -15,7 +15,7 @@ import {
   settingsReducer,
 } from 'reducers/settings';
 
-describe.only('reducers for settings', () => {
+describe('reducers for settings', () => {
   let priorStateEmpty;
   let priorStateWithGlobalSettings;
   let priorStateWithPageSettings;
@@ -24,35 +24,27 @@ describe.only('reducers for settings', () => {
   before(() => {
     initTests();
 
-    priorStateEmpty = {
-      settings: {},
-    };
+    priorStateEmpty = {};
 
     priorStateWithGlobalSettings = {
-      settings: {
-        foo: 'baz',
-        theme: 'blue',
-      },
+      foo: 'baz',
+      theme: 'blue',
     };
 
     priorStateWithPageSettings = {
-      settings: {
-        fontWeightTester: {
-          family: 'Helvetica Neue',
-        },
-        typefaceTester: {
-          snippet: 'scandal-in-bohemia',
-          family: 'Helvetica Neue',
-        },
+      fontWeightTester: {
+        family: 'Helvetica Neue',
+      },
+      typefaceTester: {
+        snippet: 'scandal-in-bohemia',
+        family: 'Helvetica Neue',
       },
     };
 
     priorStateWithGlobalAndPageSettings = {
-      settings: {
-        family: 'Helvetica Neue',
-        typefaceTester: {
-          snippet: 'scandal-in-bohemia',
-        },
+      family: 'Helvetica Neue',
+      typefaceTester: {
+        snippet: 'scandal-in-bohemia',
       },
     };
   });
@@ -94,9 +86,7 @@ describe.only('reducers for settings', () => {
       const newState = settingsReducer(priorStateEmpty, addGlobalSetting('foo', 'bar'));
 
       expect(newState).to.deep.equal({
-        settings: {
-          foo: 'bar',
-        },
+        foo: 'bar',
       });
     });
 
@@ -104,9 +94,7 @@ describe.only('reducers for settings', () => {
       const newState = settingsReducer(undefined, addGlobalSetting('foo', 'bar'));
 
       expect(newState).to.deep.equal({
-        settings: {
-          foo: 'bar',
-        },
+        foo: 'bar',
       });
     });
 
@@ -117,10 +105,8 @@ describe.only('reducers for settings', () => {
       );
 
       expect(newState).to.deep.equal({
-        settings: {
-          foo: 'bar',
-          theme: 'blue',
-        },
+        foo: 'bar',
+        theme: 'blue',
       });
     });
 
@@ -157,9 +143,7 @@ describe.only('reducers for settings', () => {
       const newState = settingsReducer(priorStateWithGlobalSettings, removeGlobalSetting('theme'));
 
       expect(newState).to.deep.equal({
-        settings: {
-          foo: 'baz',
-        },
+        foo: 'baz',
       });
     });
 
@@ -201,10 +185,8 @@ describe.only('reducers for settings', () => {
       );
 
       expect(newState).to.deep.equal({
-        settings: {
-          fontWeightTester: {
-            family: 'Georgia',
-          },
+        fontWeightTester: {
+          family: 'Georgia',
         },
       });
     });
@@ -215,10 +197,8 @@ describe.only('reducers for settings', () => {
       );
 
       expect(newState).to.deep.equal({
-        settings: {
-          fontWeightTester: {
-            family: 'Georgia',
-          },
+        fontWeightTester: {
+          family: 'Georgia',
         },
       });
     });
@@ -230,14 +210,12 @@ describe.only('reducers for settings', () => {
       );
 
       expect(newState).to.deep.equal({
-        settings: {
-          fontWeightTester: {
-            family: 'Georgia',
-          },
-          typefaceTester: {
-            snippet: 'scandal-in-bohemia',
-            family: 'Helvetica Neue',
-          },
+        fontWeightTester: {
+          family: 'Georgia',
+        },
+        typefaceTester: {
+          snippet: 'scandal-in-bohemia',
+          family: 'Helvetica Neue',
         },
       });
     });
@@ -289,10 +267,8 @@ describe.only('reducers for settings', () => {
       );
 
       expect(newState).to.deep.equal({
-        settings: {
-          family: 'Helvetica Neue',
-          typefaceTester: {},
-        },
+        family: 'Helvetica Neue',
+        typefaceTester: {},
       });
     });
 
