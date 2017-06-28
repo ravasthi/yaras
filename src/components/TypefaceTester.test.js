@@ -9,20 +9,34 @@ import TypefaceTester from 'components/TypefaceTester';
 
 describe('TypefaceTester', () => {
   let component;
+  let onUpdateFamilyStub;
+  let onUpdateTextStub;
+  let sandbox;
 
   before(() => {
     initTests();
+    sandbox = sinon.sandbox.create();
+    onUpdateFamilyStub = sandbox.stub();
+    onUpdateTextStub = sandbox.stub();
   });
 
   beforeEach(() => {
-    component = mount(<TypefaceTester />);
+    component = mount(
+      <TypefaceTester
+        onUpdateFamily={onUpdateFamilyStub}
+        onUpdateText={onUpdateTextStub}
+      />
+    );
   });
 
   afterEach(() => {
     component.unmount();
+    onUpdateFamilyStub.reset();
+    onUpdateTextStub.reset();
   });
 
   after(() => {
+    sandbox.restore();
     cleanUpTests();
   });
 
@@ -57,6 +71,7 @@ describe('TypefaceTester', () => {
 
       expect(component.state('snippet')).to.equal('scandal-in-bohemia');
       expect(component.find('.story-title').text()).to.equal('A Scandal in Bohemia');
+      expect(onUpdateTextStub.callCount).to.equal(1);
     });
 
     it('should update properly when a new font is chosen', () => {
@@ -67,6 +82,7 @@ describe('TypefaceTester', () => {
 
       expect(component.state('family')).to.equal('Georgia');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Georgia');
+      expect(onUpdateFamilyStub.callCount).to.equal(1);
     });
 
     it('should handle an empty input', () => {

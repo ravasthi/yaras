@@ -10,19 +10,23 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { settingsReducer } from 'reducers/settings';
 
-import FontWeightTester from 'components/FontWeightTester';
+import ConnectedFontWeightTester from 'components/ConnectedFontWeightTester';
+import ConnectedTypefaceTester from 'components/ConnectedTypefaceTester';
 import Home from 'components/Home';
 import logo from 'images/logo.svg';
 import React, { Component } from 'react';
-import TypefaceTester from 'components/TypefaceTester';
+import settingsReducer from 'reducers/settings';
 
 const reducer = combineReducers({
   settings: settingsReducer,
 });
 
-const store = createStore(reducer, {});
+const store = createStore(
+  reducer, {},
+  // eslint-disable-next-line no-underscore-dangle
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
@@ -46,8 +50,8 @@ class App extends Component {
             <div className="page-content-container">
               <div className="page-content">
                 <Route exact path="/" component={Home} />
-                <Route path="/font-weight-tester" component={FontWeightTester} />
-                <Route path="/typeface-tester" component={TypefaceTester} />
+                <Route path="/font-weight-tester" component={ConnectedFontWeightTester} />
+                <Route path="/typeface-tester" component={ConnectedTypefaceTester} />
               </div>
             </div>
           </div>

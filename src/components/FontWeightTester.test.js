@@ -9,20 +9,26 @@ import React from 'react';
 
 describe('FontWeightTester', () => {
   let component;
+  let onUpdateFamilyStub;
+  let sandbox;
 
   before(() => {
     initTests();
+    sandbox = sinon.sandbox.create();
+    onUpdateFamilyStub = sandbox.stub();
   });
 
   beforeEach(() => {
-    component = mount(<FontWeightTester />);
+    component = mount(<FontWeightTester onUpdateFamily={onUpdateFamilyStub} />);
   });
 
   afterEach(() => {
     component.unmount();
+    onUpdateFamilyStub.reset();
   });
 
   after(() => {
+    sandbox.restore();
     cleanUpTests();
   });
 
@@ -53,6 +59,7 @@ describe('FontWeightTester', () => {
       expect(component.state('family')).to.equal('Georgia');
       expect(component.find('.family-under-test')).to.have.text().equal('Georgia');
       expect(component.find('.displayed-font')).to.have.style('font-family', 'Georgia');
+      expect(onUpdateFamilyStub.callCount).to.equal(1);
     });
 
     it('should handle an empty input', () => {

@@ -8,6 +8,7 @@ import {
   removeGlobalSetting,
   removeSettingForPage,
 } from 'actions/settings';
+
 import {
   cleanUpTests,
   initTests,

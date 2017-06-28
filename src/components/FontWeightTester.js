@@ -7,10 +7,12 @@ import React, { Component } from 'react';
 class FontWeightTester extends Component {
   static propTypes = {
     family: PropTypes.string,
+    onUpdateFamily: PropTypes.func,
   };
 
   static defaultProps = {
     family: 'Avenir Next',
+    onUpdateFamily: () => {},
   };
 
   constructor(props) {
@@ -36,6 +38,7 @@ class FontWeightTester extends Component {
 
     if (family !== '') {
       this.setState({ family });
+      this.props.onUpdateFamily(family);
     }
 
     this.textInput.value = family;

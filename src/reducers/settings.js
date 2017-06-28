@@ -1,14 +1,7 @@
 import { handleActions } from 'redux-actions';
+import { isUndefinedOrEmpty } from 'lib/common';
 
 import _ from 'lodash';
-
-function isUndefinedOrEmpty(value) {
-  return (
-    _.isNull(value) ||
-    _.isUndefined(value) ||
-    (!_.isNumber(value) && _.isEmpty(value))
-  );
-}
 
 const settingsReducer = handleActions({
   ADD_GLOBAL_SETTING: (state, action) => {
@@ -69,7 +62,4 @@ const settingsReducer = handleActions({
   },
 }, {});
 
-export {
-  isUndefinedOrEmpty,
-  settingsReducer,
-};
+export default settingsReducer;
