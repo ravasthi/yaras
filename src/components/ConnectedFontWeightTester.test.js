@@ -5,8 +5,8 @@ import {
 } from 'lib/testCommon';
 
 import {
-  mapStateToProps,
   mapDispatchToProps,
+  mapStateToProps,
 } from 'components/ConnectedFontWeightTester';
 
 describe('ConnectedFontWeightTester', () => {

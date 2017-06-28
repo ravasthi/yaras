@@ -16,8 +16,8 @@ class TypefaceTester extends Component {
   static defaultProps = {
     family: 'Avenir Next',
     snippet: 'pride-and-prejudice',
-    onUpdateFamily: () => {},
-    onUpdateText: () => {},
+    onUpdateFamily: /* istanbul ignore next */ () => {},
+    onUpdateText: /* istanbul ignore next */ () => {},
   };
 
   constructor(props) {

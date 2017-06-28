@@ -5,7 +5,7 @@ import {
 
 import {
   getPageTitle,
-  isUndefinedOrEmpty
+  isUndefinedOrEmpty,
 } from 'lib/common';
 
 describe('common utilities', () => {

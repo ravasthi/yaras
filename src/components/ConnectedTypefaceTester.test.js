@@ -9,8 +9,8 @@ import {
 } from 'lib/testCommon';
 
 import {
-  mapStateToProps,
   mapDispatchToProps,
+  mapStateToProps,
 } from 'components/ConnectedTypefaceTester';
 
 describe('ConnectedTypefaceTester', () => {
@@ -39,7 +39,7 @@ describe('ConnectedTypefaceTester', () => {
           family: 'Averta Std',
           typefaceTester: {
             snippet: 'tale-of-two-cities',
-          }
+          },
         },
       });
 
@@ -50,7 +50,7 @@ describe('ConnectedTypefaceTester', () => {
     it('should handle when there are no settings for the page', () => {
       const props = mapStateToProps({
         settings: {
-          family: 'Averta Std'
+          family: 'Averta Std',
         },
       });
 

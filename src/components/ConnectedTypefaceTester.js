@@ -20,7 +20,7 @@ function mapDispatchToProps(dispatch) {
 
     onUpdateText: (snippet) => {
       dispatch(addSettingForPage('typefaceTester', 'snippet', snippet));
-    }
+    },
   };
 }
 

@@ -24,8 +24,10 @@ const reducer = combineReducers({
 
 const store = createStore(
   reducer, {},
-  // eslint-disable-next-line no-underscore-dangle
+  /* eslint-disable no-underscore-dangle */
+  /* istanbul ignore next */
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  /* eslint-enable no-underscore-dangle */
 );
 
 // eslint-disable-next-line react/prefer-stateless-function

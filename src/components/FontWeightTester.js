@@ -12,7 +12,7 @@ class FontWeightTester extends Component {
 
   static defaultProps = {
     family: 'Avenir Next',
-    onUpdateFamily: () => {},
+    onUpdateFamily: /* istanbul ignore next */ () => {},
   };
 
   constructor(props) {
