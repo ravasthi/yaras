@@ -30,6 +30,10 @@ function Home() {
           </li>
           <li>
             Integration with
+            <a href="http://redux.js.org"> Redux</a>.
+          </li>
+          <li>
+            Integration with
             <a href="https://github.com/reacttraining/react-router"> react-router</a>.
           </li>
           <li>

@@ -4,7 +4,7 @@ import {
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import App from 'App';
+import App, { __RewireAPI__ as AppRewireAPI } from 'App';
 import React from 'react';
 
 describe('App', () => {
@@ -17,7 +17,20 @@ describe('App', () => {
   });
 
   it('renders properly', () => {
+    // eslint-disable-next-line no-underscore-dangle
+    AppRewireAPI.__Rewire__(
+      'getStore',
+      sinon.stub().returns({
+        subscribe: () => {},
+        dispatch: () => {},
+        getState: () => {},
+      })
+    );
+
     const app = mount(<App />);
+
+    // eslint-disable-next-line no-underscore-dangle
+    AppRewireAPI.__ResetDependency__('getStore');
 
     expect(app.find('nav.primary')).to.have.length(1);
     expect(app.find('Link')).to.have.length(4);

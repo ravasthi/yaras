@@ -2,8 +2,6 @@
 | Top-level styles for content. Otherwise unqualified styles should go here.
 */
 .page {
-  @include container;
-
   .page-content-container {
     margin-left: $primary-nav-width;
   }

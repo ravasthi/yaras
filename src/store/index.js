@@ -23,9 +23,9 @@ function initReducer() {
 }
 
 function initStore(applicationReducer) {
+  /* istanbul ignore next */
   return createStore(
     applicationReducer, {},
-    /* istanbul ignore next */
     composeWithDevTools(
       applyMiddleware(thunk),
       autoRehydrate(/* { log: true } */)
