@@ -62,6 +62,19 @@ describe('TypefaceTester', () => {
     expect(component.find('.book-title').text()).to.equal('The Picture of Dorian Gray');
   });
 
+  it('should re-render properly when props are updated', () => {
+    component.setProps({
+      family: 'Helvetica Neue',
+      snippet: 'picture-of-dorian-gray',
+    });
+
+    expect(component.state('family')).to.equal('Helvetica Neue');
+    expect(component.find('.snippet-content')).to.have.style('font-family', 'Helvetica Neue');
+
+    expect(component.state('snippet')).to.equal('picture-of-dorian-gray');
+    expect(component.find('.book-title').text()).to.equal('The Picture of Dorian Gray');
+  });
+
   describe('interactions', () => {
     it('should update properly when a new snippet is chosen', () => {
       const select = component.find('select.books');

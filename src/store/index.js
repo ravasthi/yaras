@@ -3,6 +3,7 @@ import {
   persistStore,
 } from 'redux-persist';
 import {
+  applyMiddleware,
   combineReducers,
   createStore,
 } from 'redux';
@@ -10,37 +11,37 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import localForage from 'localforage';
 import settingsReducer from 'reducers/settings';
+import thunk from 'redux-thunk';
 
 let reducer;
 let store;
 
 function initReducer() {
-  console.log('in initReducer');
   return combineReducers({
     settings: settingsReducer,
   });
 }
 
 function initStore(applicationReducer) {
-  console.log('in initStore');
   return createStore(
     applicationReducer, {},
     /* istanbul ignore next */
     composeWithDevTools(
-      autoRehydrate()
+      applyMiddleware(thunk),
+      autoRehydrate(/* { log: true } */)
     )
   );
 }
 
 function persistApplicationStore(applicationStore) {
-  console.log('in persistApplicationStore');
-  persistStore(applicationStore, { storage: localForage });
+  persistStore(applicationStore, {
+    storage: localForage,
+    keyPrefix: 'yaras:',
+  });
 }
 
 function getReducer() {
-  console.log('in getReducer');
   if (!reducer) {
-    console.log('creating reducer');
     reducer = initReducer();
   }
 
@@ -48,11 +49,9 @@ function getReducer() {
 }
 
 function getStore() {
-  console.log('in getStore');
   if (!store) {
-    console.log('creating store');
     store = initStore(getReducer());
-    persistApplicationStore(store, { keyPrefix: 'yaras' });
+    persistApplicationStore(store);
   }
 
   return store;

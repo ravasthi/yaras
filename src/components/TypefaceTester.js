@@ -37,6 +37,13 @@ class TypefaceTester extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      family: nextProps.family,
+      snippet: nextProps.snippet,
+    });
+  }
+
   updateFamily(event) {
     event.preventDefault();
 

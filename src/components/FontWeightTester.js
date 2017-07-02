@@ -30,6 +30,12 @@ class FontWeightTester extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      family: nextProps.family,
+    });
+  }
+
   updateFamily(event) {
     event.preventDefault();
 
