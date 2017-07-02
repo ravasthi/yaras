@@ -7,7 +7,6 @@ import {
   getReducer,
   getStore,
   initReducer,
-  initStore,
   persistApplicationStore,
   __RewireAPI__ as StoreRewireAPI,
 } from 'store';
@@ -56,6 +55,7 @@ describe('Redux store utilities', () => {
       StoreRewireAPI.__Rewire__('persistStore', persistStoreStub);
       /* eslint-enable no-underscore-dangle */
 
+      // eslint-disable-next-line no-unused-vars
       let store = getStore();
 
       expect(getReducerSpy.callCount).to.equal(1);

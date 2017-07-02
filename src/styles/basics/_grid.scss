@@ -15,11 +15,9 @@ $section-spacing: 2 * $vertical-spacing;
 | cf Susy documentation: http://susydocs.oddbird.net/en/latest/
 */
 $susy: (
-  columns: 12,
-  gutters: 0.25
+  'columns': susy-repeat(12),
+  'gutters': 0.25
 );
-
-@include layout($susy);
 
 /*----------[ responsive breakpoints ]------------------------------------------
 */
