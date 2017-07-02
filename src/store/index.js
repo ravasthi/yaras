@@ -1,12 +1,12 @@
 import {
-  autoRehydrate,
-  persistStore,
-} from 'redux-persist';
-import {
   applyMiddleware,
   combineReducers,
   createStore,
 } from 'redux';
+import {
+  autoRehydrate,
+  persistStore,
+} from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import localForage from 'localforage';

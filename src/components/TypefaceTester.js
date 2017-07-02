@@ -119,6 +119,10 @@ class TypefaceTester extends Component {
         </div>
 
         <div className="module">
+          <div className="displayed-font">
+            Displayed in:&nbsp;
+            <span className="family-name">{this.state.family}</span>
+          </div>
           <div className="snippet-content" style={textStyle}>
             {textContent}
           </div>

@@ -46,6 +46,7 @@ describe('TypefaceTester', () => {
     expect(component.find('input[type="text"].family')).to.have.length(1);
 
     expect(component.state('family')).to.equal('Avenir Next');
+    expect(component.find('.family-name')).to.have.text('Avenir Next');
     expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
 
     expect(component.state('snippet')).to.equal('pride-and-prejudice');
@@ -56,6 +57,7 @@ describe('TypefaceTester', () => {
     component = mount(<TypefaceTester family="Helvetica Neue" snippet="picture-of-dorian-gray" />);
 
     expect(component.state('family')).to.equal('Helvetica Neue');
+    expect(component.find('.family-name')).to.have.text('Helvetica Neue');
     expect(component.find('.snippet-content')).to.have.style('font-family', 'Helvetica Neue');
 
     expect(component.state('snippet')).to.equal('picture-of-dorian-gray');
@@ -69,6 +71,7 @@ describe('TypefaceTester', () => {
     });
 
     expect(component.state('family')).to.equal('Helvetica Neue');
+    expect(component.find('.family-name')).to.have.text('Helvetica Neue');
     expect(component.find('.snippet-content')).to.have.style('font-family', 'Helvetica Neue');
 
     expect(component.state('snippet')).to.equal('picture-of-dorian-gray');
@@ -94,6 +97,7 @@ describe('TypefaceTester', () => {
       component.find('button.update-family').simulate('click');
 
       expect(component.state('family')).to.equal('Georgia');
+      expect(component.find('.family-name')).to.have.text('Georgia');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Georgia');
       expect(onUpdateFamilyStub.callCount).to.equal(1);
     });
@@ -102,6 +106,7 @@ describe('TypefaceTester', () => {
       component.find('button.update-family').simulate('click');
 
       expect(component.state('family')).to.equal('Avenir Next');
+      expect(component.find('.family-name')).to.have.text('Avenir Next');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
     });
 
@@ -113,6 +118,7 @@ describe('TypefaceTester', () => {
 
       expect(input.node.value).to.equal('Palatino');
       expect(component.state('family')).to.equal('Palatino');
+      expect(component.find('.family-name')).to.have.text('Palatino');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Palatino');
     });
 
@@ -124,6 +130,7 @@ describe('TypefaceTester', () => {
 
       expect(input.node.value).to.equal('');
       expect(component.state('family')).to.equal('Avenir Next');
+      expect(component.find('.family-name')).to.have.text('Avenir Next');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
     });
   });

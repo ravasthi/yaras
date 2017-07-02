@@ -24,4 +24,16 @@
   input.family {
     min-width: 350px;
   }
+
+  .displayed-font {
+    margin-bottom: $vertical-spacing;
+    border-bottom: 1px solid $light-stroke;
+    padding-bottom: $vertical-nudge;
+
+    @include large-text();
+
+    .family-name {
+      font-weight: 600;
+    }
+  }
 }
