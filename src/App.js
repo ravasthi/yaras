@@ -1,9 +1,6 @@
 import 'app.css';
 
-import {
-  combineReducers,
-  createStore,
-} from 'redux';
+import { getStore } from 'store';
 import {
   Link,
   Route,
@@ -16,25 +13,12 @@ import ConnectedTypefaceTester from 'components/ConnectedTypefaceTester';
 import Home from 'components/Home';
 import logo from 'images/logo.svg';
 import React, { Component } from 'react';
-import settingsReducer from 'reducers/settings';
-
-const reducer = combineReducers({
-  settings: settingsReducer,
-});
-
-const store = createStore(
-  reducer, {},
-  /* eslint-disable no-underscore-dangle */
-  /* istanbul ignore next */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  /* eslint-enable no-underscore-dangle */
-);
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={getStore()}>
         <Router>
           <div className="page">
             <div className="primary-nav-container">
