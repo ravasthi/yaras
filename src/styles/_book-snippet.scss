@@ -10,10 +10,11 @@ $snippet-title-size: 3.3333333333rem; // 60px
 $snippet-title-line-height: 4rem;     // 72px
 
 $snippet-divider-height: 2px;
+$snippet-width: 37em;
 
 .book-snippet {
   margin-top: $section-spacing;
-  max-width: 37em;
+  max-width: $snippet-width;
 
   .book-info,
   .story-info,

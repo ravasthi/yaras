@@ -1,9 +1,24 @@
-function getPageTitle(pageTitle) {
-  return `${pageTitle.trim()} | Yet another React app starter`;
+import _ from 'lodash';
+
+function isUndefinedOrEmpty(value) {
+  return (
+    _.isNull(value) ||
+    _.isUndefined(value) ||
+    (!_.isNumber(value) && _.isEmpty(value))
+  );
 }
 
-/* eslint-disable import/prefer-default-export */
+function getPageTitle(pageTitle = '') {
+  const appTitle = 'Yet another React app starter';
+
+  if (isUndefinedOrEmpty(pageTitle)) {
+    return appTitle;
+  }
+
+  return `${pageTitle.trim()} | ${appTitle}`;
+}
+
 export {
   getPageTitle,
+  isUndefinedOrEmpty,
 };
-/* eslint-enable import/prefer-default-export */

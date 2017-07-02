@@ -9,20 +9,26 @@ import React from 'react';
 
 describe('FontWeightTester', () => {
   let component;
+  let onUpdateFamilyStub;
+  let sandbox;
 
   before(() => {
     initTests();
+    sandbox = sinon.sandbox.create();
+    onUpdateFamilyStub = sandbox.stub();
   });
 
   beforeEach(() => {
-    component = mount(<FontWeightTester />);
+    component = mount(<FontWeightTester onUpdateFamily={onUpdateFamilyStub} />);
   });
 
   afterEach(() => {
     component.unmount();
+    onUpdateFamilyStub.reset();
   });
 
   after(() => {
+    sandbox.restore();
     cleanUpTests();
   });
 
@@ -43,6 +49,16 @@ describe('FontWeightTester', () => {
     expect(component.find('.displayed-font')).to.have.style('font-family', 'Helvetica Neue');
   });
 
+  it('should re-render properly when props are updated', () => {
+    component.setProps({
+      family: 'Helvetica Neue',
+    });
+
+    expect(component.state('family')).to.equal('Helvetica Neue');
+    expect(component.find('.family-under-test')).to.have.text().equal('Helvetica Neue');
+    expect(component.find('.displayed-font')).to.have.style('font-family', 'Helvetica Neue');
+  });
+
   describe('interactions', () => {
     it('should update properly when a new font is chosen', () => {
       const input = component.find('input.family');
@@ -53,6 +69,7 @@ describe('FontWeightTester', () => {
       expect(component.state('family')).to.equal('Georgia');
       expect(component.find('.family-under-test')).to.have.text().equal('Georgia');
       expect(component.find('.displayed-font')).to.have.style('font-family', 'Georgia');
+      expect(onUpdateFamilyStub.callCount).to.equal(1);
     });
 
     it('should handle an empty input', () => {

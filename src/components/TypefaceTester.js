@@ -9,11 +9,15 @@ class TypefaceTester extends Component {
   static propTypes = {
     family: PropTypes.string,
     snippet: PropTypes.oneOf(Object.keys(snippets)),
+    onUpdateFamily: PropTypes.func,
+    onUpdateText: PropTypes.func,
   };
 
   static defaultProps = {
     family: 'Avenir Next',
     snippet: 'pride-and-prejudice',
+    onUpdateFamily: /* istanbul ignore next */ () => {},
+    onUpdateText: /* istanbul ignore next */ () => {},
   };
 
   constructor(props) {
@@ -33,6 +37,13 @@ class TypefaceTester extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      family: nextProps.family,
+      snippet: nextProps.snippet,
+    });
+  }
+
   updateFamily(event) {
     event.preventDefault();
 
@@ -41,6 +52,7 @@ class TypefaceTester extends Component {
 
     if (family !== '') {
       this.setState({ family });
+      this.props.onUpdateFamily(family);
     }
 
     this.textInput.value = family;
@@ -50,6 +62,7 @@ class TypefaceTester extends Component {
     this.setState({
       snippet: event.target.value,
     });
+    this.props.onUpdateText(event.target.value);
   }
 
   render() {
@@ -106,6 +119,10 @@ class TypefaceTester extends Component {
         </div>
 
         <div className="module">
+          <div className="displayed-font">
+            Displayed in:&nbsp;
+            <span className="family-name">{this.state.family}</span>
+          </div>
           <div className="snippet-content" style={textStyle}>
             {textContent}
           </div>
