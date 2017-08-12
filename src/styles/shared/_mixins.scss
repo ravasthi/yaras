@@ -156,18 +156,22 @@
 */
 @mixin placeholder-text {
   &::-webkit-input-placeholder {
+    /* stylelint-disable-next-line at-rule-empty-line-before */
     @content;
   }
 
   &::-moz-placeholder { /* Firefox 18- */
+    /* stylelint-disable-next-line at-rule-empty-line-before */
     @content;
   }
 
   &::-moz-placeholder { /* Firefox 19+ */
+    /* stylelint-disable-next-line at-rule-empty-line-before */
     @content;
   }
 
   &::-ms-input-placeholder {
+    /* stylelint-disable-next-line at-rule-empty-line-before */
     @content;
   }
 }
