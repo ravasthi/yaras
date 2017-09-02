@@ -33,7 +33,8 @@ describe('App', () => {
     AppRewireAPI.__ResetDependency__('getStore');
 
     expect(app.find('nav.primary')).to.have.length(1);
+    expect(app.find('NavLink')).to.have.length(3);
     expect(app.find('Link')).to.have.length(4);
-    expect(app.find('Route')).to.have.length(3);
+    expect(app.find('Route')).to.have.length(6);
   });
 });

@@ -3,6 +3,7 @@ import 'app.css';
 import { getStore } from 'store';
 import {
   Link,
+  NavLink,
   Route,
   BrowserRouter as Router,
 } from 'react-router-dom';
@@ -27,9 +28,9 @@ class App extends Component {
                   <img className="logo" src={logo} alt="logo" />
                 </Link>
                 <ul>
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/font-weight-tester">Font weight tester</Link></li>
-                  <li><Link to="/typeface-tester">Typeface tester</Link></li>
+                  <li><NavLink exact to="/">Home</NavLink></li>
+                  <li><NavLink to="/font-weight-tester">Font weight tester</NavLink></li>
+                  <li><NavLink to="/typeface-tester">Typeface tester</NavLink></li>
                 </ul>
               </nav>
             </div>
