@@ -45,6 +45,16 @@ nav.primary {
     text-decoration: none;
   }
 
+  a.active {
+    color: $primary-nav-item-active-text-color;
+
+    &:hover {
+      color: $primary-nav-item-active-text-color;
+
+      cursor: default;
+    }
+  }
+
   a:hover {
     color: $primary-nav-item-hover-text-color;
   }
