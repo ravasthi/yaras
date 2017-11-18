@@ -82,7 +82,7 @@ describe('TypefaceTester', () => {
     it('should update properly when a new snippet is chosen', () => {
       const select = component.find('select.books');
 
-      select.node.value = 'scandal-in-bohemia';
+      select.instance().value = 'scandal-in-bohemia';
       select.simulate('change');
 
       expect(component.state('snippet')).to.equal('scandal-in-bohemia');
@@ -93,7 +93,7 @@ describe('TypefaceTester', () => {
     it('should update properly when a new font is chosen', () => {
       const input = component.find('input.family');
 
-      input.node.value = 'Georgia';
+      input.instance().value = 'Georgia';
       component.find('button.update-family').simulate('click');
 
       expect(component.state('family')).to.equal('Georgia');
@@ -113,10 +113,10 @@ describe('TypefaceTester', () => {
     it('should handle extraneous spaces', () => {
       const input = component.find('input.family');
 
-      input.node.value = ' Palatino  ';
+      input.instance().value = ' Palatino  ';
       component.find('button.update-family').simulate('click');
 
-      expect(input.node.value).to.equal('Palatino');
+      expect(input.instance().value).to.equal('Palatino');
       expect(component.state('family')).to.equal('Palatino');
       expect(component.find('.family-name')).to.have.text('Palatino');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Palatino');
@@ -125,10 +125,10 @@ describe('TypefaceTester', () => {
     it('should do nothing if only spaces are entered', () => {
       const input = component.find('input.family');
 
-      input.node.value = '  ';
+      input.instance().value = '  ';
       component.find('button.update-family').simulate('click');
 
-      expect(input.node.value).to.equal('');
+      expect(input.instance().value).to.equal('');
       expect(component.state('family')).to.equal('Avenir Next');
       expect(component.find('.family-name')).to.have.text('Avenir Next');
       expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
