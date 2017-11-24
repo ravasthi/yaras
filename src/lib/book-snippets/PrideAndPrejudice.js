@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-closing-tag-location */
 function PrideAndPrejudice() {
   return (
     <article id="pride-and-prejudice" className="book-snippet">
@@ -124,5 +125,6 @@ function PrideAndPrejudice() {
     </article>
   );
 }
+/* eslint-enable react/jsx-closing-tag-location */
 
 export default PrideAndPrejudice;

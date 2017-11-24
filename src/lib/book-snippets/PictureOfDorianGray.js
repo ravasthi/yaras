@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-closing-tag-location */
 function PictureOfDorianGray() {
   return (
     <article id="count-of-monte-cristo" className="book-snippet">
@@ -179,5 +180,6 @@ function PictureOfDorianGray() {
     </article>
   );
 }
+/* eslint-enable react/jsx-closing-tag-location */
 
 export default PictureOfDorianGray;

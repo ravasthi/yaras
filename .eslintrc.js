@@ -18,10 +18,22 @@ var eslintConfig = {
       'exports': 'always-multiline',
       'functions': 'ignore'
     }],
+    'function-paren-newline': ['off'],
     'generator-star-spacing': ['error', 'before'],
     'import/extensions': ['off'],
     'import/first': ['error', null],
     'indent': ['error', 2],
+    'jsx-a11y/anchor-is-valid': ['error', {
+      'components': ['Link'],
+      'specialLink': ['hrefLeft', 'hrefRight', 'to'],
+      'aspects': ['noHref', 'invalidHref', 'preferButton']
+    }],
+    'jsx-a11y/label-has-for': ['error', {
+      'required': {
+          'some': [ 'nesting', 'id' ]
+      },
+      'allowChildren': false
+    }],
     'max-len': ['error', {
       'code': 100,
       'ignoreUrls': true

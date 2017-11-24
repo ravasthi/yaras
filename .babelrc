@@ -1,9 +1,16 @@
 {
-  "presets": ["react-app", "es2015"],
+  "presets": [
+    "react-app",
+    ["env", {
+      "targets": {
+       "node": "current"
+      }
+    }]
+  ],
   "plugins": ["transform-class-properties"],
   "env": {
     "test": {
-      "plugins": ["rewire"],
+      "plugins": ["rewire"]
     }
   }
 }
