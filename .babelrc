@@ -2,15 +2,15 @@
   "presets": [
     "react-app",
     ["env", {
-      targets: {
-        node: "current"
+      "targets": {
+       "node": "current"
       }
     }]
   ],
   "plugins": ["transform-class-properties"],
   "env": {
     "test": {
-      "plugins": ["rewire"],
+      "plugins": ["rewire"]
     }
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-closing-tag-location */
 function ScandalinBohemia() {
   return (
     <article id="scandal-in-bohemia" className="book-snippet">
@@ -433,5 +434,6 @@ function ScandalinBohemia() {
     </article>
   );
 }
+/* eslint-enable react/jsx-closing-tag-location */
 
 export default ScandalinBohemia;

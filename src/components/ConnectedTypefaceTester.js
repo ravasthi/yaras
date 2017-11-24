@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TypefaceTester from 'components/TypefaceTester';
 
 function mapStateToProps(state) {
-  const settings = state.settings;
+  const { settings } = state;
 
   return {
     family: settings.family,
