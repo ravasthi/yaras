@@ -1,6 +1,7 @@
 # Changelog
 
 ## 1.1.0
+*30 November 2017*
 
 Package upgrades:
 
@@ -13,6 +14,7 @@ Package upgrades:
 * Major version upgrade of stylelint-config-standard, in addition to some changes to be in compliance with a new rule.
 
 ## 1.0.0
+*23 November 2017*
 
 Some major changes this time, including:
 
@@ -21,6 +23,8 @@ Some major changes this time, including:
 * Major version upgrades to `eslint-config-airbnb`, `mocha`, and other libraries.
 
 ## 0.2.4
+*22 September 2017*
+
 
 Package upgrades:
 
@@ -31,6 +35,7 @@ Package upgrades:
 * and others
 
 ## 0.2.3
+*2 September 2017*
 
 Package upgrades:
 
