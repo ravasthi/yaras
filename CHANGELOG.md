@@ -1,5 +1,50 @@
 # Changelog
 
+## 1.1.0
+
+Package upgrades:
+
+* eslint
+* eslint-plugin-react
+* jsdom
+* react
+* react-dom
+* stylelint
+* Major version upgrade of stylelint-config-standard, in addition to some changes to be in compliance with a new rule.
+
+## 1.0.0
+
+Some major changes this time, including:
+
+* Upgrading to React 16,
+* Replacing `babel-preset-es2015` with `babel-preset-env`
+* Major version upgrades to `eslint-config-airbnb`, `mocha`, and other libraries.
+
+## 0.2.4
+
+Package upgrades:
+
+* babel-eslint
+* eslint
+* mocha
+* nyc
+* and others
+
+## 0.2.3
+
+Package upgrades:
+
+* chai
+* eslint
+* eslint-plugin-react
+* jsdom
+* npm-run-all
+* react-router-dom
+* react-scripts
+* redux-persist
+* sinon
+* susy
+
 ## 0.2.2
 *12 August 2017*
 
