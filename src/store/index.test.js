@@ -2,7 +2,6 @@ import {
   cleanUpTests,
   initTests,
 } from 'lib/testCommon';
-import { createStore } from 'redux';
 import {
   getReducer,
   getStore,
@@ -27,7 +26,7 @@ describe('Redux store utilities', () => {
   beforeEach(() => {
     getReducerSpy = sinon.spy(getReducer);
     initReducerSpy = sinon.spy(initReducer);
-    initStoreStub = sinon.stub().returns(createStore(() => {}));
+    initStoreStub = sinon.stub().returns({});
     persistApplicationStoreSpy = sinon.spy(persistApplicationStore);
     persistStoreStub = sinon.stub();
   });
