@@ -19,6 +19,35 @@ import React, { Component } from 'react';
 let persistor;
 let store;
 
+function StatelessApp() {
+  return (
+    <Router>
+      <div className="page">
+        <div className="primary-nav-container">
+          <nav className="primary">
+            <Link className="logo-container" to="/">
+              <img className="logo" src={logo} alt="logo" />
+            </Link>
+            <ul>
+              <li><NavLink exact to="/">Home</NavLink></li>
+              <li><NavLink to="/font-weight-tester">Font weight tester</NavLink></li>
+              <li><NavLink to="/typeface-tester">Typeface tester</NavLink></li>
+            </ul>
+          </nav>
+        </div>
+        <div className="page-content-container">
+          <div className="page-content">
+            <Route exact path="/" component={Home} />
+            <Route path="/font-weight-tester" component={ConnectedFontWeightTester} />
+            <Route path="/typeface-tester" component={ConnectedTypefaceTester} />
+          </div>
+        </div>
+      </div>
+    </Router>
+  );
+}
+
+/* istanbul ignore next */
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   render() {
@@ -30,39 +59,17 @@ class App extends Component {
       /* eslint-enable prefer-destructuring */
     }
 
-    console.log('persistor: ' + persistor);
-    console.log('store: ' + store);
-
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <Router>
-            <div className="page">
-              <div className="primary-nav-container">
-                <nav className="primary">
-                  <Link className="logo-container" to="/">
-                    <img className="logo" src={logo} alt="logo" />
-                  </Link>
-                  <ul>
-                    <li><NavLink exact to="/">Home</NavLink></li>
-                    <li><NavLink to="/font-weight-tester">Font weight tester</NavLink></li>
-                    <li><NavLink to="/typeface-tester">Typeface tester</NavLink></li>
-                  </ul>
-                </nav>
-              </div>
-              <div className="page-content-container">
-                <div className="page-content">
-                  <Route exact path="/" component={Home} />
-                  <Route path="/font-weight-tester" component={ConnectedFontWeightTester} />
-                  <Route path="/typeface-tester" component={ConnectedTypefaceTester} />
-                </div>
-              </div>
-            </div>
-          </Router>
+          <StatelessApp />
         </PersistGate>
       </Provider>
     );
   }
 }
 
-export default App;
+export {
+  App,
+  StatelessApp,
+};

@@ -1,13 +1,15 @@
+import { StatelessApp as App } from 'App';
 import {
   cleanUpTests,
   initTests,
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import App, { __RewireAPI__ as AppRewireAPI } from 'App';
 import React from 'react';
 
 describe('App', () => {
+  let container;
+
   before(() => {
     initTests();
   });
@@ -16,21 +18,14 @@ describe('App', () => {
     cleanUpTests();
   });
 
+  beforeEach(() => {
+    container = document.createElement('div');
+    container.className = 'container';
+    document.body.appendChild(container);
+  });
+
   it('renders properly', () => {
-    // eslint-disable-next-line no-underscore-dangle
-    AppRewireAPI.__Rewire__(
-      'getStore',
-      sinon.stub().returns({
-        subscribe: () => {},
-        dispatch: () => {},
-        getState: () => {},
-      })
-    );
-
-    const app = mount(<App />);
-
-    // eslint-disable-next-line no-underscore-dangle
-    AppRewireAPI.__ResetDependency__('getStore');
+    const app = mount(<App />, { attachTo: container });
 
     expect(app.find('nav.primary')).to.have.length(1);
     expect(app.find('NavLink')).to.have.length(3);
