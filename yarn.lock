@@ -2618,7 +2618,7 @@ eslint-plugin-jsx-a11y@5.1.1:
     emoji-regex "^6.1.0"
     jsx-ast-utils "^1.4.0"
 
-eslint-plugin-jsx-a11y@6.0.3:
+eslint-plugin-jsx-a11y@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.0.3.tgz#54583d1ae442483162e040e13cc31865465100e5"
   dependencies:
@@ -7542,7 +7542,7 @@ stylelint-config-standard@^18.0.0:
   dependencies:
     stylelint-config-recommended "^2.0.0"
 
-stylelint-order@0.8.0:
+stylelint-order@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-0.8.0.tgz#49da5615cb91ed077ebd274687f4df3d6feeb4e4"
   dependencies:
