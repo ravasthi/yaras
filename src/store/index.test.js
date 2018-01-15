@@ -32,10 +32,10 @@ describe('Redux store utilities', () => {
   });
 
   afterEach(() => {
-    getReducerSpy.reset();
-    initReducerSpy.reset();
+    getReducerSpy.resetHistory();
+    initReducerSpy.resetHistory();
     initStoreStub.reset();
-    persistApplicationStoreSpy.reset();
+    persistApplicationStoreSpy.resetHistory();
     persistStoreStub.reset();
   });
 
