@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.1.2
+*20 January 2018*
+
+Package upgrades:
+
+* eslint
+* localforage
+* redux-persist
+* sinon
+* mocha
+
+## 1.1.1
+*14 January 2018*
+
+Package upgrades:
+
+* babel-eslint
+* eslint + plugins
+* mocha
+* nyc
+* sinon
+* react-scripts
+* etc.
+
 ## 1.1.0
 *30 November 2017*
 
