@@ -1,4 +1,4 @@
-import { getPageTitle } from '../lib/common';
+import { getPageTitle } from 'lib/common';
 
 import DocumentTitle from 'react-document-title';
 import React from 'react';

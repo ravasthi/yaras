@@ -64,6 +64,7 @@
     "nyc": "^11.1.0",
     "react-addons-test-utils": "^15.6.0",
     "react-scripts": "^1.0.12",
+    "react-styleguidist": "^6.2.0",
     "sinon": "^4.1.2",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.0.0",
@@ -96,18 +97,26 @@
     "all": true
   },
   "scripts": {
+    "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
+
     "lint:js": "eslint --config=.eslintrc.js .",
+
     "start:js": "cross-env NODE_PATH=./src react-scripts start",
     "start": "run-p watch:css start:js",
+
     "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
+
     "test:js": "cross-env NODE_ENV=test NODE_PATH=./src nyc mocha --opts .mocharc 'src/**/*.test.js'",
     "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
     "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
     "test": "yarn run test:js",
     "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi",
+
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+
     "eject": "react-scripts eject"
   }
 }
