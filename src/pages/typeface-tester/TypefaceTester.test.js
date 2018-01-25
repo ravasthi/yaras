@@ -5,7 +5,7 @@ import {
 import { mount } from 'enzyme';
 
 import React from 'react';
-import TypefaceTester from 'components/TypefaceTester';
+import TypefaceTester from 'pages/typeface-tester/TypefaceTester';
 
 describe('TypefaceTester', () => {
   let component;

@@ -7,7 +7,7 @@ import {
 import {
   mapDispatchToProps,
   mapStateToProps,
-} from 'state-aware-components/ConnectedFontWeightTester';
+} from 'pages/font-weight-tester/ConnectedFontWeightTester';
 
 describe('ConnectedFontWeightTester', () => {
   let sandbox;

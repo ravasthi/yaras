@@ -4,7 +4,7 @@ import {
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import Home from 'components/Home';
+import Home from 'pages/home/Home';
 import React from 'react';
 
 describe('Home', () => {

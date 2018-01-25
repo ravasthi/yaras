@@ -1,7 +1,7 @@
 import { addGlobalSetting } from 'actions/settings';
 import { connect } from 'react-redux';
 
-import FontWeightTester from 'components/FontWeightTester';
+import FontWeightTester from 'pages/font-weight-tester/FontWeightTester';
 
 function mapStateToProps(state) {
   return {

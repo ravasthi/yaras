@@ -11,7 +11,7 @@ import {
 import {
   mapDispatchToProps,
   mapStateToProps,
-} from 'state-aware-components/ConnectedTypefaceTester';
+} from 'pages/typeface-tester/ConnectedTypefaceTester';
 
 describe('ConnectedTypefaceTester', () => {
   let sandbox;
