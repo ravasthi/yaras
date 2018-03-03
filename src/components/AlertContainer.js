@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function AlertContainer(props) {
-  const {
-    children,
-    className,
-  } = props;
-
+function AlertContainer({ children, className }) {
   const classNames = `alerts ${className}`;
 
   return (

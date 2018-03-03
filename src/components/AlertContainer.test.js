@@ -18,7 +18,11 @@ describe('AlertContainer', () => {
   });
 
   it('renders properly with default props', () => {
-    const component = mount(<AlertContainer />);
+    const component = mount(
+      <AlertContainer>
+        <li>An alert</li>
+      </AlertContainer>
+    );
 
     expect(component.find('ul').hasClass('alerts')).to.be.true();
   });
