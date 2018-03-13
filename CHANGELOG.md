@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.3
+*13 March 2018*
+
+Package upgrades:
+
+* eslint + plugins
+* jsdom
+* localforage
+* mocha
+* node-sass-chokidar
+* react-scripts
+* redux
+* redux-persist
+* sinon
+* stylelint + plugins
+
 ## 1.1.2
 *20 January 2018*
 
