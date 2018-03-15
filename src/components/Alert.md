@@ -1,5 +1,3 @@
-Alert example:
-
 ```js
 <AlertContainer>
     <Alert severity="warning">Running low on disk space: 10% remaining.</Alert>
