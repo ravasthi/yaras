@@ -45,6 +45,7 @@ describe('Alert', () => {
 
     expect(component.find('li').hasClass('warning')).to.be.true();
     expect(component.find('.icon').length).to.equal(1);
+    expect(component.find('.icon svg').length).to.equal(1);
     expect(component.find('.message-content').text()).to.equal('Pay attention!');
   });
 });

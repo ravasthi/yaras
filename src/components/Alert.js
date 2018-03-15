@@ -1,6 +1,24 @@
+/* eslint-disable no-unused-vars */
+import {
+  faAsterisk,
+  faCheck,
+  faExclamationTriangle,
+  faInfoCircle,
+} from '@fortawesome/fontawesome-free-solid';
+/* eslint-enable no-unused-vars */
+
+// eslint-disable-next-line no-unused-vars
+import fontawesome from '@fortawesome/fontawesome';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+/**
+ * An alert message with customizable message and severity. NB: *must* be used inside an
+ * `AlertContainer`.
+ *
+ * @param {any} props
+ */
 function Alert(props) {
   const {
     severity,
@@ -11,9 +29,26 @@ function Alert(props) {
 
   const classNames = `message ${severity} ${className}`;
 
+
   let icon;
+  let iconContent;
   if (showIcon) {
-    icon = <div className="icon">&nbsp;</div>;
+    switch (severity) {
+    case 'error':
+      iconContent = <FontAwesomeIcon icon="exclamation-triangle" />;
+      break;
+    case 'warning':
+      iconContent = <FontAwesomeIcon icon="asterisk" />;
+      break;
+    case 'success':
+      iconContent = <FontAwesomeIcon icon="check" />;
+      break;
+    case 'info':
+    default:
+      iconContent = <FontAwesomeIcon icon="info-circle" />;
+      break;
+    }
+    icon = <div className="icon">{iconContent}</div>;
   }
 
   return (
@@ -25,9 +60,13 @@ function Alert(props) {
 }
 
 Alert.propTypes = {
-  children: PropTypes.string.isRequired,
+  /** The content of the alert. Can contain HTML and other components. */
+  children: PropTypes.any.isRequired,
+  /** Any custom class names to add to the alert. */
   className: PropTypes.string,
+  /** The severity of the alert, which governs how it's presented. */
   severity: PropTypes.oneOf(['error', 'warning', 'success', 'info']),
+  /** Whether or not to show the default icon matching the severity. */
   showIcon: PropTypes.bool,
 };
 

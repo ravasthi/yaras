@@ -1,0 +1,21 @@
+/*-----[ style guide overrides ]------------------------------------------------
+*/
+[class^='rsg--body'] {
+  h2 {
+    line-height: 1.5;
+  }
+
+  code {
+    padding: 0;
+  }
+
+  [class^='rsg--button'] {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  [class^='rsg--cell'] {
+    line-height: 1.5;
+  }
+}

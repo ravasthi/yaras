@@ -18,6 +18,9 @@
     }
 
     .icon {
+      border-top-left-radius: $default-border-radius;
+      border-bottom-left-radius: $default-border-radius;
+
       padding-top: $vertical-nudge;
       width: 2 * $horizontal-spacing;
 
@@ -25,14 +28,8 @@
 
       text-align: center;
 
-      &::before {
-        display: inline-block;
-
+      svg {
         position: relative;
-
-        margin-right: 0.5 * $horizontal-spacing;
-        margin-left: 0.5 * $horizontal-spacing;
-        width: $horizontal-spacing;
       }
     }
 
@@ -44,19 +41,10 @@
       border-color: $success-feedback;
 
       .icon {
+        color: $success-feedback;
         background-color: $success-feedback-bg;
 
-        @extend .fa-check;
-
-        &::before {
-          @include fa-icon();
-
-          top: 1px;
-
-          color: $success-feedback;
-
-          font-size: $large-text-size;
-        }
+        font-size: $large-text-size;
       }
     }
 
@@ -64,18 +52,13 @@
       border-color: $warning-feedback;
 
       .icon {
-        @extend .fa-asterisk;
-
+        color: $warning-feedback;
         background-color: $warning-feedback-bg;
 
-        &::before {
-          @include fa-icon();
+        font-size: $large-text-size;
 
-          top: 2px;
-
-          color: $warning-feedback;
-
-          font-size: $large-text-size;
+        svg {
+          top: 1px;
         }
       }
     }
@@ -84,19 +67,10 @@
       border-color: $error-feedback;
 
       .icon {
-        @extend .fa-exclamation-triangle;
-
+        color: $error-feedback;
         background-color: $error-feedback-bg;
 
-        &::before {
-          @include fa-icon();
-
-          top: 2px;
-
-          color: $error-feedback;
-
-          font-size: $large-text-size;
-        }
+        font-size: $large-text-size;
       }
     }
 
@@ -104,18 +78,13 @@
       border-color: $info-feedback;
 
       .icon {
-        @extend .fa-info-circle;
-
+        color: $info-feedback;
         background-color: $info-feedback-bg;
 
-        &::before {
-          @include fa-icon();
+        font-size: $large-text-size;
 
-          top: 3px;
-
-          color: $info-feedback;
-
-          font-size: $large-text-size;
+        svg {
+          top: 1px;
         }
       }
     }

@@ -12,15 +12,20 @@
     "node": ">=8.1.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.4",
+    "@fortawesome/fontawesome-common-types": "^0.1.3",
+    "@fortawesome/fontawesome-free-brands": "^5.0.8",
+    "@fortawesome/fontawesome-free-regular": "^5.0.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.8",
+    "@fortawesome/react-fontawesome": "^0.0.17",
     "cross-env": "^5.0.5",
-    "font-awesome": "^4.7.0",
     "localforage": "^1.5.0",
     "lodash": "^4.17.4",
     "npm-run-all": "^4.1.1",
     "prop-types": "^15.5.10",
     "react": "^16.1.1",
     "react-document-title": "^2.0.3",
-    "react-dom": "^16.1.1",
+    "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
@@ -66,6 +71,7 @@
     "react-scripts": "^1.0.12",
     "react-styleguidist": "^6.2.0",
     "sinon": "^4.1.2",
+    "style-loader": "^0.20.3",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0"
@@ -100,23 +106,17 @@
     "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-
     "lint:js": "eslint --config=.eslintrc.js .",
-
     "start:js": "cross-env NODE_PATH=./src react-scripts start",
     "start": "run-p watch:css start:js",
-
     "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
-
     "test:js": "cross-env NODE_ENV=test NODE_PATH=./src nyc mocha --opts .mocharc 'src/**/*.test.js'",
     "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
     "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
     "test": "yarn run test:js",
     "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi",
-
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-
     "eject": "react-scripts eject"
   }
 }

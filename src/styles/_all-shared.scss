@@ -13,11 +13,6 @@
 // Third-party mixins
 @import 'susy/sass/susy';
 
-// ----- Icon fonts
-$fa-font-path: '~/font-awesome/fonts';
-
-@import 'font-awesome/scss/font-awesome.scss';
-
 // Basics
 @import 'basics/colors';
 @import 'basics/typography';
@@ -37,6 +32,7 @@ $fa-font-path: '~/font-awesome/fonts';
 @import 'shared/footer';
 
 // Feature-/page-specific
+@import 'style-guide-overrides';
 @import 'home';
 @import 'font-weight-tester';
 @import 'typeface-tester';

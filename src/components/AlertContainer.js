@@ -12,7 +12,7 @@ function AlertContainer({ children, className }) {
 }
 
 AlertContainer.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   className: PropTypes.string,
 };
 
