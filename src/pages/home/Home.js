@@ -1,7 +1,5 @@
 import { getPageTitle } from 'lib/common';
 
-import Alert from 'components/Alert';
-import AlertContainer from 'components/AlertContainer';
 import DocumentTitle from 'react-document-title';
 import React from 'react';
 
