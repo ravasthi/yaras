@@ -48,4 +48,39 @@ describe('Alert', () => {
     expect(component.find('.icon svg').length).to.equal(1);
     expect(component.find('.message-content').text()).to.equal('Pay attention!');
   });
+
+  describe('severities', () => {
+    it('should show the right icon for informational messages', () => {
+      const component = mount(
+        <Alert severity="info" showIcon>
+          The system will be under maintenance from 12am to 1am.
+        </Alert>
+      );
+
+      expect(component.find('.icon svg').hasClass('fa-info-circle')).to.be.true();
+    });
+
+    it('should show the right icon for success messages', () => {
+      const component = mount(
+        <Alert severity="success" showIcon>
+          Your request was submitted.
+        </Alert>
+      );
+
+      expect(component.find('.icon svg').hasClass('fa-check')).to.be.true();
+    });
+
+    it('should show the right icon for warning messages', () => {
+      const component = mount(<Alert severity="warning" showIcon>Pay attention!</Alert>);
+
+      expect(component.find('.icon svg').hasClass('fa-asterisk')).to.be.true();
+    });
+
+    it('should show the right icon for error messages', () => {
+      const component = mount(<Alert severity="error" showIcon>Uh oh.</Alert>);
+
+      expect(component.find('.icon svg').hasClass('fa-exclamation-triangle')).to.be.true();
+    });
+
+  });
 });
