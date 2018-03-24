@@ -6,50 +6,86 @@
   list-style-type: none;
 
   .message {
+    display: flex;
+
     margin-bottom: $vertical-nudge;
-    padding: $vertical-nudge $horizontal-spacing / 2;
-    padding-left: 2 * $horizontal-spacing;
+    border: 1px solid transparent;
+    border-radius: $default-border-radius;
 
-    &::before {
+    .icon,
+    .message-content {
       display: inline-block;
+    }
 
-      position: relative;
+    .icon {
+      border-top-left-radius: $default-border-radius;
+      border-bottom-left-radius: $default-border-radius;
 
-      margin-right: 0.5 * $horizontal-spacing;
-      margin-left: -(1.5 * $horizontal-spacing);
-      width: $horizontal-spacing;
+      padding-top: $vertical-nudge;
+      width: 2 * $horizontal-spacing;
+
+      font-size: 0;
+
+      text-align: center;
+
+      svg {
+        position: relative;
+      }
+    }
+
+    .message-content {
+      padding: $vertical-nudge $horizontal-spacing / 2;
     }
 
     &.success {
-      color: $success-feedback;
-      background-color: $success-feedback-bg;
+      border-color: $success-feedback;
 
-      &::before {
-        @extend .fa-check;
+      .icon {
+        color: $success-feedback;
+        background-color: $success-feedback-bg;
 
-        @include fa-icon();
+        font-size: $large-text-size;
       }
     }
 
     &.warning {
-      color: $warning-feedback;
-      background-color: $warning-feedback-bg;
+      border-color: $warning-feedback;
 
-      &::before {
-        @extend .fa-asterisk;
+      .icon {
+        color: $warning-feedback;
+        background-color: $warning-feedback-bg;
 
-        @include fa-icon();
+        font-size: $large-text-size;
+
+        svg {
+          top: 1px;
+        }
       }
     }
 
     &.error {
-      color: $error-feedback;
-      background-color: $error-feedback-bg;
+      border-color: $error-feedback;
 
-      &::before {
-        @extend .fa-exclamation-triangle;
+      .icon {
+        color: $error-feedback;
+        background-color: $error-feedback-bg;
 
-        @include fa-icon();
+        font-size: $large-text-size;
+      }
+    }
+
+    &.info {
+      border-color: $info-feedback;
+
+      .icon {
+        color: $info-feedback;
+        background-color: $info-feedback-bg;
+
+        font-size: $large-text-size;
+
+        svg {
+          top: 1px;
+        }
       }
     }
   }

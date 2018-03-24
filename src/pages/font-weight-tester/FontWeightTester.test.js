@@ -4,7 +4,7 @@ import {
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import FontWeightTester from 'components/FontWeightTester';
+import FontWeightTester from 'pages/font-weight-tester/FontWeightTester';
 import React from 'react';
 
 describe('FontWeightTester', () => {

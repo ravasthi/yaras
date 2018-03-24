@@ -10,9 +10,9 @@ import {
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { Provider } from 'react-redux';
 
-import ConnectedFontWeightTester from 'components/ConnectedFontWeightTester';
-import ConnectedTypefaceTester from 'components/ConnectedTypefaceTester';
-import Home from 'components/Home';
+import ConnectedFontWeightTester from 'pages/font-weight-tester/ConnectedFontWeightTester';
+import ConnectedTypefaceTester from 'pages/typeface-tester/ConnectedTypefaceTester';
+import Home from 'pages/home/Home';
 import logo from 'images/logo.svg';
 import React, { Component } from 'react';
 

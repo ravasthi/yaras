@@ -1,7 +1,7 @@
 import { addGlobalSetting, addSettingForPage } from 'actions/settings';
 import { connect } from 'react-redux';
 
-import TypefaceTester from 'components/TypefaceTester';
+import TypefaceTester from 'pages/typeface-tester/TypefaceTester';
 
 function mapStateToProps(state) {
   const { settings } = state;
