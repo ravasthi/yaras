@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0
+*24 March 2018*
+
+Integration with [React Styleguidist](https://react-styleguidist.js.org), for easy documentation of your style guide and component library. This necessitated a refactor of the file organization. Minor package upgrades also included.
+
 ## 1.1.3
 *13 March 2018*
 
@@ -64,7 +69,6 @@ Some major changes this time, including:
 
 ## 0.2.4
 *22 September 2017*
-
 
 Package upgrades:
 

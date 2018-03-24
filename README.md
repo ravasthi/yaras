@@ -8,6 +8,7 @@ Yet another React app starter. Based on [Create React App](https://github.com/fa
 * [`.editorconfig`](http://editorconfig.org "EditorConfig")
 * A basic set of styles based on [css3-foundation](https://github.com/ravasthi/css3-foundation)
 * Testing with [Mocha](http://mochajs.org), [Chai](http://chaijs.com), and [Enzyme](http://airbnb.io/enzyme/)
+* Integration with [React Styleguidist](https://react-styleguidist.js.org) for easy documentation of your app's style guide and component library.
 
 [![CircleCI](https://circleci.com/gh/ravasthi/yaras.svg?style=svg)](https://circleci.com/gh/ravasthi/yaras)
 [![Coverage Status](https://coveralls.io/repos/github/ravasthi/yaras/badge.svg?branch=feature%2Ftypeface-tester)](https://coveralls.io/github/ravasthi/yaras?branch=feature%2Ftypeface-tester)
