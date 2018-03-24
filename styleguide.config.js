@@ -4,6 +4,18 @@ const styleguideConfig = {
   require: [
     path.join(__dirname, 'src/app.css'),
   ],
+  sections: [
+    {
+      name: 'Colors',
+      content: 'docs/style-guide/colors.md',
+    },
+    {
+      name: 'UI components',
+      content: 'docs/style-guide/components.md',
+      components: 'src/components/*.{js,jsx,ts,tsx}',
+    },
+  ],
+  skipComponentsWithoutExample: true,
   theme: {
     color: {
       link: '#669fb8',

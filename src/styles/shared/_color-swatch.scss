@@ -1,0 +1,17 @@
+/*----------[ color swatch ]----------------------------------------------------
+*/
+.color-swatch-container {
+  margin-bottom: $vertical-spacing / 2;
+
+  .swatch-name {
+    margin-top: $vertical-nudge;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .swatch-value {
+    font-family: $monospace-text-family;
+  }
+}

@@ -26,13 +26,14 @@
 @import 'shared/page';
 @import 'shared/forms';
 @import 'shared/alerts';
+@import 'shared/color-swatch';
 @import 'shared/pagination';
 @import 'shared/nav';
 @import 'shared/header';
 @import 'shared/footer';
 
 // Feature-/page-specific
-@import 'style-guide-overrides';
+@import 'style-guide';
 @import 'home';
 @import 'font-weight-tester';
 @import 'typeface-tester';

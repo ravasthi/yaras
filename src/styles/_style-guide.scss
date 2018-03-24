@@ -1,0 +1,29 @@
+/*-----[ style guide ]----------------------------------------------------------
+| Overrides of default style-guide styles, and custom styles for content.
+*/
+[class^='rsg--body'] {
+  h1,
+  h2 {
+    line-height: 1.5;
+  }
+
+  code {
+    padding: 0;
+  }
+
+  [class^='rsg--button'] {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  [class^='rsg--cell'] {
+    line-height: 1.5;
+  }
+}
+
+.palette-colors {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  grid-gap: $gutter-width;
+}

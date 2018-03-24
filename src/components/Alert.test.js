@@ -81,6 +81,5 @@ describe('Alert', () => {
 
       expect(component.find('.icon svg').hasClass('fa-exclamation-triangle')).to.be.true();
     });
-
   });
 });
