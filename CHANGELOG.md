@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.1
+*30 March 2018*
+
+Package upgrades:
+
+* FontAwesome packages
+* node-sass-chokidar
+* react
+* sinon
+
 ## 2.0.0
 *24 March 2018*
 
