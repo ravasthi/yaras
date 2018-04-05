@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.2
+*05 April 2018*
+
+Package upgrades:
+
+* eslint-plugin-babel
+* jsdom
+* react
+* react-scripts
+* react-styleguidist
+* stylelint
+
 ## 2.0.1
 *30 March 2018*
 
