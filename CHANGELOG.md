@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.3
+*29 April 2018*
+
+Package upgrades:
+
+* babel
+* eslint
+* font-awesome
+* jsdom
+* lodash
+* mocha
+* nyc
+* react
+* react-dom
+* react-styleguidist
+* redux (_major version upgrade to v4.0.0_)
+* style-loader
+
 ## 2.0.2
 *05 April 2018*
 
