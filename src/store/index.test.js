@@ -20,7 +20,7 @@ describe('Redux store utilities', () => {
 
   before(() => {
     initTests();
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
   });
 
   beforeEach(() => {
