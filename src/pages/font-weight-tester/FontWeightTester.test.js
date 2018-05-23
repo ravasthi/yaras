@@ -14,7 +14,7 @@ describe('FontWeightTester', () => {
 
   before(() => {
     initTests();
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     onUpdateFamilyStub = sandbox.stub();
   });
 

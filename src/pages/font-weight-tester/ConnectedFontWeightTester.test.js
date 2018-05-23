@@ -15,7 +15,7 @@ describe('ConnectedFontWeightTester', () => {
 
   before(() => {
     initTests();
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     dispatchStub = sandbox.stub();
   });
 

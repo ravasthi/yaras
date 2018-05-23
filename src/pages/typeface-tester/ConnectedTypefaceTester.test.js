@@ -19,7 +19,7 @@ describe('ConnectedTypefaceTester', () => {
 
   before(() => {
     initTests();
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     dispatchStub = sandbox.stub();
   });
 
