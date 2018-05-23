@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.0.4
+*23 May 2018*
+
+Package upgrades:
+
+* babel-preset-env
+* coveralls
+* cross-env
+* eslint plugins
+* font-awesome
+* mocha
+* node-sass-chokidar
+* npm-run-all
+* nyc
+* react-styleguidist
+* redux-actions
+* sinon (_major version upgrade to v5.0.7_)
+* stylelint
+* susy
+
 ## 2.0.3
 *29 April 2018*
 
