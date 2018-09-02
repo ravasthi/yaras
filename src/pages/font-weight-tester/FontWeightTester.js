@@ -84,7 +84,7 @@ class FontWeightTester extends Component {
               autoCapitalize="words"
               ref={(input) => { this.textInput = input; }}
             />
-            <button type="button">Try it out</button>
+            <button type="button" onClick={this.updateFamily}>Try it out</button>
           </form>
 
           <div className="displayed-font" style={textStyle}>

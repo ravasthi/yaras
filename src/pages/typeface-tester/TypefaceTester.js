@@ -45,9 +45,9 @@ class TypefaceTester extends Component {
   }
 
   updateFamily(event) {
-    const { onUpdateFamily } = this.props;
-
     event.preventDefault();
+
+    const { onUpdateFamily } = this.props;
 
     let family = this.textInput.value || '';
     family = family.trim();
@@ -88,7 +88,7 @@ class TypefaceTester extends Component {
         </div>
 
         <div className="module">
-          <form className="settings">
+          <form className="settings" onSubmit={this.updateFamily}>
             <div className="field">
               <label htmlFor="select-book">
                 Choose a book
