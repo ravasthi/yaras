@@ -3,6 +3,7 @@ import { getPageTitle } from 'lib/common';
 import DocumentTitle from 'react-document-title';
 import React from 'react';
 
+/* eslint-disable react/jsx-one-expression-per-line */
 function Home() {
   return (
     <div id="home">

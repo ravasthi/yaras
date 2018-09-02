@@ -1,19 +1,22 @@
 import 'app.css';
 
-import { getStore } from 'store';
 import {
   Link,
   NavLink,
   Route,
   BrowserRouter as Router,
 } from 'react-router-dom';
+
+import { getStore } from 'store';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { Provider } from 'react-redux';
 
+// eslint-disable-next-line sort-imports
 import ConnectedFontWeightTester from 'pages/font-weight-tester/ConnectedFontWeightTester';
 import ConnectedTypefaceTester from 'pages/typeface-tester/ConnectedTypefaceTester';
 import Home from 'pages/home/Home';
 import logo from 'images/logo.svg';
+// eslint-disable-next-line sort-imports
 import React, { Component } from 'react';
 
 let persistor;

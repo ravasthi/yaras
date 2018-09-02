@@ -1,6 +1,7 @@
 import React from 'react';
 
 /* eslint-disable react/jsx-closing-tag-location */
+/* eslint-disable react/jsx-one-expression-per-line */
 function PictureOfDorianGray() {
   return (
     <article id="count-of-monte-cristo" className="book-snippet">

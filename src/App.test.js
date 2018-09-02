@@ -1,8 +1,9 @@
-import { StatelessApp as App } from 'App';
 import {
   cleanUpTests,
   initTests,
 } from 'lib/testCommon';
+
+import { StatelessApp as App } from 'App';
 import { mount } from 'enzyme';
 
 import React from 'react';

@@ -7,6 +7,7 @@ import {
   getStore,
   initReducer,
   persistApplicationStore,
+  // eslint-disable-next-line import/named
   __RewireAPI__ as StoreRewireAPI,
 } from 'store';
 

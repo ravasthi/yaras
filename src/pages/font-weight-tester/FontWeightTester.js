@@ -37,6 +37,8 @@ class FontWeightTester extends Component {
   }
 
   updateFamily(event) {
+    const { onUpdateFamily } = this.props;
+
     event.preventDefault();
 
     let family = this.textInput.value || '';
@@ -44,17 +46,20 @@ class FontWeightTester extends Component {
 
     if (family !== '') {
       this.setState({ family });
-      this.props.onUpdateFamily(family);
+      onUpdateFamily(family);
     }
 
     this.textInput.value = family;
   }
 
   render() {
+    const { family } = this.state;
+
     const textStyle = {
-      fontFamily: this.state.family,
+      fontFamily: family,
     };
 
+    /* eslint-disable react/jsx-one-expression-per-line */
     return (
       <div id="font-weight-tester">
         <div className="page-content-header">
@@ -79,11 +84,11 @@ class FontWeightTester extends Component {
               autoCapitalize="words"
               ref={(input) => { this.textInput = input; }}
             />
-            <button>Try it out</button>
+            <button type="button">Try it out</button>
           </form>
 
           <div className="displayed-font" style={textStyle}>
-            <p className="family-under-test">{this.state.family}</p>
+            <p className="family-under-test">{family}</p>
 
             <p className="w100">
               Deserunt scenester fingerstache, kogi slow-carb 3 wolf moon id exercitation sartorial
@@ -130,6 +135,7 @@ class FontWeightTester extends Component {
         </div>
       </div>
     );
+    /* eslint-enable react/jsx-one-expression-per-line */
   }
 }
 
