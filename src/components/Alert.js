@@ -1,15 +1,5 @@
-/* eslint-disable no-unused-vars */
-import {
-  faAsterisk,
-  faCheck,
-  faExclamationTriangle,
-  faInfoCircle,
-} from '@fortawesome/fontawesome-free-solid';
-/* eslint-enable no-unused-vars */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// eslint-disable-next-line no-unused-vars
-import fontawesome from '@fortawesome/fontawesome';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -28,7 +18,6 @@ function Alert(props) {
   } = props;
 
   const classNames = `message ${severity} ${className}`;
-
 
   let icon;
   let iconContent;
