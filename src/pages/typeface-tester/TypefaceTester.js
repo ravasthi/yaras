@@ -47,28 +47,36 @@ class TypefaceTester extends Component {
   updateFamily(event) {
     event.preventDefault();
 
+    const { onUpdateFamily } = this.props;
+
     let family = this.textInput.value || '';
     family = family.trim();
 
     if (family !== '') {
       this.setState({ family });
-      this.props.onUpdateFamily(family);
+      onUpdateFamily(family);
     }
 
     this.textInput.value = family;
   }
 
   updateText(event) {
+    const { onUpdateText } = this.props;
+
     this.setState({
       snippet: event.target.value,
     });
-    this.props.onUpdateText(event.target.value);
+    onUpdateText(event.target.value);
   }
 
   render() {
-    const textContent = snippets[this.state.snippet].component();
+    const {
+      family,
+      snippet,
+    } = this.state;
+    const textContent = snippets[snippet].component();
     const textStyle = {
-      fontFamily: this.state.family,
+      fontFamily: family,
     };
 
     return (
@@ -80,15 +88,15 @@ class TypefaceTester extends Component {
         </div>
 
         <div className="module">
-          <form className="settings">
+          <form className="settings" onSubmit={this.updateFamily}>
             <div className="field">
-              <label htmlFor="books">
+              <label htmlFor="select-book">
                 Choose a book
               </label>
               <select
-                name="books"
+                id="select-book"
                 className="books"
-                value={this.state.snippet}
+                value={snippet}
                 onChange={this.updateText}
               >
                 {Object.keys(snippets).map(snippetName => (
@@ -102,26 +110,28 @@ class TypefaceTester extends Component {
               </select>
             </div>
             <div className="field">
-              <label htmlFor="family">
+              <label htmlFor="font-family">
                 Choose a typeface
               </label>
               <input
                 type="text"
-                name="family"
+                id="font-family"
                 className="family"
                 placeholder="Font family name, e.g. Helvetica"
                 autoCapitalize="words"
                 ref={(input) => { this.textInput = input; }}
               />
             </div>
-            <button className="update-family" onClick={this.updateFamily}>Change typeface</button>
+            <button type="button" className="update-family" onClick={this.updateFamily}>
+              Change typeface
+            </button>
           </form>
         </div>
 
         <div className="module">
           <div className="displayed-font">
             Displayed in:&nbsp;
-            <span className="family-name">{this.state.family}</span>
+            <span className="family-name">{family}</span>
           </div>
           <div className="snippet-content" style={textStyle}>
             {textContent}

@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-one-expression-per-line */
 function TaleOfTwoCities() {
   return (
     <article id="tale-of-two-cities" className="book-snippet">

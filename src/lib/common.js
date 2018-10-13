@@ -2,9 +2,9 @@ import _ from 'lodash';
 
 function isUndefinedOrEmpty(value) {
   return (
-    _.isNull(value) ||
-    _.isUndefined(value) ||
-    (!_.isNumber(value) && _.isEmpty(value))
+    _.isNull(value)
+    || _.isUndefined(value)
+    || (!_.isNumber(value) && _.isEmpty(value))
   );
 }
 

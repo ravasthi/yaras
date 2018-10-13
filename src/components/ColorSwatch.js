@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 /**
  * A component to display color swatches. Used for the style guide. This component's code
  * modified from
  * https://github.com/styleguidist/react-styleguidist/issues/779#issuecomment-358180098
  */
-class ColorSwatch extends React.PureComponent {
+class ColorSwatch extends PureComponent {
   render() {
     const {
       name,

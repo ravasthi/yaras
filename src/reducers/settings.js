@@ -6,8 +6,8 @@ import _ from 'lodash';
 const settingsReducer = handleActions({
   ADD_GLOBAL_SETTING: (state, action) => {
     if (
-      isUndefinedOrEmpty(action.payload.name) ||
-      isUndefinedOrEmpty(action.payload.value)
+      isUndefinedOrEmpty(action.payload.name)
+      || isUndefinedOrEmpty(action.payload.value)
     ) {
       return state;
     }
@@ -19,9 +19,9 @@ const settingsReducer = handleActions({
 
   ADD_SETTING_FOR_PAGE: (state, action) => {
     if (
-      isUndefinedOrEmpty(action.payload.page) ||
-      isUndefinedOrEmpty(action.payload.name) ||
-      isUndefinedOrEmpty(action.payload.value)
+      isUndefinedOrEmpty(action.payload.page)
+      || isUndefinedOrEmpty(action.payload.name)
+      || isUndefinedOrEmpty(action.payload.value)
     ) {
       return state;
     }
@@ -47,14 +47,14 @@ const settingsReducer = handleActions({
 
   REMOVE_SETTING_FOR_PAGE: (state, action) => {
     if (
-      isUndefinedOrEmpty(action.payload.page) ||
-      isUndefinedOrEmpty(action.payload.name)
+      isUndefinedOrEmpty(action.payload.page)
+      || isUndefinedOrEmpty(action.payload.name)
     ) {
       return state;
     }
 
-    if (state[action.payload.page] &&
-        state[action.payload.page][action.payload.name]) {
+    if (state[action.payload.page]
+        && state[action.payload.page][action.payload.name]) {
       delete state[action.payload.page][action.payload.name];
     }
 

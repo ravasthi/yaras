@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-one-expression-per-line */
 function CountOfMonteCristo() {
   return (
     <article id="count-of-monte-cristo" className="book-snippet">

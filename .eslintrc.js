@@ -7,7 +7,7 @@ var eslintConfig = {
     'babel',
     'import',
     'react',
-    'sort-imports-es6'
+    'sort-imports-es6-autofix',
   ],
   rules: {
     'class-methods-use-this': ['error'],
@@ -22,21 +22,26 @@ var eslintConfig = {
     'generator-star-spacing': ['error', 'before'],
     'import/extensions': ['off'],
     'import/first': ['error', null],
-    'indent': ['error', 2],
+    'import/order': ['off'],
+    indent: ['error', 2],
     'jsx-a11y/anchor-is-valid': ['error', {
-      'components': ['Link'],
-      'specialLink': ['hrefLeft', 'hrefRight', 'to'],
-      'aspects': ['noHref', 'invalidHref', 'preferButton']
+      components: ['Link'],
+      specialLink: ['hrefLeft', 'hrefRight', 'to'],
+      aspects: ['noHref', 'invalidHref', 'preferButton']
     }],
     'jsx-a11y/label-has-for': ['error', {
-      'required': {
-          'some': [ 'nesting', 'id' ]
+      components: [],
+      required: {
+        some: ['nesting', 'id'],
       },
-      'allowChildren': false
+      allowChildren: false,
+    }],
+    'jsx-a11y/label-has-associated-control': ['error', {
+      assert: 'either',
     }],
     'max-len': ['error', {
-      'code': 100,
-      'ignoreUrls': true
+      code: 100,
+      ignoreUrls: true
     }],
     'no-param-reassign': ['error', { 'props': false }],
     'no-plusplus': ['off'],
@@ -55,10 +60,10 @@ var eslintConfig = {
     'react/jsx-filename-extension': ['off'],
     'react/jsx-indent': ['error', 2],
     'react/jsx-indent-props': ['error', 2],
-    'sort-imports-es6/sort-imports-es6': ['error', {
-      'ignoreCase': true,
-      'ignoreMemberSort': false,
-      'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single']
+    'sort-imports-es6-autofix/sort-imports-es6': ['error', {
+      ignoreCase: true,
+      ignoreMemberSort: false,
+      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
     }]
   },
   settings: {

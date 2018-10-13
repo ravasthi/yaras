@@ -1,13 +1,13 @@
 {
   "presets": [
     "react-app",
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
        "node": "current"
       }
     }]
   ],
-  "plugins": ["transform-class-properties"],
+  "plugins": ["@babel/plugin-proposal-class-properties"],
   "env": {
     "test": {
       "plugins": ["rewire"]

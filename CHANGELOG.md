@@ -1,5 +1,61 @@
 # Changelog
 
+## 3.0.0
+*13 October 2018*
+
+Huge batch of package upgrades, including several major-version upgrades—babel@7, react-scripts, eslint, eslint-config-airbnb, nyc, sinon—and attendant changes/fixes. Complete list of upgraded packages:
+
+* @babel/core
+* @babel/plugin-proposal-class-properties
+* @babel/preset-env
+* @babel/runtime
+* @babel/template
+* @babel/types
+* @fortawesome/fontawesome-common-types
+* @fortawesome/fontawesome-free
+* @fortawesome/fontawesome-svg-core
+* @fortawesome/free-brands-svg-icons
+* @fortawesome/free-regular-svg-icons
+* @fortawesome/free-solid-svg-icons
+* @fortawesome/react-fontawesome
+* babel-eslint
+* babel-loader
+* babel-plugin-rewire
+* babel-preset-react-app
+* chai
+* chai-enzyme
+* coveralls
+* cross-env
+* enzyme
+* enzyme-adapter-react-16
+* eslint
+* eslint-config-airbnb
+* eslint-plugin-babel
+* eslint-plugin-import
+* eslint-plugin-jsx-a11y
+* eslint-plugin-react
+* jsdom
+* localforage
+* lodash
+* node-sass-chokidar
+* nyc
+* prop-types
+* react
+* react-dom
+* react-router-dom
+* react-scripts
+* react-styleguidist
+* redux
+* redux-actions
+* redux-devtools-extension
+* redux-persist
+* redux-thunk
+* reset-css
+* sinon
+* style-loader
+* stylelint
+* stylelint-order
+
 ## 2.0.4
 *23 May 2018*
 
