@@ -1,5 +1,35 @@
 # Changelog
 
+## 3.0.1
+*11 November 2018*
+
+Package upgrades:
+
+* @babel/core
+* @babel/preset-env
+* @babel/runtime
+* @babel/types
+* @fortawesome/fontawesome-free
+* @fortawesome/fontawesome-svg-core
+* @fortawesome/free-brands-svg-icons
+* @fortawesome/free-regular-svg-icons
+* @fortawesome/free-solid-svg-icons
+* babel-preset-react-app
+* enzyme-adapter-react-16
+* eslint
+* fsevents
+* jsdom
+* localforage
+* nyc
+* react
+* react-dom
+* react-redux
+* react-scripts
+* react-styleguidist
+* redux-actions
+* sinon
+* stylelint
+
 ## 3.0.0
 *13 October 2018*
 
