@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.0.2
+*18 November 2018*
+
+Package upgrades:
+
+* @babel/core
+* @babel/preset-env
+* @babel/types
+* eslint-plugin-babel
+* react
+* react-dom
+* react-styleguidist
+
 ## 3.0.1
 *11 November 2018*
 
