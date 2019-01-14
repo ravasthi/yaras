@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.0.4
+*13 January 2019*
+
+Package upgrades:
+
+* @babel/plugin-proposal-class-properties
+* @babel/preset-env
+* @fortawesome/fontawesome-free
+* @fortawesome/fontawesome-svg-core
+* @fortawesome/free-brands-svg-icons
+* @fortawesome/free-regular-svg-icons
+* @fortawesome/free-solid-svg-icons
+* babel-loader
+* babel-preset-react-app
+* eslint
+* eslint-plugin-react
+* react
+* react-dom
+* react-scripts
+
 ## 3.0.3
 *16 December 2018*
 
