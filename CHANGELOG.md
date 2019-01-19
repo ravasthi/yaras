@@ -1,7 +1,7 @@
 # Changelog
 
 ## 3.0.4
-*13 January 2019*
+*19 January 2019*
 
 Package upgrades:
 
