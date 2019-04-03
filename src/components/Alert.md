@@ -1,5 +1,6 @@
 ```js
 require('../../src/lib/fontAwesome');
+import AlertContainer from './AlertContainer';
 
 <AlertContainer>
     <Alert severity="warning">Running low on disk space: 10% remaining.</Alert>
