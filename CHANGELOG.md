@@ -1,5 +1,44 @@
 # Changelog
 
+## 3.0.5
+*02 April 2019*
+
+Package upgrades:
+
+* @babel/core
+* @babel/plugin-proposal-class-properties
+* @babel/preset-env
+* @babel/register
+* @babel/runtime
+* @babel/template
+* @babel/types
+* @fortawesome/fontawesome-free
+* @fortawesome/fontawesome-svg-core
+* @fortawesome/free-brands-svg-icons
+* @fortawesome/free-regular-svg-icons
+* @fortawesome/free-solid-svg-icons
+* babel-preset-react-app
+* coveralls
+* enzyme
+* enzyme-adapter-react-16
+* eslint
+* eslint-plugin-jsx-a11y
+* eslint-plugin-sort-imports-es6-autofix
+* jsdom
+* mocha
+* nyc
+* prop-types
+* react
+* react-dom
+* react-redux
+* react-router-dom
+* react-scripts
+* react-styleguidist
+* redux-actions
+* redux-devtools-extension
+* sinon
+* stylelint-order
+
 ## 3.0.4
 *01 February 2019*
 
