@@ -63,6 +63,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-sort-imports-es6-autofix": "^0.4.0",
+    "fsevents": "^2.1.2",
     "ignore-styles": "^5.0.1",
     "jsdom": "^14.0.0",
     "jsdom-global": "^3.0.2",
@@ -79,7 +80,8 @@
     "stylelint-order": "^2.0.0"
   },
   "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
+    "babel-core": "7.0.0-bridge.0",
+    "fsevents": "^2.1.2"
   },
   "nyc": {
     "check-coverage": true,
@@ -124,9 +126,7 @@
     "styleguide:build": "styleguidist build",
     "eject": "react-scripts eject"
   },
-  "optionalDependencies": {
-    "fsevents": "^2.0.1"
-  },
+  "optionalDependencies": {},
   "browserslist": [
     ">0.2%",
     "not dead",
