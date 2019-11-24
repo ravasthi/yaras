@@ -1,10 +1,11 @@
 import { getPageTitle } from 'lib/common';
 
-import DocumentTitle from 'react-document-title';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class FontWeightPreviewer extends Component {
+  static pageHeading = 'Preview font weights';
+
   static propTypes = {
     family: PropTypes.string,
     onUpdateFamily: PropTypes.func,
@@ -39,6 +40,10 @@ class FontWeightPreviewer extends Component {
     };
   }
 
+  componentDidMount() {
+    document.title = getPageTitle(this.pageHeading);
+  }
+
   updateFamily(event) {
     const { onUpdateFamily } = this.props;
 
@@ -66,9 +71,7 @@ class FontWeightPreviewer extends Component {
     return (
       <div id="font-weight-previewer">
         <div className="page-content-header">
-          <DocumentTitle title={getPageTitle('Font weight tester')}>
-            <h1>Font weights: 100–900</h1>
-          </DocumentTitle>
+          <h1>{this.pageHeading}</h1>
         </div>
 
         <div className="module">

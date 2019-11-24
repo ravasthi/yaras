@@ -1,11 +1,12 @@
 import { getPageTitle } from 'lib/common';
 
-import DocumentTitle from 'react-document-title';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import snippets from 'lib/book-snippets';
 
 class TypefacePreviewer extends Component {
+  static pageHeading = 'Preview a typeface';
+
   static propTypes = {
     family: PropTypes.string,
     snippetName: PropTypes.oneOf(Object.keys(snippets)),
@@ -55,6 +56,10 @@ class TypefacePreviewer extends Component {
     };
   }
 
+  componentDidMount() {
+    document.title = getPageTitle(this.pageHeading);
+  }
+
   updateFamily(event) {
     event.preventDefault();
 
@@ -93,9 +98,7 @@ class TypefacePreviewer extends Component {
     return (
       <div id="typeface-previewer">
         <div className="page-content-header">
-          <DocumentTitle title={getPageTitle('Typeface tester')}>
-            <h1>Typeface tester</h1>
-          </DocumentTitle>
+          <h1>{this.pageHeading}</h1>
         </div>
 
         <div className="module">

@@ -34,8 +34,8 @@ function StatelessApp() {
             </Link>
             <ul>
               <li><NavLink exact to="/">Home</NavLink></li>
-              <li><NavLink to="/font-weight-previewer">Font weight tester</NavLink></li>
-              <li><NavLink to="/typeface-previewer">Typeface tester</NavLink></li>
+              <li><NavLink to="/font-weight-previewer">Font weight previewer</NavLink></li>
+              <li><NavLink to="/typeface-previewer">Typeface previewer</NavLink></li>
             </ul>
           </nav>
         </div>
