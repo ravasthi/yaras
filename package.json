@@ -32,7 +32,7 @@
     "redux-devtools-extension": "^2.13.7",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "reset-css": "^4.0.1",
+    "reset-css": "^5.0.1",
     "susy": "^3.0.1"
   },
   "devDependencies": {
@@ -73,10 +73,10 @@
     "react-scripts": "^3.2.0",
     "react-styleguidist": "^10.2.1",
     "sinon": "^7.5.0",
-    "style-loader": "^0.23.0",
-    "stylelint": "^9.9.0",
-    "stylelint-config-standard": "^18.0.0",
-    "stylelint-order": "^2.0.0"
+    "style-loader": "^1.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
