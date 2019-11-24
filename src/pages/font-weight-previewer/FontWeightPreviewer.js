@@ -4,18 +4,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class FontWeightPreviewer extends Component {
-  static pageHeading = 'Preview font weights';
-
-  static propTypes = {
-    family: PropTypes.string,
-    onUpdateFamily: PropTypes.func,
-  };
-
-  static defaultProps = {
-    family: 'Avenir Next',
-    onUpdateFamily: /* istanbul ignore next */ () => {},
-  };
-
   static getDerivedStateFromProps(props, state) {
     if (props.family !== state.family) {
       return {
@@ -43,6 +31,8 @@ class FontWeightPreviewer extends Component {
   componentDidMount() {
     document.title = getPageTitle(this.pageHeading);
   }
+
+  static pageHeading = 'Preview font weights';
 
   updateFamily(event) {
     const { onUpdateFamily } = this.props;
@@ -144,5 +134,15 @@ class FontWeightPreviewer extends Component {
     /* eslint-enable react/jsx-one-expression-per-line */
   }
 }
+
+FontWeightPreviewer.propTypes = {
+  family: PropTypes.string,
+  onUpdateFamily: PropTypes.func,
+};
+
+FontWeightPreviewer.defaultProps = {
+  family: 'Avenir Next',
+  onUpdateFamily: /* istanbul ignore next */ () => {},
+};
 
 export default FontWeightPreviewer;

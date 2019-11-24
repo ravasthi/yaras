@@ -5,22 +5,6 @@ import React, { Component } from 'react';
 import snippets from 'lib/book-snippets';
 
 class TypefacePreviewer extends Component {
-  static pageHeading = 'Preview a typeface';
-
-  static propTypes = {
-    family: PropTypes.string,
-    snippetName: PropTypes.oneOf(Object.keys(snippets)),
-    onUpdateFamily: PropTypes.func,
-    onUpdateText: PropTypes.func,
-  };
-
-  static defaultProps = {
-    family: 'Avenir Next',
-    snippetName: 'pride-and-prejudice',
-    onUpdateFamily: /* istanbul ignore next */ () => {},
-    onUpdateText: /* istanbul ignore next */ () => {},
-  };
-
   static getDerivedStateFromProps(props, state) {
     const newState = {};
 
@@ -59,6 +43,8 @@ class TypefacePreviewer extends Component {
   componentDidMount() {
     document.title = getPageTitle(this.pageHeading);
   }
+
+  static pageHeading = 'Preview a typeface';
 
   updateFamily(event) {
     event.preventDefault();
@@ -113,7 +99,7 @@ class TypefacePreviewer extends Component {
                 value={snippetName}
                 onChange={this.updateText}
               >
-                {Object.keys(snippets).map(snippetID => (
+                {Object.keys(snippets).map((snippetID) => (
                   <option
                     value={snippetID}
                     key={snippetID}
@@ -155,5 +141,20 @@ class TypefacePreviewer extends Component {
     );
   }
 }
+
+TypefacePreviewer.propTypes = {
+  family: PropTypes.string,
+  snippetName: PropTypes.oneOf(Object.keys(snippets)),
+  onUpdateFamily: PropTypes.func,
+  onUpdateText: PropTypes.func,
+};
+
+TypefacePreviewer.defaultProps = {
+  family: 'Avenir Next',
+  snippetName: 'pride-and-prejudice',
+  onUpdateFamily: /* istanbul ignore next */ () => {},
+  onUpdateText: /* istanbul ignore next */ () => {},
+};
+
 
 export default TypefacePreviewer;

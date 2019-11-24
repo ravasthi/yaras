@@ -12,7 +12,7 @@ const addGlobalSetting = createAction(
 
 const removeGlobalSetting = createAction(
   REMOVE_GLOBAL_SETTING,
-  name => ({ name })
+  (name) => ({ name })
 );
 
 const addSettingForPage = createAction(
