@@ -29,19 +29,19 @@ describe('reducers for settings', () => {
     };
 
     priorStateWithPageSettings = {
-      fontWeightTester: {
+      FontWeightPreviewer: {
         family: 'Helvetica Neue',
       },
-      typefaceTester: {
-        snippet: 'scandal-in-bohemia',
+      typefacePreviewer: {
+        snippetName: 'scandal-in-bohemia',
         family: 'Helvetica Neue',
       },
     };
 
     priorStateWithGlobalAndPageSettings = {
       family: 'Helvetica Neue',
-      typefaceTester: {
-        snippet: 'scandal-in-bohemia',
+      typefacePreviewer: {
+        snippetName: 'scandal-in-bohemia',
       },
     };
   });
@@ -150,11 +150,11 @@ describe('reducers for settings', () => {
   describe('adding a page setting', () => {
     it('should properly create a new page setting', () => {
       const newState = settingsReducer(
-        priorStateEmpty, addSettingForPage('fontWeightTester', 'family', 'Georgia')
+        priorStateEmpty, addSettingForPage('FontWeightPreviewer', 'family', 'Georgia')
       );
 
       expect(newState).to.deep.equal({
-        fontWeightTester: {
+        FontWeightPreviewer: {
           family: 'Georgia',
         },
       });
@@ -162,11 +162,11 @@ describe('reducers for settings', () => {
 
     it('should use the default prior state if none is supplied', () => {
       const newState = settingsReducer(
-        undefined, addSettingForPage('fontWeightTester', 'family', 'Georgia')
+        undefined, addSettingForPage('FontWeightPreviewer', 'family', 'Georgia')
       );
 
       expect(newState).to.deep.equal({
-        fontWeightTester: {
+        FontWeightPreviewer: {
           family: 'Georgia',
         },
       });
@@ -175,15 +175,15 @@ describe('reducers for settings', () => {
     it('should correctly override existing settings', () => {
       const newState = settingsReducer(
         priorStateWithPageSettings,
-        addSettingForPage('fontWeightTester', 'family', 'Georgia')
+        addSettingForPage('FontWeightPreviewer', 'family', 'Georgia')
       );
 
       expect(newState).to.deep.equal({
-        fontWeightTester: {
+        FontWeightPreviewer: {
           family: 'Georgia',
         },
-        typefaceTester: {
-          snippet: 'scandal-in-bohemia',
+        typefacePreviewer: {
+          snippetName: 'scandal-in-bohemia',
           family: 'Helvetica Neue',
         },
       });
@@ -202,22 +202,22 @@ describe('reducers for settings', () => {
 
       const newState3 = settingsReducer(
         priorStateWithPageSettings,
-        addSettingForPage('fontWeightTester', '', 'Georgia')
+        addSettingForPage('FontWeightPreviewer', '', 'Georgia')
       );
 
       const newState4 = settingsReducer(
         priorStateWithPageSettings,
-        addSettingForPage('fontWeightTester', null, 'Georgia')
+        addSettingForPage('FontWeightPreviewer', null, 'Georgia')
       );
 
       const newState5 = settingsReducer(
         priorStateWithPageSettings,
-        addSettingForPage('fontWeightTester', 'family', '')
+        addSettingForPage('FontWeightPreviewer', 'family', '')
       );
 
       const newState6 = settingsReducer(
         priorStateWithPageSettings,
-        addSettingForPage('fontWeightTester', 'family', undefined)
+        addSettingForPage('FontWeightPreviewer', 'family', undefined)
       );
 
       expect(newState1).to.deep.equal(priorStateWithPageSettings);
@@ -232,18 +232,19 @@ describe('reducers for settings', () => {
   describe('removing a page setting', () => {
     it('should properly remove an existing page setting', () => {
       const newState = settingsReducer(
-        priorStateWithGlobalAndPageSettings, removeSettingForPage('typefaceTester', 'snippet')
+        priorStateWithGlobalAndPageSettings,
+        removeSettingForPage('typefacePreviewer', 'snippetName')
       );
 
       expect(newState).to.deep.equal({
         family: 'Helvetica Neue',
-        typefaceTester: {},
+        typefacePreviewer: {},
       });
     });
 
     it('should use the default prior state if none is supplied', () => {
       const newState = settingsReducer(
-        undefined, removeSettingForPage('typefaceTester', 'snippet')
+        undefined, removeSettingForPage('typefacePreviewer', 'snippetName')
       );
 
       expect(newState).to.deep.equal(priorStateEmpty);
@@ -252,22 +253,22 @@ describe('reducers for settings', () => {
     it('should return the prior state if the page or setting name is missing or empty', () => {
       const newState1 = settingsReducer(
         priorStateWithGlobalAndPageSettings,
-        removeSettingForPage('', 'snippet')
+        removeSettingForPage('', 'snippetName')
       );
 
       const newState2 = settingsReducer(
         priorStateWithGlobalAndPageSettings,
-        removeSettingForPage(undefined, 'snippet')
+        removeSettingForPage(undefined, 'snippetName')
       );
 
       const newState3 = settingsReducer(
         priorStateWithGlobalAndPageSettings,
-        removeSettingForPage('typefaceTester', '')
+        removeSettingForPage('typefacePreviewer', '')
       );
 
       const newState4 = settingsReducer(
         priorStateWithGlobalAndPageSettings,
-        removeSettingForPage('typefaceTester', null)
+        removeSettingForPage('typefacePreviewer', null)
       );
 
       expect(newState1).to.deep.equal(priorStateWithGlobalAndPageSettings);
@@ -279,12 +280,12 @@ describe('reducers for settings', () => {
     it('should return the prior state if the page or setting name do not exist in settings', () => {
       const newState1 = settingsReducer(
         priorStateWithGlobalAndPageSettings,
-        removeSettingForPage('fontWeightTester', 'snippet')
+        removeSettingForPage('FontWeightPreviewer', 'snippetName')
       );
 
       const newState2 = settingsReducer(
         priorStateWithGlobalAndPageSettings,
-        removeSettingForPage('fontWeightTester', 'oohdelally')
+        removeSettingForPage('FontWeightPreviewer', 'oohdelally')
       );
 
       expect(newState1).to.deep.equal(priorStateWithGlobalAndPageSettings);

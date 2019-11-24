@@ -5,9 +5,9 @@ import {
 import { mount } from 'enzyme';
 
 import React from 'react';
-import TypefaceTester from 'pages/typeface-tester/TypefaceTester';
+import TypefacePreviewer from 'pages/typeface-previewer/TypefacePreviewer';
 
-describe('TypefaceTester', () => {
+describe('TypefacePreviewer', () => {
   let component;
   let onUpdateFamilyStub;
   let onUpdateTextStub;
@@ -22,7 +22,7 @@ describe('TypefaceTester', () => {
 
   beforeEach(() => {
     component = mount(
-      <TypefaceTester
+      <TypefacePreviewer
         onUpdateFamily={onUpdateFamilyStub}
         onUpdateText={onUpdateTextStub}
       />
@@ -54,7 +54,9 @@ describe('TypefaceTester', () => {
   });
 
   it('should render properly with custom props', () => {
-    component = mount(<TypefaceTester family="Helvetica Neue" snippet="picture-of-dorian-gray" />);
+    component = mount(
+      <TypefacePreviewer family="Helvetica Neue" snippet="picture-of-dorian-gray" />
+    );
 
     expect(component.state('family')).to.equal('Helvetica Neue');
     expect(component.find('.family-name')).to.have.text('Helvetica Neue');
@@ -85,7 +87,7 @@ describe('TypefaceTester', () => {
       select.instance().value = 'scandal-in-bohemia';
       select.simulate('change');
 
-      expect(component.state('snippet')).to.equal('scandal-in-bohemia');
+      expect(component.state('snippetName')).to.equal('scandal-in-bohemia');
       expect(component.find('.story-title').text()).to.equal('A Scandal in Bohemia');
       expect(onUpdateTextStub.callCount).to.equal(1);
     });

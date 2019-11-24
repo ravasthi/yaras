@@ -1,14 +1,14 @@
 import { addGlobalSetting, addSettingForPage } from 'actions/settings';
 import { connect } from 'react-redux';
 
-import TypefaceTester from 'pages/typeface-tester/TypefaceTester';
+import TypefacePreviewer from 'pages/typeface-previewer/TypefacePreviewer';
 
 function mapStateToProps(state) {
   const { settings } = state;
 
   return {
     family: settings.family,
-    snippet: settings.typefaceTester && settings.typefaceTester.snippet,
+    snippetName: settings.typefacePreviewer && settings.typefacePreviewer.snippetName,
   };
 }
 
@@ -18,18 +18,18 @@ function mapDispatchToProps(dispatch) {
       dispatch(addGlobalSetting('family', family));
     },
 
-    onUpdateText: (snippet) => {
-      dispatch(addSettingForPage('typefaceTester', 'snippet', snippet));
+    onUpdateText: (snippetName) => {
+      dispatch(addSettingForPage('typefacePreviewer', 'snippetName', snippetName));
     },
   };
 }
 
-const ConnectedTypefaceTester = connect(
+const ConnectedTypefacePreviewer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TypefaceTester);
+)(TypefacePreviewer);
 
-export default ConnectedTypefaceTester;
+export default ConnectedTypefacePreviewer;
 
 export {
   mapStateToProps,

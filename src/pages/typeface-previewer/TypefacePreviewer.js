@@ -5,20 +5,38 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import snippets from 'lib/book-snippets';
 
-class TypefaceTester extends Component {
+class TypefacePreviewer extends Component {
   static propTypes = {
     family: PropTypes.string,
-    snippet: PropTypes.oneOf(Object.keys(snippets)),
+    snippetName: PropTypes.oneOf(Object.keys(snippets)),
     onUpdateFamily: PropTypes.func,
     onUpdateText: PropTypes.func,
   };
 
   static defaultProps = {
     family: 'Avenir Next',
-    snippet: 'pride-and-prejudice',
+    snippetName: 'pride-and-prejudice',
     onUpdateFamily: /* istanbul ignore next */ () => {},
     onUpdateText: /* istanbul ignore next */ () => {},
   };
+
+  static getDerivedStateFromProps(props, state) {
+    const newState = {};
+
+    if (props.family !== state.family) {
+      newState.family = props.family;
+    }
+
+    if (props.snippetName !== state.snippetName) {
+      newState.snippetName = props.snippetName;
+    }
+
+    if (Object.keys(newState).length === 0) {
+      return null;
+    }
+
+    return newState;
+  }
 
   constructor(props) {
     super(props);
@@ -33,15 +51,8 @@ class TypefaceTester extends Component {
 
     this.state = {
       family: props.family,
-      snippet: props.snippet,
+      snippetName: props.snippetName,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      family: nextProps.family,
-      snippet: nextProps.snippet,
-    });
   }
 
   updateFamily(event) {
@@ -64,7 +75,7 @@ class TypefaceTester extends Component {
     const { onUpdateText } = this.props;
 
     this.setState({
-      snippet: event.target.value,
+      snippetName: event.target.value,
     });
     onUpdateText(event.target.value);
   }
@@ -72,15 +83,15 @@ class TypefaceTester extends Component {
   render() {
     const {
       family,
-      snippet,
+      snippetName,
     } = this.state;
-    const textContent = snippets[snippet].component();
+    const textContent = snippets[snippetName].component();
     const textStyle = {
       fontFamily: family,
     };
 
     return (
-      <div id="typeface-tester">
+      <div id="typeface-previewer">
         <div className="page-content-header">
           <DocumentTitle title={getPageTitle('Typeface tester')}>
             <h1>Typeface tester</h1>
@@ -96,15 +107,15 @@ class TypefaceTester extends Component {
               <select
                 id="select-book"
                 className="books"
-                value={snippet}
+                value={snippetName}
                 onChange={this.updateText}
               >
-                {Object.keys(snippets).map(snippetName => (
+                {Object.keys(snippets).map(snippetID => (
                   <option
-                    value={snippetName}
-                    key={snippetName}
+                    value={snippetID}
+                    key={snippetID}
                   >
-                    {snippets[snippetName].title}
+                    {snippets[snippetID].title}
                   </option>
                 ))}
               </select>
@@ -142,4 +153,4 @@ class TypefaceTester extends Component {
   }
 }
 
-export default TypefaceTester;
+export default TypefacePreviewer;

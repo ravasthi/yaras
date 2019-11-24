@@ -4,7 +4,7 @@ import DocumentTitle from 'react-document-title';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-class FontWeightTester extends Component {
+class FontWeightPreviewer extends Component {
   static propTypes = {
     family: PropTypes.string,
     onUpdateFamily: PropTypes.func,
@@ -14,6 +14,15 @@ class FontWeightTester extends Component {
     family: 'Avenir Next',
     onUpdateFamily: /* istanbul ignore next */ () => {},
   };
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.family !== state.family) {
+      return {
+        family: props.family,
+      };
+    }
+    return null;
+  }
 
   constructor(props) {
     super(props);
@@ -28,12 +37,6 @@ class FontWeightTester extends Component {
     this.state = {
       family: props.family,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      family: nextProps.family,
-    });
   }
 
   updateFamily(event) {
@@ -61,7 +64,7 @@ class FontWeightTester extends Component {
 
     /* eslint-disable react/jsx-one-expression-per-line */
     return (
-      <div id="font-weight-tester">
+      <div id="font-weight-previewer">
         <div className="page-content-header">
           <DocumentTitle title={getPageTitle('Font weight tester')}>
             <h1>Font weights: 100–900</h1>
@@ -139,4 +142,4 @@ class FontWeightTester extends Component {
   }
 }
 
-export default FontWeightTester;
+export default FontWeightPreviewer;

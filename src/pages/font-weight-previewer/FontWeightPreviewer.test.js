@@ -4,10 +4,10 @@ import {
 } from 'lib/testCommon';
 import { mount } from 'enzyme';
 
-import FontWeightTester from 'pages/font-weight-tester/FontWeightTester';
+import FontWeightPreviewer from 'pages/font-weight-previewer/FontWeightPreviewer';
 import React from 'react';
 
-describe('FontWeightTester', () => {
+describe('FontWeightPreviewer', () => {
   let component;
   let onUpdateFamilyStub;
   let sandbox;
@@ -19,7 +19,7 @@ describe('FontWeightTester', () => {
   });
 
   beforeEach(() => {
-    component = mount(<FontWeightTester onUpdateFamily={onUpdateFamilyStub} />);
+    component = mount(<FontWeightPreviewer onUpdateFamily={onUpdateFamilyStub} />);
   });
 
   afterEach(() => {
@@ -42,7 +42,7 @@ describe('FontWeightTester', () => {
   });
 
   it('should render properly with custom props', () => {
-    component = mount(<FontWeightTester family="Helvetica Neue" />);
+    component = mount(<FontWeightPreviewer family="Helvetica Neue" />);
 
     expect(component.state('family')).to.equal('Helvetica Neue');
     expect(component.find('.family-under-test')).to.have.text().equal('Helvetica Neue');
