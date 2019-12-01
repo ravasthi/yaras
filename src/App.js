@@ -1,11 +1,10 @@
 import 'app.css';
-import 'lib/fontAwesome';
 
 import {
   Link,
   NavLink,
   Route,
-  BrowserRouter as Router,
+  BrowserRouter as Router
 } from 'react-router-dom';
 
 import { getStore } from 'store';
@@ -33,17 +32,33 @@ function StatelessApp() {
               <img className="logo" src={logo} alt="logo" />
             </Link>
             <ul>
-              <li><NavLink exact to="/">Home</NavLink></li>
-              <li><NavLink to="/font-weight-previewer">Font weight previewer</NavLink></li>
-              <li><NavLink to="/typeface-previewer">Typeface previewer</NavLink></li>
+              <li>
+                <NavLink exact to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/font-weight-previewer">
+                  Font weight previewer
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/typeface-previewer">Typeface previewer</NavLink>
+              </li>
             </ul>
           </nav>
         </div>
         <div className="page-content-container">
           <div className="page-content">
             <Route exact path="/" component={Home} />
-            <Route path="/font-weight-previewer" component={ConnectedFontWeightPreviewer} />
-            <Route path="/typeface-previewer" component={ConnectedTypefacePreviewer} />
+            <Route
+              path="/font-weight-previewer"
+              component={ConnectedFontWeightPreviewer}
+            />
+            <Route
+              path="/typeface-previewer"
+              component={ConnectedTypefacePreviewer}
+            />
           </div>
         </div>
       </div>
@@ -73,7 +88,4 @@ class App extends Component {
   }
 }
 
-export {
-  App,
-  StatelessApp,
-};
+export { App, StatelessApp };

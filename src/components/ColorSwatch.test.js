@@ -1,49 +1,41 @@
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import ColorSwatch from 'components/ColorSwatch';
 import React from 'react';
 
 describe('ColorSwatch', () => {
-  before(() => {
-    initTests();
-  });
-
-  after(() => {
-    cleanUpTests();
-  });
-
   it('renders properly with default props', () => {
-    const component = mount(<ColorSwatch />);
-    const swatchStyle = component.find('.swatch').getDOMNode().getAttribute('style');
-    const swatchName = component.find('.swatch-name');
-    const swatchValue = component.find('.swatch-value');
+    const { container } = render(<ColorSwatch />);
+    const swatchStyle = window.getComputedStyle(
+      container.querySelector('.swatch')
+    );
+    const swatchName = container.querySelectorAll('.swatch-name');
+    const swatchValue = container.querySelectorAll('.swatch-value');
 
-    expect(component.find('.swatch').length).to.equal(1);
-    expect(swatchName.length).to.equal(1);
-    expect(swatchName.text()).to.equal('white');
-    expect(swatchValue.length).to.equal(1);
-    expect(swatchValue.text()).to.equal('#ffffff');
-    expect(swatchStyle).to.match(/background-color: rgb\(255, 255, 255\)/);
-    expect(swatchStyle).to.match(/width: 320px/);
-    expect(swatchStyle).to.match(/height: 180px/);
+    expect(container.querySelectorAll('.swatch')).toHaveLength(1);
+    expect(swatchName).toHaveLength(1);
+    expect(swatchName[0].textContent).toBe('white');
+    expect(swatchValue).toHaveLength(1);
+    expect(swatchValue[0].textContent).toBe('#ffffff');
+    expect(swatchStyle.backgroundColor).toBe('rgb(255, 255, 255)');
+    expect(swatchStyle.width).toBe('320px');
+    expect(swatchStyle.height).toBe('180px');
   });
 
   it('should allow custom colors and sizes', () => {
-    const component = mount(
+    const { container } = render(
       <ColorSwatch name="dark blue" value="#0f546a" width={200} height={200} />
     );
-    const swatchStyle = component.find('.swatch').getDOMNode().getAttribute('style');
-    const swatchName = component.find('.swatch-name');
-    const swatchValue = component.find('.swatch-value');
+    const swatchStyle = window.getComputedStyle(
+      container.querySelector('.swatch')
+    );
+    const swatchName = container.querySelector('.swatch-name');
+    const swatchValue = container.querySelector('.swatch-value');
 
-    expect(swatchName.text()).to.equal('dark blue');
-    expect(swatchValue.text()).to.equal('#0f546a');
-    expect(swatchStyle).to.match(/background-color: rgb\(15, 84, 106\)/);
-    expect(swatchStyle).to.match(/width: 200px/);
-    expect(swatchStyle).to.match(/height: 200px/);
+    expect(swatchName.textContent).toBe('dark blue');
+    expect(swatchValue.textContent).toBe('#0f546a');
+    expect(swatchStyle.backgroundColor).toBe('rgb(15, 84, 106)');
+    expect(swatchStyle.width).toBe('200px');
+    expect(swatchStyle.height).toBe('200px');
   });
 });

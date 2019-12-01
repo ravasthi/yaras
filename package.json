@@ -18,7 +18,10 @@
     "@fortawesome/free-regular-svg-icons": "^5.3.1",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@fortawesome/react-fontawesome": "^0.1.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
     "cross-env": "^6.0.3",
+    "jest-extended": "^0.11.2",
     "localforage": "^1.5.0",
     "lodash": "^4.17.15",
     "npm-run-all": "^4.1.1",
@@ -43,6 +46,8 @@
     "@babel/runtime": "^7.0.0",
     "@babel/template": "^7.0.0",
     "@babel/types": "^7.0.0",
+    "acorn": "^7.1.0",
+    "acorn-jsx": "^5.1.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-rewire": "^1.1.0",
@@ -61,6 +66,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "fsevents": "^2.1.2",
     "ignore-styles": "^5.0.1",
@@ -94,7 +100,7 @@
       "**/*.test.js",
       "src/index.js",
       "src/registerServiceWorker.js",
-      "src/lib/testCommon.js",
+      "src/setupTests.js",
       "src/lib/book-snippets/*.js"
     ],
     "reporter": [
@@ -107,6 +113,9 @@
     "cache": true,
     "all": true
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "scripts": {
     "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
@@ -117,12 +126,14 @@
     "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
     "test:js": "cross-env NODE_ENV=test NODE_PATH=./src nyc mocha --opts .mocharc 'src/**/*.test.js'",
     "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
-    "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
-    "test": "yarn run test:js",
-    "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi",
+    "test": "react-scripts test --modulePaths=src",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "eject": "react-scripts eject"
+  },
+  "comments": {
+    "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
+    "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi"
   },
   "optionalDependencies": {},
   "browserslist": [

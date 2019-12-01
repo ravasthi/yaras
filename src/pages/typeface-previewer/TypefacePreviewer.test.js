@@ -1,139 +1,161 @@
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
-import { mount } from 'enzyme';
+import { act, fireEvent, render } from '@testing-library/react';
 
 import React from 'react';
 import TypefacePreviewer from 'pages/typeface-previewer/TypefacePreviewer';
 
 describe('TypefacePreviewer', () => {
-  let component;
-  let onUpdateFamilyStub;
-  let onUpdateTextStub;
-  let sandbox;
+  let container;
+  let mockOnUpdateFamily;
+  let mockOnUpdateText;
 
-  before(() => {
-    initTests();
-    sandbox = sinon.createSandbox();
-    onUpdateFamilyStub = sandbox.stub();
-    onUpdateTextStub = sandbox.stub();
+  beforeAll(() => {
+    mockOnUpdateFamily = jest.fn();
+    mockOnUpdateText = jest.fn();
   });
 
   beforeEach(() => {
-    component = mount(
+    container = render(
       <TypefacePreviewer
-        onUpdateFamily={onUpdateFamilyStub}
-        onUpdateText={onUpdateTextStub}
+        onUpdateFamily={mockOnUpdateFamily}
+        onUpdateText={mockOnUpdateText}
       />
-    );
+    ).container;
   });
 
   afterEach(() => {
-    component.unmount();
-    onUpdateFamilyStub.reset();
-    onUpdateTextStub.reset();
-  });
-
-  after(() => {
-    sandbox.restore();
-    cleanUpTests();
+    mockOnUpdateFamily.mockClear();
+    mockOnUpdateText.mockClear();
   });
 
   it('should render properly with default props', () => {
-    expect(component.find('form.settings')).to.have.length(1);
-    expect(component.find('select.books')).to.have.length(1);
-    expect(component.find('input[type="text"].family')).to.have.length(1);
+    expect(container.querySelectorAll('form.settings')).toHaveLength(1);
+    expect(container.querySelectorAll('select.books')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('input[type="text"].family')
+    ).toHaveLength(1);
 
-    expect(component.state('family')).to.equal('Avenir Next');
-    expect(component.find('.family-name')).to.have.text('Avenir Next');
-    expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
+    expect(container.querySelector('.family-name').textContent).toBe(
+      'Avenir Next'
+    );
 
-    expect(component.state('snippet')).to.equal('pride-and-prejudice');
-    expect(component.find('.book-title').text()).to.equal('Pride and Prejudice');
+    const style = window.getComputedStyle(
+      container.querySelector('.snippet-content')
+    );
+    expect(style.fontFamily).toBe('Avenir Next');
+
+    expect(container.querySelector('.book-title').textContent).toBe(
+      'Pride and Prejudice'
+    );
   });
 
   it('should render properly with custom props', () => {
-    component = mount(
-      <TypefacePreviewer family="Helvetica Neue" snippet="picture-of-dorian-gray" />
+    container = render(
+      <TypefacePreviewer
+        family="Helvetica Neue"
+        snippetName="picture-of-dorian-gray"
+      />
+    ).container;
+
+    expect(container.querySelector('.family-name').textContent).toBe(
+      'Helvetica Neue'
     );
 
-    expect(component.state('family')).to.equal('Helvetica Neue');
-    expect(component.find('.family-name')).to.have.text('Helvetica Neue');
-    expect(component.find('.snippet-content')).to.have.style('font-family', 'Helvetica Neue');
+    const style = window.getComputedStyle(
+      container.querySelector('.snippet-content')
+    );
+    expect(style.fontFamily).toBe('Helvetica Neue');
 
-    expect(component.state('snippet')).to.equal('picture-of-dorian-gray');
-    expect(component.find('.book-title').text()).to.equal('The Picture of Dorian Gray');
-  });
-
-  it('should re-render properly when props are updated', () => {
-    component.setProps({
-      family: 'Helvetica Neue',
-      snippet: 'picture-of-dorian-gray',
-    });
-
-    expect(component.state('family')).to.equal('Helvetica Neue');
-    expect(component.find('.family-name')).to.have.text('Helvetica Neue');
-    expect(component.find('.snippet-content')).to.have.style('font-family', 'Helvetica Neue');
-
-    expect(component.state('snippet')).to.equal('picture-of-dorian-gray');
-    expect(component.find('.book-title').text()).to.equal('The Picture of Dorian Gray');
+    expect(container.querySelector('.book-title').textContent).toBe(
+      'The Picture of Dorian Gray'
+    );
   });
 
   describe('interactions', () => {
     it('should update properly when a new snippet is chosen', () => {
-      const select = component.find('select.books');
+      const select = container.querySelector('select.books');
 
-      select.instance().value = 'scandal-in-bohemia';
-      select.simulate('change');
+      act(() => {
+        select.value = 'scandal-in-bohemia';
+        fireEvent.change(select);
+      });
 
-      expect(component.state('snippetName')).to.equal('scandal-in-bohemia');
-      expect(component.find('.story-title').text()).to.equal('A Scandal in Bohemia');
-      expect(onUpdateTextStub.callCount).to.equal(1);
+      expect(container.querySelector('.story-title').textContent).toBe(
+        'A Scandal in Bohemia'
+      );
+      expect(mockOnUpdateText).toHaveBeenCalledTimes(1);
     });
 
     it('should update properly when a new font is chosen', () => {
-      const input = component.find('input.family');
+      const input = container.querySelector('input.family');
 
-      input.instance().value = 'Georgia';
-      component.find('button.update-family').simulate('click');
+      act(() => {
+        input.value = 'Georgia';
+        fireEvent.click(container.querySelector('button.update-family'));
+      });
 
-      expect(component.state('family')).to.equal('Georgia');
-      expect(component.find('.family-name')).to.have.text('Georgia');
-      expect(component.find('.snippet-content')).to.have.style('font-family', 'Georgia');
-      expect(onUpdateFamilyStub.callCount).to.equal(1);
+      expect(container.querySelector('.family-name').textContent).toBe(
+        'Georgia'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.snippet-content')
+      );
+      expect(style.fontFamily).toBe('Georgia');
+
+      expect(mockOnUpdateFamily).toHaveBeenCalledTimes(1);
     });
 
     it('should handle an empty input', () => {
-      component.find('button.update-family').simulate('click');
+      act(() => {
+        fireEvent.click(container.querySelector('button.update-family'));
+      });
 
-      expect(component.state('family')).to.equal('Avenir Next');
-      expect(component.find('.family-name')).to.have.text('Avenir Next');
-      expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
+      expect(container.querySelector('.family-name').textContent).toBe(
+        'Avenir Next'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.snippet-content')
+      );
+      expect(style.fontFamily).toBe('Avenir Next');
     });
 
     it('should handle extraneous spaces', () => {
-      const input = component.find('input.family');
+      const input = container.querySelector('input.family');
 
-      input.instance().value = ' Palatino  ';
-      component.find('button.update-family').simulate('click');
+      act(() => {
+        input.value = ' Palatino  ';
+        fireEvent.click(container.querySelector('button.update-family'));
+      });
 
-      expect(input.instance().value).to.equal('Palatino');
-      expect(component.state('family')).to.equal('Palatino');
-      expect(component.find('.family-name')).to.have.text('Palatino');
-      expect(component.find('.snippet-content')).to.have.style('font-family', 'Palatino');
+      expect(input.value).toBe('Palatino');
+      expect(container.querySelector('.family-name').textContent).toBe(
+        'Palatino'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.snippet-content')
+      );
+      expect(style.fontFamily).toBe('Palatino');
     });
 
     it('should do nothing if only spaces are entered', () => {
-      const input = component.find('input.family');
+      const input = container.querySelector('input.family');
 
-      input.instance().value = '  ';
-      component.find('button.update-family').simulate('click');
+      act(() => {
+        input.value = '  ';
+        fireEvent.click(container.querySelector('button.update-family'));
+      });
 
-      expect(input.instance().value).to.equal('');
-      expect(component.state('family')).to.equal('Avenir Next');
-      expect(component.find('.family-name')).to.have.text('Avenir Next');
-      expect(component.find('.snippet-content')).to.have.style('font-family', 'Avenir Next');
+      expect(input.value).toBe('');
+      expect(container.querySelector('.family-name').textContent).toBe(
+        'Avenir Next'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.snippet-content')
+      );
+      expect(style.fontFamily).toBe('Avenir Next');
     });
   });
 });

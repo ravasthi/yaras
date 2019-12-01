@@ -1,107 +1,128 @@
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
-import { mount } from 'enzyme';
+import { act, fireEvent, render } from '@testing-library/react';
 
 import FontWeightPreviewer from 'pages/font-weight-previewer/FontWeightPreviewer';
 import React from 'react';
 
 describe('FontWeightPreviewer', () => {
-  let component;
-  let onUpdateFamilyStub;
-  let sandbox;
+  let container;
+  let mockOnUpdateFamily;
 
-  before(() => {
-    initTests();
-    sandbox = sinon.createSandbox();
-    onUpdateFamilyStub = sandbox.stub();
+  beforeAll(() => {
+    mockOnUpdateFamily = jest.fn();
   });
 
   beforeEach(() => {
-    component = mount(<FontWeightPreviewer onUpdateFamily={onUpdateFamilyStub} />);
+    container = render(
+      <FontWeightPreviewer onUpdateFamily={mockOnUpdateFamily} />
+    ).container;
   });
 
   afterEach(() => {
-    component.unmount();
-    onUpdateFamilyStub.reset();
-  });
-
-  after(() => {
-    sandbox.restore();
-    cleanUpTests();
+    mockOnUpdateFamily.mockClear();
   });
 
   it('should render properly with default props', () => {
-    expect(component.find('form.choose-family')).to.have.length(1);
-    expect(component.find('input[type="text"].family')).to.have.length(1);
+    const input = container.querySelectorAll('input[type="text"].family');
 
-    expect(component.state('family')).to.equal('Avenir Next');
-    expect(component.find('.family-under-test')).to.have.text().equal('Avenir Next');
-    expect(component.find('.displayed-font')).to.have.style('font-family', 'Avenir Next');
+    expect(container.querySelectorAll('form.choose-family')).toHaveLength(1);
+    expect(input).toHaveLength(1);
+
+    expect(container.querySelector('.family-under-test').textContent).toBe(
+      'Avenir Next'
+    );
+
+    const style = window.getComputedStyle(
+      container.querySelector('.displayed-font')
+    );
+    expect(style.fontFamily).toBe('Avenir Next');
   });
 
   it('should render properly with custom props', () => {
-    component = mount(<FontWeightPreviewer family="Helvetica Neue" />);
+    container = render(<FontWeightPreviewer family="Helvetica Neue" />)
+      .container;
 
-    expect(component.state('family')).to.equal('Helvetica Neue');
-    expect(component.find('.family-under-test')).to.have.text().equal('Helvetica Neue');
-    expect(component.find('.displayed-font')).to.have.style('font-family', 'Helvetica Neue');
-  });
+    expect(container.querySelector('.family-under-test').textContent).toBe(
+      'Helvetica Neue'
+    );
 
-  it('should re-render properly when props are updated', () => {
-    component.setProps({
-      family: 'Helvetica Neue',
-    });
-
-    expect(component.state('family')).to.equal('Helvetica Neue');
-    expect(component.find('.family-under-test')).to.have.text().equal('Helvetica Neue');
-    expect(component.find('.displayed-font')).to.have.style('font-family', 'Helvetica Neue');
+    const style = window.getComputedStyle(
+      container.querySelector('.displayed-font')
+    );
+    expect(style.fontFamily).toBe('Helvetica Neue');
   });
 
   describe('interactions', () => {
     it('should update properly when a new font is chosen', () => {
-      const input = component.find('input.family');
+      const input = container.querySelector('input.family');
 
-      input.instance().value = 'Georgia';
-      component.find('form.choose-family').simulate('submit');
+      act(() => {
+        input.value = 'Georgia';
+        fireEvent.click(container.querySelector('form.choose-family button'));
+      });
 
-      expect(component.state('family')).to.equal('Georgia');
-      expect(component.find('.family-under-test')).to.have.text().equal('Georgia');
-      expect(component.find('.displayed-font')).to.have.style('font-family', 'Georgia');
-      expect(onUpdateFamilyStub.callCount).to.equal(1);
+      expect(container.querySelector('.family-under-test').textContent).toBe(
+        'Georgia'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.displayed-font')
+      );
+      expect(style.fontFamily).toBe('Georgia');
+
+      expect(mockOnUpdateFamily).toHaveBeenCalledTimes(1);
     });
 
     it('should handle an empty input', () => {
-      component.find('form.choose-family').simulate('submit');
+      act(() => {
+        fireEvent.submit(container.querySelector('form.choose-family'));
+      });
 
-      expect(component.state('family')).to.equal('Avenir Next');
-      expect(component.find('.family-under-test')).to.have.text().equal('Avenir Next');
-      expect(component.find('.displayed-font')).to.have.style('font-family', 'Avenir Next');
+      expect(container.querySelector('.family-under-test').textContent).toBe(
+        'Avenir Next'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.displayed-font')
+      );
+      expect(style.fontFamily).toBe('Avenir Next');
     });
 
     it('should handle extraneous spaces', () => {
-      const input = component.find('input.family');
+      const input = container.querySelector('input.family');
 
-      input.instance().value = ' Palatino  ';
-      component.find('form.choose-family').simulate('submit');
+      act(() => {
+        input.value = ' Palatino  ';
+        fireEvent.submit(container.querySelector('form.choose-family'));
+      });
 
-      expect(input.instance().value).to.equal('Palatino');
-      expect(component.state('family')).to.equal('Palatino');
-      expect(component.find('.family-under-test')).to.have.text().equal('Palatino');
-      expect(component.find('.displayed-font')).to.have.style('font-family', 'Palatino');
+      expect(input.value).toBe('Palatino');
+      expect(container.querySelector('.family-under-test').textContent).toBe(
+        'Palatino'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.displayed-font')
+      );
+      expect(style.fontFamily).toBe('Palatino');
     });
 
     it('should do nothing if only spaces are entered', () => {
-      const input = component.find('input.family');
+      const input = container.querySelector('input.family');
 
-      input.instance().value = '  ';
-      component.find('form.choose-family').simulate('submit');
+      act(() => {
+        input.value = '  ';
+        fireEvent.submit(container.querySelector('form.choose-family'));
+      });
 
-      expect(input.instance().value).to.equal('');
-      expect(component.state('family')).to.equal('Avenir Next');
-      expect(component.find('.family-under-test')).to.have.text().equal('Avenir Next');
-      expect(component.find('.displayed-font')).to.have.style('font-family', 'Avenir Next');
+      expect(input.value).toBe('');
+      expect(container.querySelector('.family-under-test').textContent).toBe(
+        'Avenir Next'
+      );
+
+      const style = window.getComputedStyle(
+        container.querySelector('.displayed-font')
+      );
+      expect(style.fontFamily).toBe('Avenir Next');
     });
   });
 });

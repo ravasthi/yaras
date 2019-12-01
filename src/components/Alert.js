@@ -1,3 +1,9 @@
+import {
+  faAsterisk,
+  faCheck,
+  faExclamationTriangle,
+  faInfoCircle
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import PropTypes from 'prop-types';
@@ -10,12 +16,7 @@ import React from 'react';
  * @param {any} props
  */
 function Alert(props) {
-  const {
-    severity,
-    showIcon,
-    children,
-    className,
-  } = props;
+  const { severity, showIcon, children, className } = props;
 
   const classNames = `message ${severity} ${className}`;
 
@@ -23,19 +24,19 @@ function Alert(props) {
   let iconContent;
   if (showIcon) {
     switch (severity) {
-    case 'error':
-      iconContent = <FontAwesomeIcon icon="exclamation-triangle" />;
-      break;
-    case 'warning':
-      iconContent = <FontAwesomeIcon icon="asterisk" />;
-      break;
-    case 'success':
-      iconContent = <FontAwesomeIcon icon="check" />;
-      break;
-    case 'info':
-    default:
-      iconContent = <FontAwesomeIcon icon="info-circle" />;
-      break;
+      case 'error':
+        iconContent = <FontAwesomeIcon icon={faExclamationTriangle} />;
+        break;
+      case 'warning':
+        iconContent = <FontAwesomeIcon icon={faAsterisk} />;
+        break;
+      case 'success':
+        iconContent = <FontAwesomeIcon icon={faCheck} />;
+        break;
+      case 'info':
+      default:
+        iconContent = <FontAwesomeIcon icon={faInfoCircle} />;
+        break;
     }
     icon = <div className="icon">{iconContent}</div>;
   }
@@ -56,13 +57,13 @@ Alert.propTypes = {
   /** The severity of the alert, which governs how it's presented. */
   severity: PropTypes.oneOf(['error', 'warning', 'success', 'info']),
   /** Whether or not to show the default icon matching the severity. */
-  showIcon: PropTypes.bool,
+  showIcon: PropTypes.bool
 };
 
 Alert.defaultProps = {
   className: '',
   severity: 'info',
-  showIcon: false,
+  showIcon: false
 };
 
 export default Alert;

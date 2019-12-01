@@ -1,42 +1,30 @@
 import { addGlobalSetting } from 'actions/settings';
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
 
 import {
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from 'pages/font-weight-previewer/ConnectedFontWeightPreviewer';
 
 describe('ConnectedFontWeightPreviewer', () => {
-  let sandbox;
-  let dispatchStub;
+  let mockDispatch;
 
-  before(() => {
-    initTests();
-    sandbox = sinon.createSandbox();
-    dispatchStub = sandbox.stub();
+  beforeAll(() => {
+    mockDispatch = jest.fn();
   });
 
   afterEach(() => {
-    dispatchStub.reset();
-  });
-
-  after(() => {
-    sandbox.restore();
-    cleanUpTests();
+    mockDispatch.mockClear();
   });
 
   describe('mapStateToProps', () => {
     it('should correctly extract the family setting from state', () => {
       const props = mapStateToProps({
         settings: {
-          family: 'Averta Std',
-        },
+          family: 'Averta Std'
+        }
       });
 
-      expect(props.family).to.equal('Averta Std');
+      expect(props.family).toBe('Averta Std');
     });
   });
 
@@ -44,19 +32,21 @@ describe('ConnectedFontWeightPreviewer', () => {
     let props;
 
     beforeEach(() => {
-      props = mapDispatchToProps(dispatchStub);
+      props = mapDispatchToProps(mockDispatch);
     });
 
     it('should return an object of the right form', () => {
-      expect(props.onUpdateFamily).to.exist();
-      expect(props.onUpdateFamily).to.be.a('function');
+      expect(props.onUpdateFamily).toBeDefined();
+      expect(props.onUpdateFamily).toBeFunction();
     });
 
     it('should call dispatch when onUpdateFamily is invoked', () => {
       props.onUpdateFamily('Brix Slab');
 
-      expect(dispatchStub.callCount).to.equal(1);
-      expect(dispatchStub.calledWith(addGlobalSetting('family', 'Brix Slab'))).to.be.true();
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+      expect(mockDispatch).toHaveBeenCalledWith(
+        addGlobalSetting('family', 'Brix Slab')
+      );
     });
   });
 });

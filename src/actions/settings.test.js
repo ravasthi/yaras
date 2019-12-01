@@ -6,60 +6,47 @@ import {
   REMOVE_GLOBAL_SETTING,
   REMOVE_SETTING_FOR_PAGE,
   removeGlobalSetting,
-  removeSettingForPage,
+  removeSettingForPage
 } from 'actions/settings';
 
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
-
 describe('actions for settings', () => {
-  before(() => {
-    initTests();
-  });
-
-  after(() => {
-    cleanUpTests();
-  });
-
   it('should create the correct action for adding a global setting', () => {
-    expect(addGlobalSetting('family', 'Helvetica Neue')).to.deep.equal({
+    expect(addGlobalSetting('family', 'Helvetica Neue')).toEqual({
       type: ADD_GLOBAL_SETTING,
       payload: {
         name: 'family',
-        value: 'Helvetica Neue',
-      },
+        value: 'Helvetica Neue'
+      }
     });
   });
 
   it('should create the correct action for removing a global setting', () => {
-    expect(removeGlobalSetting('family')).to.deep.equal({
+    expect(removeGlobalSetting('family')).toEqual({
       type: REMOVE_GLOBAL_SETTING,
       payload: {
-        name: 'family',
-      },
+        name: 'family'
+      }
     });
   });
 
   it('should create the correct action for adding a page setting', () => {
-    expect(addSettingForPage('typefacePreviewer', 'family', 'Avenir')).to.deep.equal({
+    expect(addSettingForPage('typefacePreviewer', 'family', 'Avenir')).toEqual({
       type: ADD_SETTING_FOR_PAGE,
       payload: {
         name: 'family',
         page: 'typefacePreviewer',
-        value: 'Avenir',
-      },
+        value: 'Avenir'
+      }
     });
   });
 
   it('should create the correct action for removing a page setting', () => {
-    expect(removeSettingForPage('typefacePreviewer', 'family')).to.deep.equal({
+    expect(removeSettingForPage('typefacePreviewer', 'family')).toEqual({
       type: REMOVE_SETTING_FOR_PAGE,
       payload: {
         name: 'family',
-        page: 'typefacePreviewer',
-      },
+        page: 'typefacePreviewer'
+      }
     });
   });
 });

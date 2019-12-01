@@ -1,39 +1,33 @@
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Alert from 'components/Alert';
 import AlertContainer from 'components/AlertContainer';
 import React from 'react';
 
 describe('AlertContainer', () => {
-  before(() => {
-    initTests();
-  });
-
-  after(() => {
-    cleanUpTests();
-  });
-
   it('renders properly with default props', () => {
-    const component = mount(
+    const { container } = render(
       <AlertContainer>
         <li>An alert</li>
       </AlertContainer>
     );
 
-    expect(component.find('ul').hasClass('alerts')).to.be.true();
+    expect(container.querySelector('ul').getAttribute('class')).toMatch(
+      'alerts'
+    );
   });
 
   it('should allow custom class names', () => {
-    const component = mount(
+    const { container } = render(
       <AlertContainer className="my-custom-class">
-        <Alert severity="warning" showIcon>Pay attention!</Alert>
+        <Alert severity="warning" showIcon>
+          Pay attention!
+        </Alert>
       </AlertContainer>
     );
 
-    expect(component.find('ul').hasClass('alerts')).to.be.true();
+    expect(container.querySelector('ul').getAttribute('class')).toMatch(
+      'my-custom-class'
+    );
   });
 });

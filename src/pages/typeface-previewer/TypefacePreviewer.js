@@ -5,38 +5,38 @@ import React, { Component } from 'react';
 import snippets from 'lib/book-snippets';
 
 class TypefacePreviewer extends Component {
-  static getDerivedStateFromProps(props, state) {
-    const newState = {};
+  // static getDerivedStateFromProps(props, state) {
+  //   const newState = {};
 
-    if (props.family !== state.family) {
-      newState.family = props.family;
-    }
+  //   if (props.family !== state.family) {
+  //     newState.family = props.family;
+  //   }
 
-    if (props.snippetName !== state.snippetName) {
-      newState.snippetName = props.snippetName;
-    }
+  //   if (props.snippetName !== state.snippetName) {
+  //     newState.snippetName = props.snippetName;
+  //   }
 
-    if (Object.keys(newState).length === 0) {
-      return null;
-    }
+  //   if (Object.keys(newState).length === 0) {
+  //     return null;
+  //   }
 
-    return newState;
-  }
+  //   return newState;
+  // }
 
   constructor(props) {
     super(props);
 
     /*
-    ** Ugh: https://github.com/gotwarlost/istanbul/issues/690
-    ** Workaround: https://github.com/gotwarlost/istanbul/issues/690#issuecomment-265718617
-    */
+     ** Ugh: https://github.com/gotwarlost/istanbul/issues/690
+     ** Workaround: https://github.com/gotwarlost/istanbul/issues/690#issuecomment-265718617
+     */
     /* istanbul ignore next */
     this.updateText = this.updateText.bind(this);
     this.updateFamily = this.updateFamily.bind(this);
 
     this.state = {
       family: props.family,
-      snippetName: props.snippetName,
+      snippetName: props.snippetName
     };
   }
 
@@ -66,19 +66,16 @@ class TypefacePreviewer extends Component {
     const { onUpdateText } = this.props;
 
     this.setState({
-      snippetName: event.target.value,
+      snippetName: event.target.value
     });
     onUpdateText(event.target.value);
   }
 
   render() {
-    const {
-      family,
-      snippetName,
-    } = this.state;
+    const { family, snippetName } = this.state;
     const textContent = snippets[snippetName].component();
     const textStyle = {
-      fontFamily: family,
+      fontFamily: family
     };
 
     return (
@@ -90,39 +87,38 @@ class TypefacePreviewer extends Component {
         <div className="module">
           <form className="settings" onSubmit={this.updateFamily}>
             <div className="field">
-              <label htmlFor="select-book">
-                Choose a book
-              </label>
+              <label htmlFor="select-book">Choose a book</label>
               <select
                 id="select-book"
                 className="books"
                 value={snippetName}
                 onChange={this.updateText}
               >
-                {Object.keys(snippets).map((snippetID) => (
-                  <option
-                    value={snippetID}
-                    key={snippetID}
-                  >
+                {Object.keys(snippets).map(snippetID => (
+                  <option value={snippetID} key={snippetID}>
                     {snippets[snippetID].title}
                   </option>
                 ))}
               </select>
             </div>
             <div className="field">
-              <label htmlFor="font-family">
-                Choose a typeface
-              </label>
+              <label htmlFor="font-family">Choose a typeface</label>
               <input
                 type="text"
                 id="font-family"
                 className="family"
                 placeholder="Font family name, e.g. Helvetica"
                 autoCapitalize="words"
-                ref={(input) => { this.textInput = input; }}
+                ref={input => {
+                  this.textInput = input;
+                }}
               />
             </div>
-            <button type="button" className="update-family" onClick={this.updateFamily}>
+            <button
+              type="button"
+              className="update-family"
+              onClick={this.updateFamily}
+            >
               Change typeface
             </button>
           </form>
@@ -146,15 +142,14 @@ TypefacePreviewer.propTypes = {
   family: PropTypes.string,
   snippetName: PropTypes.oneOf(Object.keys(snippets)),
   onUpdateFamily: PropTypes.func,
-  onUpdateText: PropTypes.func,
+  onUpdateText: PropTypes.func
 };
 
 TypefacePreviewer.defaultProps = {
   family: 'Avenir Next',
   snippetName: 'pride-and-prejudice',
   onUpdateFamily: /* istanbul ignore next */ () => {},
-  onUpdateText: /* istanbul ignore next */ () => {},
+  onUpdateText: /* istanbul ignore next */ () => {}
 };
-
 
 export default TypefacePreviewer;
