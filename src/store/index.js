@@ -14,11 +14,11 @@ function initReducer() {
   const persistenceSettings = {
     storage: localForage,
     keyPrefix: 'yaras:',
-    key: 'state'
+    key: 'state',
   };
 
   return persistCombineReducers(persistenceSettings, {
-    settings: settingsReducer
+    settings: settingsReducer,
   });
 }
 
@@ -37,7 +37,11 @@ function persistApplicationStore(applicationStore) {
 
 function getReducer() {
   if (!reducer) {
+    // console.log('reducer not initialized');
+
     reducer = exports.initReducer();
+    // } else  {
+    //   console.log('reducer exists!');
   }
 
   return reducer;
@@ -45,8 +49,12 @@ function getReducer() {
 
 function getStore() {
   if (!store) {
+    // console.log('store not initialized');
+
     store = exports.initStore(exports.getReducer());
     persistor = exports.persistApplicationStore(store);
+    // } else {
+    //   console.log('store exists!');
   }
 
   return { persistor, store };
@@ -57,5 +65,5 @@ export {
   initStore,
   getReducer,
   getStore,
-  persistApplicationStore
+  persistApplicationStore,
 };

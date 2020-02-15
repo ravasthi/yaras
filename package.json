@@ -114,7 +114,8 @@
     "all": true
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "scripts": {
     "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
