@@ -32,7 +32,7 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: yarn run test
+          command: yarn test:ci
       # - run:
       #     name: code-coverage
       #     command: './node_modules/.bin/nyc report --reporter=text-lcov'

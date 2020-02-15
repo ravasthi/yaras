@@ -52,13 +52,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-rewire": "^1.1.0",
     "babel-preset-react-app": "^9.0.2",
-    "chai": "^4.1.2",
-    "chai-enzyme": "^1.0.0-beta.1",
     "cheerio": "^1.0.0-rc.3",
-    "coveralls": "^3.0.8",
-    "dirty-chai": "^2.0.1",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.7.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-import-resolver-node": "^0.3.1",
@@ -72,13 +66,10 @@
     "ignore-styles": "^5.0.1",
     "jsdom": "^15.2.1",
     "jsdom-global": "^3.0.2",
-    "mocha": "^6.2.2",
     "node-sass-chokidar": "^1.1.0",
-    "nyc": "^14.1.1",
     "react-addons-test-utils": "^15.6.0",
     "react-scripts": "^3.2.0",
     "react-styleguidist": "^10.2.1",
-    "sinon": "^7.5.0",
     "style-loader": "^1.0.0",
     "stylelint": "^12.0.0",
     "stylelint-config-standard": "^19.0.0",
@@ -87,31 +78,15 @@
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
   },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 90,
-    "statements": 90,
-    "functions": 90,
-    "branches": 90,
-    "include": [
-      "src/**/*.js"
-    ],
-    "exclude": [
-      "**/*.test.js",
-      "src/index.js",
-      "src/registerServiceWorker.js",
-      "src/setupTests.js",
-      "src/lib/book-snippets/*.js"
-    ],
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "require": [
-      "@babel/register"
-    ],
-    "cache": true,
-    "all": true
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/setupTests.js",
+      "!src/lib/fontAwesome.js",
+      "!src/lib/book-snippets/*.js"
+    ]
   },
   "prettier": {
     "singleQuote": true,
@@ -125,16 +100,14 @@
     "start:js": "cross-env NODE_PATH=./src react-scripts start",
     "start": "run-p watch:css start:js",
     "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
-    "test:js": "cross-env NODE_ENV=test NODE_PATH=./src nyc mocha --opts .mocharc 'src/**/*.test.js'",
-    "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
-    "test": "react-scripts test --modulePaths=src",
+    "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false --coverage",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "eject": "react-scripts eject"
   },
   "comments": {
-    "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
-    "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi"
+    "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js"
   },
   "optionalDependencies": {},
   "browserslist": [
