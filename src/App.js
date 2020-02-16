@@ -1,13 +1,14 @@
 import 'app.css';
 
+import storeGetters from 'store';
+
 import {
   Link,
   NavLink,
   Route,
-  BrowserRouter as Router
+  BrowserRouter as Router,
 } from 'react-router-dom';
 
-import { getStore } from 'store';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { Provider } from 'react-redux';
 
@@ -71,7 +72,7 @@ function StatelessApp() {
 class App extends Component {
   render() {
     if (!persistor || !store) {
-      const storeObj = getStore();
+      const storeObj = storeGetters.getStore();
       /* eslint-disable prefer-destructuring */
       persistor = storeObj.persistor;
       store = storeObj.store;

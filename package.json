@@ -79,6 +79,14 @@
     "babel-core": "7.0.0-bridge.0"
   },
   "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",

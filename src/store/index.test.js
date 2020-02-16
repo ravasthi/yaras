@@ -1,4 +1,6 @@
-import * as storeModule from 'store';
+import * as initializers from 'store/initializers';
+
+import storeGetters from 'store';
 
 describe('Redux store utilities', () => {
   let mockInitStore;
@@ -7,13 +9,13 @@ describe('Redux store utilities', () => {
   let spyPersistApplicationStore;
 
   beforeEach(() => {
-    spyGetReducer = jest.spyOn(storeModule, 'getReducer');
-    spyInitReducer = jest.spyOn(storeModule, 'initReducer');
+    spyGetReducer = jest.spyOn(storeGetters, 'getReducer');
+    spyInitReducer = jest.spyOn(initializers, 'initReducer');
     mockInitStore = jest
-      .spyOn(storeModule, 'initStore')
+      .spyOn(initializers, 'initStore')
       .mockImplementation(() => {});
     spyPersistApplicationStore = jest
-      .spyOn(storeModule, 'persistApplicationStore')
+      .spyOn(initializers, 'persistApplicationStore')
       .mockImplementation(() => {});
   });
 
@@ -27,7 +29,7 @@ describe('Redux store utilities', () => {
   describe('creating a store', () => {
     it('should do the right sequence of things', () => {
       // eslint-disable-next-line no-unused-vars
-      let store = storeModule.getStore();
+      let store = storeGetters.getStore();
 
       expect(spyGetReducer).toHaveBeenCalledTimes(1);
       expect(spyInitReducer).toHaveBeenCalledTimes(1);
@@ -39,7 +41,7 @@ describe('Redux store utilities', () => {
        ** to get called again.
        ** TODO: re-enable this; not currently working.
        */
-      store = storeModule.getStore();
+      store = storeGetters.getStore();
 
       // expect(spyGetReducer).toHaveBeenCalledTimes(1);
       expect(spyInitReducer).toHaveBeenCalledTimes(1);
@@ -50,7 +52,7 @@ describe('Redux store utilities', () => {
        ** Finally, when calling getReducer a second time, expect that initReducer isn't called
        ** as well.
        */
-      storeModule.getReducer();
+      storeGetters.getReducer();
 
       expect(spyInitReducer).toHaveBeenCalledTimes(1);
     });
