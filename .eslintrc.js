@@ -2,7 +2,12 @@ var path = require('path');
 
 var eslintConfig = {
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:jest/recommended', 'plugin:jest/style'],
+  extends: [
+    'airbnb',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
+    'prettier',
+  ],
   plugins: ['babel', 'import', 'jest', 'react', 'sort-imports-es6-autofix'],
   rules: {
     'class-methods-use-this': ['error'],

@@ -3,8 +3,11 @@
 
 /*----------[ text famlies ]----------------------------------------------------
 */
-$body-text-family: 'Avenir Next', Avenir, 'DejaVu Sans', 'Bitstream Vera Sans', Tahoma, Verdana, sans-serif;
+/* stylelint-disable value-keyword-case */
+$body-text-family: 'Avenir Next', Avenir, 'DejaVu Sans', 'Bitstream Vera Sans',
+  Tahoma, Verdana, sans-serif;
 $monospace-text-family: Consolas, Menlo, 'Lucida Console', monospace;
+/* stylelint-enable value-keyword-case */
 $button-text-family: $body-text-family;
 
 /*----------[ text sizes ]------------------------------------------------------
@@ -12,20 +15,20 @@ $button-text-family: $body-text-family;
 $body-text-size: 18px;
 $body-text-line-height: 1.5rem; // 27px
 
-$secondary-text-size: 0.8333333333rem;        // 15px
+$secondary-text-size: 0.8333333333rem; // 15px
 $secondary-text-line-height: 1.1666666667rem; // 21px
 
 $small-text-size: 0.6666666667rem; // 12px
 $small-text-line-height: 1rem;
 
-$large-text-size: 1.1666666667rem;        // 21px
+$large-text-size: 1.1666666667rem; // 21px
 $large-text-line-height: 1.6666666667rem; // 30px
 
 $page-heading-text-size: 2.3333333333rem; // 42px
-$page-heading-text-line-height : 3rem;    // 54px
+$page-heading-text-line-height: 3rem; // 54px
 
 $subheading-text-size: 1.6666666667rem; // 30px
-$subheading-text-line-height: 2rem;     // 36px
+$subheading-text-line-height: 2rem; // 36px
 
 /*----------[ other text properties ]--------------------------------------------------------
 */

@@ -1,38 +1,32 @@
 var selectorRegex = /^[a-z#][a-z0-9\-\${}]*$/;
-var selectorErrorMessage = 'Selectors need to be in lower spine case (e.g. foo-bar).';
+var selectorErrorMessage =
+  'Selectors need to be in lower spine case (e.g. foo-bar).';
 var selectorClassOption = [
-  selectorRegex, {
+  selectorRegex,
+  {
     resolveNestedSelectors: true,
-    message: selectorErrorMessage
-  }
+    message: selectorErrorMessage,
+  },
 ];
 var selectorIDOption = [
-  selectorRegex, {
-    message: selectorErrorMessage
-  }
+  selectorRegex,
+  {
+    message: selectorErrorMessage,
+  },
 ];
 
 var styleLintOptions = {
-  extends: 'stylelint-config-standard',
-  plugins: [
-    'stylelint-order'
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+  plugins: ['stylelint-order'],
   rules: {
     // Temporarily disabling as it seems to be giving false negatives for legal scss at-rules.
     'at-rule-no-unknown': null,
-    'comment-whitespace-inside': null,
-    'function-url-quotes': 'never',
-    'block-opening-brace-newline-after': 'always',
     'block-closing-brace-newline-before': 'always',
+    'block-opening-brace-newline-after': 'always',
+    'comment-whitespace-inside': null,
     'declaration-empty-line-before': null,
-    'rule-empty-line-before': ['always', {
-      except: ['first-nested', 'after-single-line-comment'],
-      ignore: ['after-comment']
-    }],
-    'selector-class-pattern': selectorClassOption,
-    'selector-id-pattern': selectorIDOption,
-    'string-quotes': 'single',
     'declaration-no-important': true,
+    'function-url-quotes': 'never',
     'order/properties-order': [
       {
         emptyLineBefore: 'always',
@@ -96,19 +90,12 @@ var styleLintOptions = {
           'column-rule-style',
           'column-rule-width',
           'column-span',
-          'column-width'
+          'column-width',
         ],
       },
       {
         emptyLineBefore: 'always',
-        properties: [
-          'position',
-          'z-index',
-          'top',
-          'right',
-          'bottom',
-          'left'
-        ]
+        properties: ['position', 'z-index', 'top', 'right', 'bottom', 'left'],
       },
       {
         emptyLineBefore: 'always',
@@ -204,8 +191,8 @@ var styleLintOptions = {
           'max-width',
           'height',
           'min-height',
-          'max-height'
-        ]
+          'max-height',
+        ],
       },
       {
         emptyLineBefore: 'always',
@@ -217,8 +204,8 @@ var styleLintOptions = {
           'page-break-before',
           'page-break-inside',
           'orphans',
-          'widows'
-        ]
+          'widows',
+        ],
       },
       {
         emptyLineBefore: 'always',
@@ -231,8 +218,8 @@ var styleLintOptions = {
           'list-style',
           'list-style-position',
           'list-style-type',
-          'list-style-image'
-        ]
+          'list-style-image',
+        ],
       },
       {
         emptyLineBefore: 'always',
@@ -247,7 +234,7 @@ var styleLintOptions = {
           'background',
           'filter',
           'filter:progid:DXImageTransform.Microsoft.Alpha(Opacity)',
-          '-ms-filter:\'progid:DXImageTransform.Microsoft.Alpha\'',
+          "-ms-filter:'progid:DXImageTransform.Microsoft.Alpha'",
           '-ms-interpolation-mode',
           'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader',
           'background-color',
@@ -272,9 +259,9 @@ var styleLintOptions = {
           '-moz-box-shadow',
           'box-shadow',
           'filter:progid:DXImageTransform.Microsoft.gradient',
-          '-ms-filter:\'progid:DXImageTransform.Microsoft.gradient\'',
-          'text-shadow'
-        ]
+          "-ms-filter:'progid:DXImageTransform.Microsoft.gradient'",
+          'text-shadow',
+        ],
       },
       {
         emptyLineBefore: 'always',
@@ -293,8 +280,8 @@ var styleLintOptions = {
           'font-emphasize',
           'font-emphasize-position',
           'font-emphasize-style',
-          'font-smooth'
-        ]
+          'font-smooth',
+        ],
       },
       {
         emptyLineBefore: 'always',
@@ -428,11 +415,25 @@ var styleLintOptions = {
           'tab-size',
           '-webkit-hyphens',
           '-moz-hyphens',
-          'hyphens'
-        ]
-      }
-    ]
-  }
+          'hyphens',
+        ],
+      },
+    ],
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested', 'after-single-line-comment'],
+        ignore: ['after-comment'],
+      },
+    ],
+    'selector-class-pattern': selectorClassOption,
+    'selector-id-pattern': selectorIDOption,
+    'string-quotes': 'single',
+    'value-keyword-case': [
+      'lower',
+      { ignoreProperties: ['/$[a-z-]+text-family/'] },
+    ],
+  },
 };
 
 module.exports = styleLintOptions;

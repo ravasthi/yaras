@@ -55,6 +55,7 @@
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.7.0",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-import-resolver-node": "^0.3.1",
     "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-import": "^2.18.2",
@@ -64,15 +65,19 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "fsevents": "^2.1.2",
+    "husky": "^4.2.3",
     "ignore-styles": "^5.0.1",
     "jsdom": "^16.1.0",
     "jsdom-global": "^3.0.2",
+    "lint-staged": "^10.0.7",
     "node-sass-chokidar": "^1.1.0",
+    "prettier": "^1.19.1",
     "react-addons-test-utils": "^15.6.0",
     "react-scripts": "^3.2.0",
     "react-styleguidist": "^10.2.1",
     "style-loader": "^1.1.3",
     "stylelint": "^13.2.0",
+    "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0"
   },
@@ -101,14 +106,30 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --config=stylelint.config.js",
+      "prettier --write",
+      "git add"
+    ]
+  },
   "scripts": {
-    "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "lint:js": "eslint --config=.eslintrc.js .",
-    "start:js": "cross-env NODE_PATH=./src react-scripts start",
+    "start:js": "react-scripts start",
     "start": "run-p watch:css start:js",
-    "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
+    "build": "yarn run build:css && react-scripts build",
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false --coverage",
     "styleguide": "styleguidist server",

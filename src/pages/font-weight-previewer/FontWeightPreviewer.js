@@ -4,19 +4,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class FontWeightPreviewer extends Component {
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log('in getDerivedStateFromProps');
-  //   console.log(`props.family = ${props.family}`);
-  //   console.log(`state.family = ${state.family}`);
-
-  //   if (props.family !== state.family) {
-  //     return {
-  //       family: props.family
-  //     };
-  //   }
-  //   return null;
-  // }
-
   constructor(props) {
     super(props);
 
@@ -82,7 +69,7 @@ class FontWeightPreviewer extends Component {
               className="family"
               placeholder="Font family name, e.g. Helvetica"
               autoCapitalize="words"
-              ref={(input) => {
+              ref={input => {
                 this.textInput = input;
               }}
             />
