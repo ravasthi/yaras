@@ -64,7 +64,6 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
-    "fsevents": "^2.1.2",
     "husky": "^4.2.3",
     "ignore-styles": "^5.0.1",
     "jsdom": "^16.1.0",
@@ -80,6 +79,9 @@
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
   },
   "resolutions": {
     "picomatch": "^2.2.1"
@@ -139,7 +141,6 @@
   "comments": {
     "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js"
   },
-  "optionalDependencies": {},
   "browserslist": [
     ">0.2%",
     "not dead",
