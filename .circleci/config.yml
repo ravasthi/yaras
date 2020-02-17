@@ -6,16 +6,6 @@ jobs:
     docker:
       - image: circleci/node:latest
 
-    dependencies:
-      override:
-        - yarn
-      cache_directories:
-        - ~/.cache/yarn
-
-    test:
-      override:
-        - yarn test:ci
-
     steps:
       - checkout
       # - run:
