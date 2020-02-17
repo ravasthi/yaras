@@ -1,10 +1,3 @@
-<!-- Ugh: https://github.com/styleguidist/react-styleguidist/issues/1278#issuecomment-466061395 -->
-
-```js noeditor
-require('../../src/lib/fontAwesome');
-import AlertContainer from './AlertContainer';
-```
-
 ```js
 require('../../src/lib/fontAwesome');
 import AlertContainer from './AlertContainer';
