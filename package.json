@@ -132,14 +132,15 @@
     "start:js": "react-scripts start",
     "start": "run-p watch:css start:js",
     "build": "yarn run build:css && react-scripts build",
+    "testprep": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
     "test": "react-scripts test",
-    "test:ci": "react-scripts test --watchAll=false --coverage",
+    "test:ci": "yarn run testprep && react-scripts test --watchAll=false --coverage",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "eject": "react-scripts eject"
   },
   "comments": {
-    "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js"
+    "pretest": "yarn run testprep"
   },
   "browserslist": [
     ">0.2%",
