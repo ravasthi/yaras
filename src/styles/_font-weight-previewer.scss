@@ -1,6 +1,6 @@
-/*-----[ font-weight-tester ]---------------------------------------------------
+/*-----[ font-weight-previewer ]---------------------------------------------------
 */
-#font-weight-tester {
+#font-weight-previewer {
   $module-gutter-width: 100px;
 
   @each $weight in (100, 200, 300, 400, 500, 600, 700, 800, 900) {

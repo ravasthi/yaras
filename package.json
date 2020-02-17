@@ -1,6 +1,6 @@
 {
   "name": "yaras",
-  "version": "3.0.5",
+  "version": "4.0.0",
   "private": true,
   "license": "MIT",
   "repository": {
@@ -18,22 +18,24 @@
     "@fortawesome/free-regular-svg-icons": "^5.3.1",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@fortawesome/react-fontawesome": "^0.1.2",
-    "cross-env": "^5.2.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.3.2",
+    "cross-env": "^7.0.0",
+    "jest-extended": "^0.11.2",
     "localforage": "^1.5.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "npm-run-all": "^4.1.1",
     "prop-types": "^15.5.10",
     "react": "^16.1.1",
-    "react-document-title": "^2.0.3",
     "react-dom": "^16.2.0",
-    "react-redux": "^6.0.0",
+    "react-redux": "^7.1.3",
     "react-router-dom": "^5.0.0",
-    "redux": "^4.0.0",
+    "redux": "^4.0.4",
     "redux-actions": "^2.6.1",
     "redux-devtools-extension": "^2.13.7",
-    "redux-persist": "^5.10.0",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "reset-css": "^4.0.1",
+    "reset-css": "^5.0.1",
     "susy": "^3.0.1"
   },
   "devDependencies": {
@@ -44,88 +46,101 @@
     "@babel/runtime": "^7.0.0",
     "@babel/template": "^7.0.0",
     "@babel/types": "^7.0.0",
-    "babel-eslint": "^10.0.0",
-    "babel-loader": "^8.0.0",
+    "acorn": "^7.1.0",
+    "acorn-jsx": "^5.1.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "babel-plugin-rewire": "^1.1.0",
-    "babel-preset-react-app": "^7.0.0",
-    "chai": "^4.1.2",
-    "chai-enzyme": "^1.0.0-beta.1",
-    "cheerio": "^1.0.0-rc.2",
-    "coveralls": "^3.0.2",
-    "dirty-chai": "^2.0.1",
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "babel-preset-react-app": "^9.0.2",
+    "cheerio": "^1.0.0-rc.3",
+    "eslint": "^6.7.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-import-resolver-node": "^0.3.1",
     "eslint-plugin-babel": "^5.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-sort-imports-es6-autofix": "^0.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "husky": "^4.2.3",
     "ignore-styles": "^5.0.1",
-    "jsdom": "^14.0.0",
+    "jsdom": "^16.1.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^6.0.2",
+    "lint-staged": "^10.0.7",
     "node-sass-chokidar": "^1.1.0",
-    "nyc": "^13.1.0",
+    "prettier": "^1.19.1",
     "react-addons-test-utils": "^15.6.0",
-    "react-scripts": "^2.1.3",
-    "react-styleguidist": "^9.0.5",
-    "sinon": "^7.1.1",
-    "style-loader": "^0.23.0",
-    "stylelint": "^9.9.0",
-    "stylelint-config-standard": "^18.0.0",
-    "stylelint-order": "^2.0.0"
+    "react-scripts": "^3.2.0",
+    "react-styleguidist": "^10.2.1",
+    "style-loader": "^1.1.3",
+    "stylelint": "^13.2.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
   },
   "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
+    "picomatch": "^2.2.1"
   },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 90,
-    "statements": 90,
-    "functions": 90,
-    "branches": 90,
-    "include": [
-      "src/**/*.js"
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/setupTests.js",
+      "!src/lib/fontAwesome.js",
+      "!src/lib/book-snippets/*.js"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write",
+      "git add"
     ],
-    "exclude": [
-      "**/*.test.js",
-      "src/index.js",
-      "src/registerServiceWorker.js",
-      "src/lib/testCommon.js",
-      "src/lib/book-snippets/*.js"
-    ],
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "require": [
-      "@babel/register"
-    ],
-    "cache": true,
-    "all": true
+    "src/**/*.{css,scss}": [
+      "stylelint --config=stylelint.config.js",
+      "prettier --write",
+      "git add"
+    ]
   },
   "scripts": {
-    "lint:scss": "stylelint --config=stylelint.config.js 'src/**/*.scss' --syntax scss",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "lint:js": "eslint --config=.eslintrc.js .",
-    "start:js": "cross-env NODE_PATH=./src react-scripts start",
+    "start:js": "react-scripts start",
     "start": "run-p watch:css start:js",
-    "build": "yarn run build:css && cross-env NODE_PATH=./src react-scripts build",
-    "test:js": "cross-env NODE_ENV=test NODE_PATH=./src nyc mocha --opts .mocharc 'src/**/*.test.js'",
-    "test:js:watch": "cross-env NODE_ENV=test NODE_PATH=./src mocha --opts .mocharc --watch 'src/**/*.test.js'",
-    "pretest": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
-    "test": "yarn run test:js",
-    "posttest": "if [[ ! -z $COVERALLS_REPO_TOKEN ]]; then nyc report --reporter=text-lcov | coveralls; fi",
+    "build": "yarn run build:css && react-scripts build",
+    "testprep": "yarn run lint:scss && yarn run build:css && yarn run lint:js",
+    "test": "react-scripts test",
+    "test:ci": "yarn run testprep && react-scripts test --watchAll=false --coverage",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "eject": "react-scripts eject"
   },
-  "optionalDependencies": {
-    "fsevents": "^2.0.1"
+  "comments": {
+    "pretest": "yarn run testprep"
   },
   "browserslist": [
     ">0.2%",

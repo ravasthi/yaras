@@ -1,27 +1,16 @@
 import { getPageTitle } from 'lib/common';
 
-import DocumentTitle from 'react-document-title';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-class FontWeightTester extends Component {
-  static propTypes = {
-    family: PropTypes.string,
-    onUpdateFamily: PropTypes.func,
-  };
-
-  static defaultProps = {
-    family: 'Avenir Next',
-    onUpdateFamily: /* istanbul ignore next */ () => {},
-  };
-
+class FontWeightPreviewer extends Component {
   constructor(props) {
     super(props);
 
     /*
-    ** Ugh: https://github.com/gotwarlost/istanbul/issues/690
-    ** Workaround: https://github.com/gotwarlost/istanbul/issues/690#issuecomment-265718617
-    */
+     ** Ugh: https://github.com/gotwarlost/istanbul/issues/690
+     ** Workaround: https://github.com/gotwarlost/istanbul/issues/690#issuecomment-265718617
+     */
     /* istanbul ignore next */
     this.updateFamily = this.updateFamily.bind(this);
 
@@ -30,11 +19,11 @@ class FontWeightTester extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      family: nextProps.family,
-    });
+  componentDidMount() {
+    document.title = getPageTitle(this.pageHeading);
   }
+
+  static pageHeading = 'Preview font weights';
 
   updateFamily(event) {
     const { onUpdateFamily } = this.props;
@@ -61,18 +50,16 @@ class FontWeightTester extends Component {
 
     /* eslint-disable react/jsx-one-expression-per-line */
     return (
-      <div id="font-weight-tester">
+      <div id="font-weight-previewer">
         <div className="page-content-header">
-          <DocumentTitle title={getPageTitle('Font weight tester')}>
-            <h1>Font weights: 100–900</h1>
-          </DocumentTitle>
+          <h1>{this.pageHeading}</h1>
         </div>
 
         <div className="module">
           <p className="instructions">
-            Ever wondered how weights of a font map to CSS font weights? Here’s a little utility to
-            help you out. Just add the name of a font family (that you have installed, of course)
-            in the form below, click
+            Ever wondered how weights of a font map to CSS font weights? Here’s
+            a little utility to help you out. Just add the name of a font family
+            (that you have installed, of course) in the form below, click
             <em> Try it out</em>, <em>et voilà</em>.
           </p>
 
@@ -82,32 +69,36 @@ class FontWeightTester extends Component {
               className="family"
               placeholder="Font family name, e.g. Helvetica"
               autoCapitalize="words"
-              ref={(input) => { this.textInput = input; }}
+              ref={input => {
+                this.textInput = input;
+              }}
             />
-            <button type="button" onClick={this.updateFamily}>Try it out</button>
+            <button type="button" onClick={this.updateFamily}>
+              Try it out
+            </button>
           </form>
 
           <div className="displayed-font" style={textStyle}>
             <p className="family-under-test">{family}</p>
 
             <p className="w100">
-              Deserunt scenester fingerstache, kogi slow-carb 3 wolf moon id exercitation sartorial
-              sriracha.
+              Deserunt scenester fingerstache, kogi slow-carb 3 wolf moon id
+              exercitation sartorial sriracha.
             </p>
 
             <p className="w200">
-              Fashion axe nihil non irony sunt food truck forage, bicycle rights disrupt messenger
-              bag wolf brunch vegan.
+              Fashion axe nihil non irony sunt food truck forage, bicycle rights
+              disrupt messenger bag wolf brunch vegan.
             </p>
 
             <p className="w300">
-              Anim nesciunt yuccie, iPhone non vinyl distillery cliche blue bottle fugiat irony
-              cardigan bicycle rights odio.
+              Anim nesciunt yuccie, iPhone non vinyl distillery cliche blue
+              bottle fugiat irony cardigan bicycle rights odio.
             </p>
 
             <p className="w400">
-              DIY placeat accusamus, single-origin coffee vinyl sapiente fingerstache nostrud elit
-              intelligentsia.
+              DIY placeat accusamus, single-origin coffee vinyl sapiente
+              fingerstache nostrud elit intelligentsia.
             </p>
 
             <p className="w500">
@@ -115,8 +106,9 @@ class FontWeightTester extends Component {
             </p>
 
             <p className="w600">
-              Knausgaard mlkshk reprehenderit, nesciunt ugh craft beer eu sint health goth lomo. Est
-              affogato polaroid selfies truffaut next level.
+              Knausgaard mlkshk reprehenderit, nesciunt ugh craft beer eu sint
+              health goth lomo. Est affogato polaroid selfies truffaut next
+              level.
             </p>
 
             <p className="w700">
@@ -124,8 +116,8 @@ class FontWeightTester extends Component {
             </p>
 
             <p className="w800">
-              Yuccie non minim, taxidermy cronut before they sold out ullamco tousled reprehenderit
-              occupy pabst.
+              Yuccie non minim, taxidermy cronut before they sold out ullamco
+              tousled reprehenderit occupy pabst.
             </p>
 
             <p className="w900">
@@ -139,4 +131,14 @@ class FontWeightTester extends Component {
   }
 }
 
-export default FontWeightTester;
+FontWeightPreviewer.propTypes = {
+  family: PropTypes.string,
+  onUpdateFamily: PropTypes.func,
+};
+
+FontWeightPreviewer.defaultProps = {
+  family: 'Avenir Next',
+  onUpdateFamily: /* istanbul ignore next */ () => {},
+};
+
+export default FontWeightPreviewer;

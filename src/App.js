@@ -1,5 +1,6 @@
 import 'app.css';
-import 'lib/fontAwesome';
+
+import storeGetters from 'store';
 
 import {
   Link,
@@ -8,13 +9,12 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 
-import { getStore } from 'store';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { Provider } from 'react-redux';
 
 // eslint-disable-next-line sort-imports
-import ConnectedFontWeightTester from 'pages/font-weight-tester/ConnectedFontWeightTester';
-import ConnectedTypefaceTester from 'pages/typeface-tester/ConnectedTypefaceTester';
+import ConnectedFontWeightPreviewer from 'pages/font-weight-previewer/ConnectedFontWeightPreviewer';
+import ConnectedTypefacePreviewer from 'pages/typeface-previewer/ConnectedTypefacePreviewer';
 import Home from 'pages/home/Home';
 import logo from 'images/logo.svg';
 // eslint-disable-next-line sort-imports
@@ -33,17 +33,33 @@ function StatelessApp() {
               <img className="logo" src={logo} alt="logo" />
             </Link>
             <ul>
-              <li><NavLink exact to="/">Home</NavLink></li>
-              <li><NavLink to="/font-weight-tester">Font weight tester</NavLink></li>
-              <li><NavLink to="/typeface-tester">Typeface tester</NavLink></li>
+              <li>
+                <NavLink exact to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/font-weight-previewer">
+                  Font weight previewer
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/typeface-previewer">Typeface previewer</NavLink>
+              </li>
             </ul>
           </nav>
         </div>
         <div className="page-content-container">
           <div className="page-content">
             <Route exact path="/" component={Home} />
-            <Route path="/font-weight-tester" component={ConnectedFontWeightTester} />
-            <Route path="/typeface-tester" component={ConnectedTypefaceTester} />
+            <Route
+              path="/font-weight-previewer"
+              component={ConnectedFontWeightPreviewer}
+            />
+            <Route
+              path="/typeface-previewer"
+              component={ConnectedTypefacePreviewer}
+            />
           </div>
         </div>
       </div>
@@ -56,7 +72,7 @@ function StatelessApp() {
 class App extends Component {
   render() {
     if (!persistor || !store) {
-      const storeObj = getStore();
+      const storeObj = storeGetters.getStore();
       /* eslint-disable prefer-destructuring */
       persistor = storeObj.persistor;
       store = storeObj.store;
@@ -73,7 +89,4 @@ class App extends Component {
   }
 }
 
-export {
-  App,
-  StatelessApp,
-};
+export { App, StatelessApp };

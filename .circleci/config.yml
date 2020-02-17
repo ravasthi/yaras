@@ -6,16 +6,6 @@ jobs:
     docker:
       - image: circleci/node:latest
 
-    dependencies:
-      override:
-        - yarn
-      cache_directories:
-        - ~/.cache/yarn
-
-    test:
-      override:
-        - yarn test
-
     steps:
       - checkout
       # - run:
@@ -32,7 +22,7 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: yarn run test
+          command: yarn test:ci
       # - run:
       #     name: code-coverage
       #     command: './node_modules/.bin/nyc report --reporter=text-lcov'

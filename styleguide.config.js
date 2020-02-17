@@ -1,9 +1,7 @@
 const path = require('path');
 
 const styleguideConfig = {
-  require: [
-    path.join(__dirname, 'src/app.css'),
-  ],
+  require: [path.join(__dirname, 'src/app.css')],
   sections: [
     {
       name: 'Colors',
@@ -23,7 +21,8 @@ const styleguideConfig = {
     },
     fontFamily: {
       // eslint-disable-next-line max-len
-      base: '"Avenir Next", Avenir, "DejaVu Sans", "Bitstream Vera Sans", Tahoma, Verdana, sans-serif',
+      base:
+        '"Avenir Next", Avenir, "DejaVu Sans", "Bitstream Vera Sans", Tahoma, Verdana, sans-serif',
     },
   },
   webpackConfig: {
@@ -44,10 +43,7 @@ const styleguideConfig = {
         {
           test: /.css$/,
           exclude: /node_modules/,
-          use: [
-            'style-loader/url',
-            'file-loader',
-          ],
+          use: ['style-loader', 'css-loader'],
         },
       ],
     },

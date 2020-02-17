@@ -1,3 +1,9 @@
+import {
+  faAsterisk,
+  faCheck,
+  faExclamationTriangle,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import PropTypes from 'prop-types';
@@ -11,10 +17,7 @@ import React from 'react';
  */
 function Alert(props) {
   const {
-    severity,
-    showIcon,
-    children,
-    className,
+    severity, showIcon, children, className,
   } = props;
 
   const classNames = `message ${severity} ${className}`;
@@ -24,17 +27,17 @@ function Alert(props) {
   if (showIcon) {
     switch (severity) {
     case 'error':
-      iconContent = <FontAwesomeIcon icon="exclamation-triangle" />;
+      iconContent = <FontAwesomeIcon icon={faExclamationTriangle} />;
       break;
     case 'warning':
-      iconContent = <FontAwesomeIcon icon="asterisk" />;
+      iconContent = <FontAwesomeIcon icon={faAsterisk} />;
       break;
     case 'success':
-      iconContent = <FontAwesomeIcon icon="check" />;
+      iconContent = <FontAwesomeIcon icon={faCheck} />;
       break;
     case 'info':
     default:
-      iconContent = <FontAwesomeIcon icon="info-circle" />;
+      iconContent = <FontAwesomeIcon icon={faInfoCircle} />;
       break;
     }
     icon = <div className="icon">{iconContent}</div>;

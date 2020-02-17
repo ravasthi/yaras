@@ -1,16 +1,17 @@
 import { getPageTitle } from 'lib/common';
 
-import DocumentTitle from 'react-document-title';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 function Home() {
+  useEffect(() => {
+    document.title = getPageTitle('Home');
+  });
+
   return (
     <div id="home">
       <div className="page-content-header">
-        <DocumentTitle title={getPageTitle('Home')}>
-          <h1>Yet another React app starter</h1>
-        </DocumentTitle>
+        <h1>Yet another React app starter</h1>
       </div>
       <div className="module">
         <p>

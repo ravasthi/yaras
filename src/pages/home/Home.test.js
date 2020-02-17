@@ -1,25 +1,14 @@
-import {
-  cleanUpTests,
-  initTests,
-} from 'lib/testCommon';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Home from 'pages/home/Home';
 import React from 'react';
 
 describe('Home', () => {
-  before(() => {
-    initTests();
-  });
-
-  after(() => {
-    cleanUpTests();
-  });
-
   it('renders properly', () => {
-    const component = mount(<Home />);
+    const { container } = render(<Home />);
 
-    expect(component.find('h1').text())
-      .to.equal('Yet another React app starter');
+    expect(container.querySelector('h1').textContent).toBe(
+      'Yet another React app starter'
+    );
   });
 });
