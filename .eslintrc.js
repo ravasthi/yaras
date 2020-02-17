@@ -2,8 +2,8 @@ var path = require('path');
 
 var eslintConfig = {
   parser: 'babel-eslint',
-  extends: 'airbnb',
-  plugins: ['babel', 'import', 'react', 'sort-imports-es6-autofix'],
+  extends: ['airbnb', 'plugin:jest/recommended', 'plugin:jest/style'],
+  plugins: ['babel', 'import', 'jest', 'react', 'sort-imports-es6-autofix'],
   rules: {
     'class-methods-use-this': ['error'],
     'comma-dangle': [
@@ -13,13 +13,13 @@ var eslintConfig = {
         objects: 'always-multiline',
         imports: 'always-multiline',
         exports: 'always-multiline',
-        functions: 'ignore'
-      }
+        functions: 'ignore',
+      },
     ],
     'function-paren-newline': ['off'],
     'generator-star-spacing': ['error', 'before'],
     'import/extensions': ['off'],
-    'import/first': ['error', null],
+    'import/first': ['off', null],
     'import/order': ['off'],
     indent: ['error', 2],
     'jsx-a11y/anchor-is-valid': [
@@ -27,31 +27,31 @@ var eslintConfig = {
       {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight', 'to'],
-        aspects: ['noHref', 'invalidHref', 'preferButton']
-      }
+        aspects: ['noHref', 'invalidHref', 'preferButton'],
+      },
     ],
     'jsx-a11y/label-has-for': [
       'error',
       {
         components: [],
         required: {
-          some: ['nesting', 'id']
+          some: ['nesting', 'id'],
         },
-        allowChildren: false
-      }
+        allowChildren: false,
+      },
     ],
     'jsx-a11y/label-has-associated-control': [
       'error',
       {
-        assert: 'either'
-      }
+        assert: 'either',
+      },
     ],
     'max-len': [
       'error',
       {
         code: 100,
-        ignoreUrls: true
-      }
+        ignoreUrls: true,
+      },
     ],
     'no-param-reassign': ['error', { props: false }],
     'no-plusplus': ['off'],
@@ -59,13 +59,13 @@ var eslintConfig = {
       'error',
       'ForInStatement',
       'LabeledStatement',
-      'WithStatement'
+      'WithStatement',
     ],
     'no-underscore-dangle': [
       'error',
       {
-        allowAfterThis: true
-      }
+        allowAfterThis: true,
+      },
     ],
     'react/forbid-prop-types': ['off'],
     'react/require-default-props': ['off'],
@@ -78,28 +78,26 @@ var eslintConfig = {
       {
         ignoreCase: true,
         ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
-      }
-    ]
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      },
+    ],
   },
   settings: {
     'import/resolver': {
       node: {
-        paths: [path.resolve(__dirname, './src')]
-      }
-    }
+        paths: [path.resolve(__dirname, './src')],
+      },
+    },
   },
   env: {
     browser: true,
     mocha: true,
-    jquery: true
+    jquery: true,
+    'jest/globals': true,
   },
   globals: {
-    chai: true,
-    sinon: true,
-    expect: true,
-    jest: true
-  }
+    jest: true,
+  },
 };
 
 module.exports = eslintConfig;

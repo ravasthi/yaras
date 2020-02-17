@@ -36,7 +36,7 @@ class TypefacePreviewer extends Component {
 
     this.state = {
       family: props.family,
-      snippetName: props.snippetName
+      snippetName: props.snippetName,
     };
   }
 
@@ -66,7 +66,7 @@ class TypefacePreviewer extends Component {
     const { onUpdateText } = this.props;
 
     this.setState({
-      snippetName: event.target.value
+      snippetName: event.target.value,
     });
     onUpdateText(event.target.value);
   }
@@ -75,7 +75,7 @@ class TypefacePreviewer extends Component {
     const { family, snippetName } = this.state;
     const textContent = snippets[snippetName].component();
     const textStyle = {
-      fontFamily: family
+      fontFamily: family,
     };
 
     return (
@@ -94,7 +94,7 @@ class TypefacePreviewer extends Component {
                 value={snippetName}
                 onChange={this.updateText}
               >
-                {Object.keys(snippets).map(snippetID => (
+                {Object.keys(snippets).map((snippetID) => (
                   <option value={snippetID} key={snippetID}>
                     {snippets[snippetID].title}
                   </option>
@@ -109,7 +109,7 @@ class TypefacePreviewer extends Component {
                 className="family"
                 placeholder="Font family name, e.g. Helvetica"
                 autoCapitalize="words"
-                ref={input => {
+                ref={(input) => {
                   this.textInput = input;
                 }}
               />
@@ -142,14 +142,14 @@ TypefacePreviewer.propTypes = {
   family: PropTypes.string,
   snippetName: PropTypes.oneOf(Object.keys(snippets)),
   onUpdateFamily: PropTypes.func,
-  onUpdateText: PropTypes.func
+  onUpdateText: PropTypes.func,
 };
 
 TypefacePreviewer.defaultProps = {
   family: 'Avenir Next',
   snippetName: 'pride-and-prejudice',
   onUpdateFamily: /* istanbul ignore next */ () => {},
-  onUpdateText: /* istanbul ignore next */ () => {}
+  onUpdateText: /* istanbul ignore next */ () => {},
 };
 
 export default TypefacePreviewer;

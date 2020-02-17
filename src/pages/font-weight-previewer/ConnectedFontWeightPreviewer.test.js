@@ -2,7 +2,7 @@ import { addGlobalSetting } from 'actions/settings';
 
 import {
   mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
 } from 'pages/font-weight-previewer/ConnectedFontWeightPreviewer';
 
 describe('ConnectedFontWeightPreviewer', () => {
@@ -20,8 +20,8 @@ describe('ConnectedFontWeightPreviewer', () => {
     it('should correctly extract the family setting from state', () => {
       const props = mapStateToProps({
         settings: {
-          family: 'Averta Std'
-        }
+          family: 'Averta Std',
+        },
       });
 
       expect(props.family).toBe('Averta Std');

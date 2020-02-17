@@ -2,7 +2,7 @@ import {
   addGlobalSetting,
   addSettingForPage,
   removeGlobalSetting,
-  removeSettingForPage
+  removeSettingForPage,
 } from 'actions/settings';
 
 import settingsReducer from 'reducers/settings';
@@ -18,24 +18,24 @@ describe('reducers for settings', () => {
 
     priorStateWithGlobalSettings = {
       foo: 'baz',
-      theme: 'blue'
+      theme: 'blue',
     };
 
     priorStateWithPageSettings = {
       FontWeightPreviewer: {
-        family: 'Helvetica Neue'
+        family: 'Helvetica Neue',
       },
       typefacePreviewer: {
         snippetName: 'scandal-in-bohemia',
-        family: 'Helvetica Neue'
-      }
+        family: 'Helvetica Neue',
+      },
     };
 
     priorStateWithGlobalAndPageSettings = {
       family: 'Helvetica Neue',
       typefacePreviewer: {
-        snippetName: 'scandal-in-bohemia'
-      }
+        snippetName: 'scandal-in-bohemia',
+      },
     };
   });
 
@@ -47,7 +47,7 @@ describe('reducers for settings', () => {
       );
 
       expect(newState).toEqual({
-        foo: 'bar'
+        foo: 'bar',
       });
     });
 
@@ -58,7 +58,7 @@ describe('reducers for settings', () => {
       );
 
       expect(newState).toEqual({
-        foo: 'bar'
+        foo: 'bar',
       });
     });
 
@@ -70,7 +70,7 @@ describe('reducers for settings', () => {
 
       expect(newState).toEqual({
         foo: 'bar',
-        theme: 'blue'
+        theme: 'blue',
       });
     });
 
@@ -110,7 +110,7 @@ describe('reducers for settings', () => {
       );
 
       expect(newState).toEqual({
-        foo: 'baz'
+        foo: 'baz',
       });
     });
 
@@ -154,8 +154,8 @@ describe('reducers for settings', () => {
 
       expect(newState).toEqual({
         FontWeightPreviewer: {
-          family: 'Georgia'
-        }
+          family: 'Georgia',
+        },
       });
     });
 
@@ -167,8 +167,8 @@ describe('reducers for settings', () => {
 
       expect(newState).toEqual({
         FontWeightPreviewer: {
-          family: 'Georgia'
-        }
+          family: 'Georgia',
+        },
       });
     });
 
@@ -180,12 +180,12 @@ describe('reducers for settings', () => {
 
       expect(newState).toEqual({
         FontWeightPreviewer: {
-          family: 'Georgia'
+          family: 'Georgia',
         },
         typefacePreviewer: {
           snippetName: 'scandal-in-bohemia',
-          family: 'Helvetica Neue'
-        }
+          family: 'Helvetica Neue',
+        },
       });
     });
 
@@ -238,7 +238,7 @@ describe('reducers for settings', () => {
 
       expect(newState).toEqual({
         family: 'Helvetica Neue',
-        typefacePreviewer: {}
+        typefacePreviewer: {},
       });
     });
 

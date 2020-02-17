@@ -2,7 +2,7 @@ import { addGlobalSetting, addSettingForPage } from 'actions/settings';
 
 import {
   mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
 } from 'pages/typeface-previewer/ConnectedTypefacePreviewer';
 
 describe('ConnectedTypefacePreviewer', () => {
@@ -22,9 +22,9 @@ describe('ConnectedTypefacePreviewer', () => {
         settings: {
           family: 'Averta Std',
           typefacePreviewer: {
-            snippetName: 'tale-of-two-cities'
-          }
-        }
+            snippetName: 'tale-of-two-cities',
+          },
+        },
       });
 
       expect(props.family).toBe('Averta Std');
@@ -34,8 +34,8 @@ describe('ConnectedTypefacePreviewer', () => {
     it('should handle when there are no settings for the page', () => {
       const props = mapStateToProps({
         settings: {
-          family: 'Averta Std'
-        }
+          family: 'Averta Std',
+        },
       });
 
       expect(props.family).toBe('Averta Std');

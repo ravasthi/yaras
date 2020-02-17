@@ -6,7 +6,7 @@ import {
   REMOVE_GLOBAL_SETTING,
   REMOVE_SETTING_FOR_PAGE,
   removeGlobalSetting,
-  removeSettingForPage
+  removeSettingForPage,
 } from 'actions/settings';
 
 describe('actions for settings', () => {
@@ -15,8 +15,8 @@ describe('actions for settings', () => {
       type: ADD_GLOBAL_SETTING,
       payload: {
         name: 'family',
-        value: 'Helvetica Neue'
-      }
+        value: 'Helvetica Neue',
+      },
     });
   });
 
@@ -24,8 +24,8 @@ describe('actions for settings', () => {
     expect(removeGlobalSetting('family')).toEqual({
       type: REMOVE_GLOBAL_SETTING,
       payload: {
-        name: 'family'
-      }
+        name: 'family',
+      },
     });
   });
 
@@ -35,8 +35,8 @@ describe('actions for settings', () => {
       payload: {
         name: 'family',
         page: 'typefacePreviewer',
-        value: 'Avenir'
-      }
+        value: 'Avenir',
+      },
     });
   });
 
@@ -45,8 +45,8 @@ describe('actions for settings', () => {
       type: REMOVE_SETTING_FOR_PAGE,
       payload: {
         name: 'family',
-        page: 'typefacePreviewer'
-      }
+        page: 'typefacePreviewer',
+      },
     });
   });
 });

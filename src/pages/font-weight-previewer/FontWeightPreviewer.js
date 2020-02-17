@@ -28,7 +28,7 @@ class FontWeightPreviewer extends Component {
     this.updateFamily = this.updateFamily.bind(this);
 
     this.state = {
-      family: props.family
+      family: props.family,
     };
   }
 
@@ -58,7 +58,7 @@ class FontWeightPreviewer extends Component {
     const { family } = this.state;
 
     const textStyle = {
-      fontFamily: family
+      fontFamily: family,
     };
 
     /* eslint-disable react/jsx-one-expression-per-line */
@@ -82,7 +82,7 @@ class FontWeightPreviewer extends Component {
               className="family"
               placeholder="Font family name, e.g. Helvetica"
               autoCapitalize="words"
-              ref={input => {
+              ref={(input) => {
                 this.textInput = input;
               }}
             />
@@ -146,12 +146,12 @@ class FontWeightPreviewer extends Component {
 
 FontWeightPreviewer.propTypes = {
   family: PropTypes.string,
-  onUpdateFamily: PropTypes.func
+  onUpdateFamily: PropTypes.func,
 };
 
 FontWeightPreviewer.defaultProps = {
   family: 'Avenir Next',
-  onUpdateFamily: /* istanbul ignore next */ () => {}
+  onUpdateFamily: /* istanbul ignore next */ () => {},
 };
 
 export default FontWeightPreviewer;

@@ -9,8 +9,8 @@ describe('Alert', () => {
     const messageContent = container.querySelectorAll('.message-content');
 
     expect(container.querySelector('li').getAttribute('class')).toMatch('info');
-    expect(container.querySelectorAll('.icon').length).toBe(0);
-    expect(messageContent.length).toBe(1);
+    expect(container.querySelectorAll('.icon')).toHaveLength(0);
+    expect(messageContent).toHaveLength(1);
     expect(messageContent[0].textContent).toBe('This is my awesome message.');
   });
 
@@ -49,8 +49,8 @@ describe('Alert', () => {
     expect(container.querySelector('li').getAttribute('class')).toMatch(
       'warning'
     );
-    expect(container.querySelectorAll('.icon').length).toBe(1);
-    expect(container.querySelectorAll('.icon svg').length).toBe(1);
+    expect(container.querySelectorAll('.icon')).toHaveLength(1);
+    expect(container.querySelectorAll('.icon svg')).toHaveLength(1);
     expect(container.querySelector('.message-content').textContent).toBe(
       'Pay attention!'
     );
