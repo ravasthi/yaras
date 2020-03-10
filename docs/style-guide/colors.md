@@ -1,11 +1,5 @@
 The app's color palette.
 
-<!-- Ugh: https://github.com/styleguidist/react-styleguidist/issues/1278#issuecomment-466061395 -->
-
-```js noeditor
-const ColorSwatch = require('../../src/components/ColorSwatch').default;
-```
-
 ```js noeditor
 const ColorSwatch = require('../../src/components/ColorSwatch').default;
 
