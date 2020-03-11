@@ -1,5 +1,34 @@
 # Changelog
 
+## 4.0.1
+
+_10 Mar 2020_
+
+Package upgrades:
+
+- @babel/core
+- @babel/preset-env
+- @babel/register
+- @babel/runtime
+- @babel/template
+- @babel/types
+- @fortawesome/react-fontawesome
+- @testing-library/react
+- acorn
+- acorn-jsx
+- babel-eslint
+- cross-env
+- eslint-plugin-jest
+- eslint-plugin-react
+- eslint-plugin-react-hooks
+- jsdom
+- lint-staged
+- react
+- react-dom
+- react-redux
+- react-styleguidist
+- stylelint
+
 ## 4.0.0
 
 _16 Feb 2020_
