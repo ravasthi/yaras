@@ -1,6 +1,6 @@
 {
   "name": "yaras",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "private": true,
   "license": "MIT",
   "repository": {
@@ -41,6 +41,10 @@
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-transform-react-display-name": "^7.8.3",
+    "@babel/plugin-transform-react-jsx": "^7.8.3",
+    "@babel/plugin-transform-react-jsx-self": "^7.8.3",
+    "@babel/plugin-transform-react-jsx-source": "^7.8.3",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.0.0",
@@ -51,6 +55,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-rewire": "^1.1.0",
+    "babel-preset-jest": "^25.1.0",
     "babel-preset-react-app": "^9.0.2",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.7.0",
