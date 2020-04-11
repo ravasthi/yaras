@@ -90,9 +90,7 @@
   "optionalDependencies": {
     "fsevents": "^2.1.2"
   },
-  "resolutions": {
-    "picomatch": "^2.2.1"
-  },
+  "resolutions": {},
   "jest": {
     "coverageThreshold": {
       "global": {
@@ -122,13 +120,11 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "src/**/*.{css,scss}": [
       "stylelint --config=stylelint.config.js",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "scripts": {
