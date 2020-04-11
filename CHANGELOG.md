@@ -1,5 +1,43 @@
 # Changelog
 
+## 4.0.2
+
+_10 Apr 2020_
+
+Package upgrades:
+
+- @babel/core
+- @babel/plugin-transform-react-jsx
+- @babel/plugin-transform-react-jsx-self
+- @babel/plugin-transform-react-jsx-source
+- @babel/preset-env
+- @babel/register
+- @babel/runtime
+- @babel/types
+- @fortawesome/fontawesome-free
+- @fortawesome/fontawesome-svg-core
+- @fortawesome/free-brands-svg-icons
+- @fortawesome/free-regular-svg-icons
+- @fortawesome/free-solid-svg-icons
+- @testing-library/jest-dom
+- @testing-library/react
+- babel-loader
+- babel-preset-jest
+- babel-preset-react-app
+- eslint-config-airbnb
+- eslint-config-prettier
+- eslint-plugin-import
+- eslint-plugin-react-hooks
+- jsdom
+- lint-staged
+- picomatch
+- prettier
+- react
+- react-dom
+- react-scripts
+- react-styleguidist
+- stylelint
+
 ## 4.0.1
 
 _10 Mar 2020_

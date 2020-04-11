@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class FontWeightPreviewer extends Component {
+  static pageHeading = 'Preview font weights';
+
   constructor(props) {
     super(props);
 
@@ -22,8 +24,6 @@ class FontWeightPreviewer extends Component {
   componentDidMount() {
     document.title = getPageTitle(this.pageHeading);
   }
-
-  static pageHeading = 'Preview font weights';
 
   updateFamily(event) {
     const { onUpdateFamily } = this.props;
@@ -69,7 +69,7 @@ class FontWeightPreviewer extends Component {
               className="family"
               placeholder="Font family name, e.g. Helvetica"
               autoCapitalize="words"
-              ref={input => {
+              ref={(input) => {
                 this.textInput = input;
               }}
             />
