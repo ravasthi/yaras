@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import snippets from 'lib/book-snippets';
 
 class TypefacePreviewer extends Component {
+  static pageHeading = 'Preview a typeface';
+
   constructor(props) {
     super(props);
 
@@ -25,8 +27,6 @@ class TypefacePreviewer extends Component {
   componentDidMount() {
     document.title = getPageTitle(this.pageHeading);
   }
-
-  static pageHeading = 'Preview a typeface';
 
   updateFamily(event) {
     event.preventDefault();
@@ -76,7 +76,7 @@ class TypefacePreviewer extends Component {
                 value={snippetName}
                 onChange={this.updateText}
               >
-                {Object.keys(snippets).map(snippetID => (
+                {Object.keys(snippets).map((snippetID) => (
                   <option value={snippetID} key={snippetID}>
                     {snippets[snippetID].title}
                   </option>
@@ -91,7 +91,7 @@ class TypefacePreviewer extends Component {
                 className="family"
                 placeholder="Font family name, e.g. Helvetica"
                 autoCapitalize="words"
-                ref={input => {
+                ref={(input) => {
                   this.textInput = input;
                 }}
               />

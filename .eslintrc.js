@@ -26,7 +26,13 @@ var eslintConfig = {
     'import/extensions': ['off'],
     'import/first': ['off', null],
     'import/order': ['off'],
-    indent: ['error', 2],
+    indent: [
+      'error',
+      2,
+      // Workaround for https://github.com/babel/babel-eslint/issues/799
+      // https://github.com/babel/babel-eslint/issues/799#issuecomment-568195009
+      { ignoredNodes: ['TemplateLiteral'] },
+    ],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
