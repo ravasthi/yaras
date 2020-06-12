@@ -1,6 +1,6 @@
-var path = require('path');
+const path = require('path');
 
-var eslintConfig = {
+const eslintConfig = {
   parser: 'babel-eslint',
   extends: [
     'airbnb',

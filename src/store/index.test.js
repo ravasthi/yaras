@@ -41,6 +41,7 @@ describe('Redux store utilities', () => {
        ** to get called again.
        ** TODO: re-enable this; not currently working.
        */
+      // eslint-disable-next-line no-unused-vars
       store = storeGetters.getStore();
 
       // expect(spyGetReducer).toHaveBeenCalledTimes(1);
