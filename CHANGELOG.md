@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.0.3
+
+_13 Jun 2020_
+
+Package upgrades:
+
+- babel
+- react-testing-library
+- eslint, stylelint, & prettier
+- react-styleguidist
+- react-router
+- and other miscellaneous updates
+
 ## 4.0.2
 
 _10 Apr 2020_
