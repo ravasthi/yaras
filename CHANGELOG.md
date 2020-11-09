@@ -1,5 +1,63 @@
 # Changelog
 
+## 4.0.4
+
+_09 Nov 2020_
+
+Package upgrades:
+
+- @babel/core
+- @babel/plugin-proposal-class-properties
+- @babel/plugin-transform-react-display-name
+- @babel/plugin-transform-react-jsx
+- @babel/plugin-transform-react-jsx-self
+- @babel/plugin-transform-react-jsx-source
+- @babel/preset-env
+- @babel/register
+- @babel/runtime
+- @babel/template
+- @babel/traverse
+- @babel/types
+- @fortawesome/fontawesome-free
+- @fortawesome/fontawesome-svg-core
+- @fortawesome/free-brands-svg-icons
+- @fortawesome/free-regular-svg-icons
+- @fortawesome/free-solid-svg-icons
+- @fortawesome/react-fontawesome
+- @testing-library/jest-dom
+- @testing-library/react
+- acorn
+- acorn-jsx
+- babel-preset-jest
+- babel-preset-react-app
+- eslint
+- eslint-config-airbnb
+- eslint-config-prettier
+- eslint-import-resolver-node
+- eslint-plugin-babel
+- eslint-plugin-import
+- eslint-plugin-jest
+- eslint-plugin-jsx-a11y
+- eslint-plugin-react
+- eslint-plugin-react-hooks
+- fsevents
+- husky
+- jsdom
+- lint-staged
+- localforage
+- lodash
+- node-sass-chokidar
+- prettier
+- react
+- react-dom
+- react-redux
+- react-scripts
+- react-styleguidist
+- style-loader
+- stylelint
+- stylelint-config-prettier
+- susy
+
 ## 4.0.3
 
 _13 Jun 2020_
