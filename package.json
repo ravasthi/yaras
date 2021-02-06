@@ -41,6 +41,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
+    "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
+    "@babel/helper-define-map": "^7.12.13",
+    "@babel/helper-regex": "^7.10.5",
     "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/plugin-transform-react-display-name": "^7.12.13",
     "@babel/plugin-transform-react-jsx": "^7.12.13",
