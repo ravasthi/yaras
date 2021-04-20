@@ -1,5 +1,48 @@
 # Changelog
 
+## 4.0.6
+
+_20 Apr 2021_
+
+Package upgrades:
+
+- @babel/core
+- @babel/helper-define-map
+- @babel/plugin-proposal-class-properties
+- @babel/plugin-transform-react-jsx
+- @babel/preset-env
+- @babel/register
+- @babel/runtime
+- @babel/traverse
+- @babel/types
+- @fortawesome/fontawesome-free
+- @fortawesome/fontawesome-svg-core
+- @fortawesome/free-brands-svg-icons
+- @fortawesome/free-regular-svg-icons
+- @fortawesome/free-solid-svg-icons
+- @testing-library/jest-dom
+- @testing-library/react
+- acorn
+- cheerio
+- eslint
+- eslint-config-prettier
+- eslint-plugin-jest
+- eslint-plugin-react
+- eslint-plugin-sort-imports-es6-autofix
+- husky
+- jsdom
+- lodash
+- picomatch
+- react
+- react-dom
+- react-redux
+- react-scripts
+- react-styleguidist
+- redux-devtools-extension
+- stylelint
+- stylelint-config-standard
+- susy
+
 ## 4.0.5
 
 _06 Feb 2021_
