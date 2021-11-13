@@ -1,7 +1,9 @@
 /*----------[ color swatch ]----------------------------------------------------
 */
+@use "sass:math";
+
 .color-swatch-container {
-  margin-bottom: $vertical-spacing / 2;
+  margin-bottom: math.div($vertical-spacing, 2);
 
   .swatch-name {
     margin-top: $vertical-nudge;

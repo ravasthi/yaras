@@ -1,13 +1,14 @@
 /*-----[ book snippets ]--------------------------------------------------------
 | Styles for the book snippets used in the typeface tester
 */
+@use "sass:math";
 
 $snippet-subtitle-color: $secondary-text-color;
 $snippet-meta-color: $light-text-color;
 $snippet-divider-color: $light-gold;
 
 $snippet-title-size: 3.3333333333rem; // 60px
-$snippet-title-line-height: 4rem;     // 72px
+$snippet-title-line-height: 4rem; // 72px
 
 $snippet-divider-height: 2px;
 $snippet-width: 37em;
@@ -30,7 +31,7 @@ $snippet-width: 37em;
   }
 
   .subtitle {
-    margin-top: $vertical-spacing / 2;
+    margin-top: math.div($vertical-spacing, 2);
 
     color: $snippet-subtitle-color;
 
@@ -55,7 +56,7 @@ $snippet-width: 37em;
 
   hr {
     $body-text-line-height-px: rem-to-px($body-text-line-height);
-    margin: ($body-text-line-height-px / 2 - 1) auto;
+    margin: (math.div($body-text-line-height-px, 2) - 1) auto;
     height: $snippet-divider-height;
 
     background-color: $snippet-divider-color;

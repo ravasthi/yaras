@@ -1,6 +1,8 @@
 /*----------[ pagination ]------------------------------------------------------
 | Styles for Flickr-style pagination.
 */
+@use "sass:math";
+
 .pagination {
   margin-top: rem-to-px($body-text-line-height) - (2 * $vertical-nudge);
 
@@ -13,7 +15,7 @@
   .last {
     display: inline-block;
 
-    margin-right: $horizontal-spacing / 2;
+    margin-right: math.div($horizontal-spacing, 2);
     border-radius: 6px;
 
     background-color: darken($greyish-white, 3);
@@ -29,7 +31,7 @@
     a,
     &.current,
     &.gap {
-      padding: $vertical-nudge $horizontal-spacing / 2;
+      padding: $vertical-nudge math.div($horizontal-spacing, 2);
 
       background-color: transparent;
     }

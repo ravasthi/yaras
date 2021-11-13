@@ -12,6 +12,7 @@
 
 # compiled css
 src/**/*.css
+src/**/*.css.map
 
 # misc
 .DS_Store

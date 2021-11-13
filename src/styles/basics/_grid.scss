@@ -2,12 +2,14 @@
 | Style specifying the dimensions of the basic page grid and other common
 | measures.
 */
+@use "sass:math";
+
 $horizontal-spacing: 20px;
-$horizontal-nudge: $horizontal-spacing / 4;
+$horizontal-nudge: math.div($horizontal-spacing, 4);
 $gutter-width: 1.5 * $horizontal-spacing;
 
 $vertical-spacing: 20px;
-$vertical-nudge: $vertical-spacing / 4;
+$vertical-nudge: math.div($vertical-spacing, 4);
 $section-spacing: 2 * $vertical-spacing;
 
 /*----------[ susy grid setup ]-------------------------------------------------
@@ -16,7 +18,7 @@ $section-spacing: 2 * $vertical-spacing;
 */
 $susy: (
   'columns': susy-repeat(12),
-  'gutters': 0.25
+  'gutters': 0.25,
 );
 
 /*----------[ responsive breakpoints ]------------------------------------------
@@ -48,7 +50,7 @@ $default-border-radius: 3px;
 
 $button-border-radius: $default-border-radius;
 $button-height: 2rem;
-$button-vertical-padding: ($button-height - $button-text-size) / 2;
+$button-vertical-padding: math.div(($button-height - $button-text-size), 2);
 
 $form-input-border-radius: $default-border-radius;
 

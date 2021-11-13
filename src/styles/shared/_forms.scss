@@ -2,6 +2,7 @@
 | Global form and form element styles. Feature-specific form styles should be
 | co-located with other feature-specific styles.
 */
+@use "sass:math";
 
 /*----------[ table of contents ]-----------------------------------------------
 | text and password fields, textareas
@@ -134,7 +135,7 @@ a.button {
   display: inline-block;
 
   margin: 0;
-  margin-right: $horizontal-spacing / 2;
+  margin-right: math.div($horizontal-spacing, 2);
 }
 
 .button-bar > a {
@@ -210,7 +211,7 @@ a.button {
   }
 
   .field > label:first-of-type {
-    margin-top: $body-text-line-height / 2;
+    margin-top: math.div($body-text-line-height, 2);
   }
 
   .field,

@@ -1,5 +1,7 @@
 /*----------[ alerts ]----------------------------------------------------------
 */
+@use "sass:math";
+
 .alerts {
   margin: 0;
 
@@ -34,7 +36,7 @@
     }
 
     .message-content {
-      padding: $vertical-nudge $horizontal-spacing / 2;
+      padding: $vertical-nudge math.div($horizontal-spacing, 2);
     }
 
     &.success {

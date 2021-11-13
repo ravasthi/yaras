@@ -9,7 +9,7 @@
   },
   "url": "https://github.com/ravasthi/yaras/issues",
   "engines": {
-    "node": ">=8.1.2"
+    "node": ">=12.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
@@ -81,11 +81,11 @@
     "jsdom-global": "^3.0.2",
     "leaked-handles": "^5.2.0",
     "lint-staged": "^10.5.4",
-    "node-sass-chokidar": "^1.5.0",
     "prettier": "^2.0.4",
     "react-addons-test-utils": "^15.6.0",
     "react-scripts": "^4.0.0",
     "react-styleguidist": "^11.1.1",
+    "sass": "^1.43.4",
     "style-loader": "^2.0.0",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.1",
@@ -134,8 +134,8 @@
   },
   "scripts": {
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
-    "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "build:css": "sass --load-path ./src --load-path ./node_modules src:src",
+    "watch:css": "yarn run build:css && sass --load-path ./src --load-path ./node_modules src:src --watch",
     "lint:js": "eslint --config=.eslintrc.js .",
     "start:js": "react-scripts start",
     "start": "run-p watch:css start:js",
