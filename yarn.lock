@@ -13676,7 +13676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.4":
+"prettier@npm:^2.4.1":
   version: 2.4.1
   resolution: "prettier@npm:2.4.1"
   bin:
@@ -18416,7 +18416,7 @@ __metadata:
     lodash: ^4.17.15
     npm-run-all: ^4.1.1
     picomatch: ^2.2.2
-    prettier: ^2.0.4
+    prettier: ^2.4.1
     prop-types: ^15.5.10
     react: ^17.0.1
     react-addons-test-utils: ^15.6.0
