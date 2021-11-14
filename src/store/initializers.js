@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistCombineReducers, persistStore } from 'redux-persist';
 
 import localForage from 'localforage';
-import settingsReducer from 'reducers/settings';
+import settingsReducer from 'app/reducers/settings';
 import thunk from 'redux-thunk';
 
 function initReducer() {

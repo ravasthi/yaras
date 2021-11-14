@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { StatelessApp as App } from 'App';
+import { StatelessApp as App } from 'app/App';
 
 import React from 'react';
 

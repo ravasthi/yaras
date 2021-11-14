@@ -1,6 +1,6 @@
 import { act, fireEvent, render } from '@testing-library/react';
 
-import FontWeightPreviewer from 'pages/font-weight-previewer/FontWeightPreviewer';
+import FontWeightPreviewer from 'app/pages/font-weight-previewer/FontWeightPreviewer';
 import React from 'react';
 
 describe('FontWeightPreviewer', () => {
@@ -38,8 +38,9 @@ describe('FontWeightPreviewer', () => {
   });
 
   it('should render properly with custom props', () => {
-    container = render(<FontWeightPreviewer family="Helvetica Neue" />)
-      .container;
+    container = render(
+      <FontWeightPreviewer family="Helvetica Neue" />
+    ).container;
 
     expect(container.querySelector('.family-under-test').textContent).toBe(
       'Helvetica Neue'

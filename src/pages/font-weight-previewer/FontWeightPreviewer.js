@@ -1,4 +1,4 @@
-import { getPageTitle } from 'lib/common';
+import { getPageTitle } from 'app/lib/common';
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

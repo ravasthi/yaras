@@ -3461,6 +3461,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"app@link:./src::locator=yaras%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "app@link:./src::locator=yaras%40workspace%3A."
+  languageName: node
+  linkType: soft
+
 "aproba@npm:^1.0.3, aproba@npm:^1.1.1":
   version: 1.2.0
   resolution: "aproba@npm:1.2.0"
@@ -18386,6 +18392,7 @@ __metadata:
     "@testing-library/react": ^11.2.5
     acorn: ^8.0.4
     acorn-jsx: ^5.3.1
+    app: "link:./src"
     babel-eslint: ^10.0.3
     babel-loader: ^8.2.2
     babel-plugin-rewire: ^1.1.0

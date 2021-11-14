@@ -1,7 +1,7 @@
 import { act, fireEvent, render } from '@testing-library/react';
 
 import React from 'react';
-import TypefacePreviewer from 'pages/typeface-previewer/TypefacePreviewer';
+import TypefacePreviewer from 'app/pages/typeface-previewer/TypefacePreviewer';
 
 describe('TypefacePreviewer', () => {
   let container;

@@ -1,8 +1,8 @@
-import { getPageTitle } from 'lib/common';
+import { getPageTitle } from 'app/lib/common';
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import snippets from 'lib/book-snippets';
+import snippets from 'app/lib/book-snippets';
 
 class TypefacePreviewer extends Component {
   static pageHeading = 'Preview a typeface';

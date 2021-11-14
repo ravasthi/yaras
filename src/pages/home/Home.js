@@ -1,4 +1,4 @@
-import { getPageTitle } from 'lib/common';
+import { getPageTitle } from 'app/lib/common';
 
 import React, { useEffect } from 'react';
 
@@ -16,19 +16,31 @@ function Home() {
       <div className="module">
         <p>
           This is a React app starter bootstrapped by
-          <a href="https://github.com/facebookincubator/create-react-app"> Create React App</a>,
-          with a few additional conveniences:
+          <a href="https://github.com/facebookincubator/create-react-app">
+            {' '}
+            Create React App
+          </a>
+          , with a few additional conveniences:
         </p>
 
         <ul>
           <li>
             Styles in Sass, including a style framework similar to the one in
-            <a href="https://github.com/ravasthi/css3-foundation"> css3-foundation</a>.
+            <a href="https://github.com/ravasthi/css3-foundation">
+              {' '}
+              css3-foundation
+            </a>
+            .
           </li>
           <li>
-            <a href="https://stylelint.io">Stylelint</a> and <a href="http://eslint.org">ESLint </a>
+            <a href="https://stylelint.io">Stylelint</a> and{' '}
+            <a href="http://eslint.org">ESLint </a>
             configurations in accordance with my preferred
-            <a href="http://ravasthi.github.io/code-guide/"> coding standards</a>.
+            <a href="http://ravasthi.github.io/code-guide/">
+              {' '}
+              coding standards
+            </a>
+            .
           </li>
           <li>
             Integration with
@@ -36,12 +48,24 @@ function Home() {
           </li>
           <li>
             Integration with
-            <a href="https://github.com/reacttraining/react-router"> react-router</a>.
+            <a href="https://github.com/reacttraining/react-router">
+              {' '}
+              react-router
+            </a>
+            .
           </li>
           <li>
             Tests with <a href="https://mochajs.org">Mocha</a>,
-            <a href="http://chaijs.com" title="Chai"> Chai</a>, and
-            <a href="http://airbnb.io/enzyme/" title="Introduction | Enzyme"> Enzyme</a>.
+            <a href="http://chaijs.com" title="Chai">
+              {' '}
+              Chai
+            </a>
+            , and
+            <a href="http://airbnb.io/enzyme/" title="Introduction | Enzyme">
+              {' '}
+              Enzyme
+            </a>
+            .
           </li>
         </ul>
 

@@ -1,4 +1,4 @@
-import * as initializers from 'store/initializers';
+import * as initializers from 'app/store/initializers';
 
 let reducer;
 let store;

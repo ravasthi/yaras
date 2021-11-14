@@ -1,7 +1,7 @@
-import { addGlobalSetting } from 'actions/settings';
+import { addGlobalSetting } from 'app/actions/settings';
 import { connect } from 'react-redux';
 
-import FontWeightPreviewer from 'pages/font-weight-previewer/FontWeightPreviewer';
+import FontWeightPreviewer from 'app/pages/font-weight-previewer/FontWeightPreviewer';
 
 function mapStateToProps(state) {
   return {
@@ -24,7 +24,4 @@ const ConnectedFontWeightPreviewer = connect(
 
 export default ConnectedFontWeightPreviewer;
 
-export {
-  mapStateToProps,
-  mapDispatchToProps,
-};
+export { mapStateToProps, mapDispatchToProps };

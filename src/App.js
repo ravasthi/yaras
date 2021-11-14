@@ -1,6 +1,6 @@
-import 'app.css';
+import 'app/styles/app.css';
 
-import storeGetters from 'store';
+import storeGetters from 'app/store';
 
 import {
   Link,
@@ -13,10 +13,10 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import { Provider } from 'react-redux';
 
 // eslint-disable-next-line sort-imports
-import ConnectedFontWeightPreviewer from 'pages/font-weight-previewer/ConnectedFontWeightPreviewer';
-import ConnectedTypefacePreviewer from 'pages/typeface-previewer/ConnectedTypefacePreviewer';
-import Home from 'pages/home/Home';
-import logo from 'images/logo.svg';
+import ConnectedFontWeightPreviewer from 'app/pages/font-weight-previewer/ConnectedFontWeightPreviewer';
+import ConnectedTypefacePreviewer from 'app/pages/typeface-previewer/ConnectedTypefacePreviewer';
+import Home from 'app/pages/home/Home';
+import logo from 'app/images/logo.svg';
 // eslint-disable-next-line sort-imports
 import React, { Component } from 'react';
 

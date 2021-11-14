@@ -20,6 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "app": "link:./src",
     "cross-env": "^7.0.2",
     "jest-extended": "^0.11.2",
     "localforage": "^1.5.0",

@@ -7,7 +7,7 @@ import {
   REMOVE_SETTING_FOR_PAGE,
   removeGlobalSetting,
   removeSettingForPage,
-} from 'actions/settings';
+} from 'app/actions/settings';
 
 describe('actions for settings', () => {
   it('should create the correct action for adding a global setting', () => {

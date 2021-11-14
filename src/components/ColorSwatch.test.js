@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import ColorSwatch from 'components/ColorSwatch';
+import ColorSwatch from 'app/components/ColorSwatch';
 import React from 'react';
 
 describe('ColorSwatch', () => {

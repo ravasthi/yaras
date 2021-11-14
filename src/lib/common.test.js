@@ -1,4 +1,4 @@
-import { getPageTitle, isUndefinedOrEmpty } from 'lib/common';
+import { getPageTitle, isUndefinedOrEmpty } from 'app/lib/common';
 
 describe('common utilities', () => {
   describe('getPageTitle', () => {
