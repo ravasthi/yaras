@@ -16,8 +16,9 @@ var selectorIDOption = [
 ];
 
 var styleLintOptions = {
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
   plugins: ['stylelint-order'],
+  customSyntax: 'postcss-scss',
   rules: {
     // Temporarily disabling as it seems to be giving false negatives for legal scss at-rules.
     'at-rule-no-unknown': null,

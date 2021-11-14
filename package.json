@@ -84,18 +84,18 @@
     "prettier": "^2.0.4",
     "react-addons-test-utils": "^15.6.0",
     "react-scripts": "^4.0.0",
-    "react-styleguidist": "^11.1.1",
+    "react-styleguidist": "^11.1.7",
     "sass": "^1.43.4",
-    "style-loader": "^2.0.0",
-    "stylelint": "^13.12.0",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-order": "^4.0.0"
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.0.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^2.0.1",
+    "stylelint-order": "^5.0.0"
   },
   "optionalDependencies": {
     "fsevents": "^2.1.2"
   },
-  "resolutions": {},
   "jest": {
     "coverageThreshold": {
       "global": {
@@ -133,7 +133,7 @@
     ]
   },
   "scripts": {
-    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:scss": "stylelint 'src/**/*.scss'",
     "build:css": "sass --load-path ./src --load-path ./node_modules src:src",
     "watch:css": "yarn run build:css && sass --load-path ./src --load-path ./node_modules src:src --watch",
     "lint:js": "eslint --config=.eslintrc.js .",
