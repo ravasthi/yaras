@@ -2,6 +2,11 @@
 | Global form and form element styles. Feature-specific form styles should be
 | co-located with other feature-specific styles.
 */
+@use "../basics/colors";
+@use "../basics/grid";
+@use "../basics/typography";
+@use "animations";
+@use "mixins";
 @use "sass:math";
 
 /*----------[ table of contents ]-----------------------------------------------
@@ -23,14 +28,14 @@ input[type='url'],
 select,
 textarea {
   margin: 0;
-  border: 1px solid $stroke;
-  border-radius: $form-input-border-radius;
-  padding: 0 2 * $horizontal-nudge;
+  border: 1px solid colors.$stroke;
+  border-radius: grid.$form-input-border-radius;
+  padding: 0 2 * grid.$horizontal-nudge;
 
   background-color: white;
 
-  font-family: $body-text-family;
-  font-size: $body-text-size;
+  font-family: typography.$body-text-family;
+  font-size: typography.$body-text-size;
 }
 
 input[type='email'][disabled],
@@ -42,9 +47,9 @@ input[type='url'][disabled],
 select[disabled],
 textarea[disabled] {
   /* stylelint-disable declaration-no-important */
-  border-color: $disabled-stroke !important;
+  border-color: colors.$disabled-stroke !important;
 
-  color: $disabled-text-color !important;
+  color: colors.$disabled-text-color !important;
 
   cursor: not-allowed !important;
   /* stylelint-enable declaration-no-important */
@@ -63,7 +68,7 @@ input[type='radio'] {
 }
 
 input[type='checkbox'] {
-  border: 1px solid $grey;
+  border: 1px solid colors.$grey;
 
   background-color: white;
 }
@@ -75,47 +80,47 @@ a.button {
   display: inline-block;
 
   border-style: none;
-  border-radius: $button-border-radius;
-  padding: 0 $horizontal-spacing;
+  border-radius: grid.$button-border-radius;
+  padding: 0 grid.$horizontal-spacing;
 
-  color: $button-text-color;
-  background-color: $button-base-bg;
+  color: colors.$button-text-color;
+  background-color: colors.$button-base-bg;
 
-  font-family: $button-text-family;
-  font-size: $button-text-size;
-  line-height: $button-text-line-height;
+  font-family: typography.$button-text-family;
+  font-size: typography.$button-text-size;
+  line-height: typography.$button-text-line-height;
   font-weight: 500;
 
-  transition: background-color $default-transition-duration
-    $default-transition-timing-function;
+  transition: background-color animations.$default-transition-duration
+    animations.$default-transition-timing-function;
   text-decoration: none;
   text-transform: uppercase;
 
   &:hover {
-    background-color: $button-hover-bg;
+    background-color: colors.$button-hover-bg;
   }
 
   &.secondary {
-    border: 1px solid $secondary-button-border-color;
+    border: 1px solid colors.$secondary-button-border-color;
 
-    color: $secondary-button-text-color;
-    background-color: $secondary-button-base-bg;
+    color: colors.$secondary-button-text-color;
+    background-color: colors.$secondary-button-base-bg;
 
-    $secondary-button-line-height: rem-to-px($button-height) - 2 *
-      $secondary-button-border-width;
+    $secondary-button-line-height: rem-to-px(grid.$button-height) - 2 *
+      grid.$secondary-button-border-width;
     line-height: $secondary-button-line-height;
 
     &:hover {
-      background-color: $secondary-button-hover-bg;
+      background-color: colors.$secondary-button-hover-bg;
     }
   }
 
   &[disabled] {
-    color: $disabled-button-text-color;
-    background-color: $disabled-button-base-bg;
+    color: colors.$disabled-button-text-color;
+    background-color: colors.$disabled-button-base-bg;
 
     &:hover {
-      background-color: $disabled-button-base-bg;
+      background-color: colors.$disabled-button-base-bg;
     }
 
     /* stylelint-disable-next-line declaration-no-important */
@@ -124,7 +129,7 @@ a.button {
 }
 
 .button-bar {
-  margin: $body-text-line-height 0;
+  margin: typography.$body-text-line-height 0;
   padding: 0;
 }
 
@@ -135,14 +140,14 @@ a.button {
   display: inline-block;
 
   margin: 0;
-  margin-right: math.div($horizontal-spacing, 2);
+  margin-right: math.div(grid.$horizontal-spacing, 2);
 }
 
 .button-bar > a {
   display: inline-block;
 
-  font-size: $secondary-text-size;
-  line-height: $secondary-text-line-height + 2 * $button-vertical-padding;
+  font-size: typography.$secondary-text-size;
+  line-height: typography.$secondary-text-line-height + 2 * grid.$button-vertical-padding;
 
   vertical-align: middle;
 
@@ -155,12 +160,12 @@ a.button {
   &,
   td,
   th {
-    background-color: lighten($error-feedback, 55);
+    background-color: lighten(colors.$error-feedback, 55);
   }
 
   label,
   .form-help {
-    color: $error-feedback;
+    color: colors.$error-feedback;
   }
 
   label {
@@ -175,16 +180,16 @@ a.button {
   input[type='url'],
   select,
   textarea {
-    border-color: darken($error-feedback, 5);
+    border-color: darken(colors.$error-feedback, 5);
   }
 
   ul.error-explanation {
-    margin: $vertical-nudge;
-    margin-left: $horizontal-spacing;
+    margin: grid.$vertical-nudge;
+    margin-left: grid.$horizontal-spacing;
 
-    color: $error-feedback;
+    color: colors.$error-feedback;
 
-    @include secondary-text;
+    @include mixins.secondary-text;
   }
 }
 
@@ -202,22 +207,22 @@ a.button {
 }
 
 .stacked {
-  margin-left: -$horizontal-nudge;
+  margin-left: -(grid.$horizontal-nudge);
 
   .section-heading {
-    color: $subheading-text-color;
+    color: colors.$subheading-text-color;
 
     font-weight: bold;
   }
 
   .field > label:first-of-type {
-    margin-top: math.div($body-text-line-height, 2);
+    margin-top: math.div(typography.$body-text-line-height, 2);
   }
 
   .field,
   .section-heading,
   .button-bar {
-    padding-left: $horizontal-nudge;
+    padding-left: grid.$horizontal-nudge;
   }
 }
 
@@ -233,11 +238,11 @@ table.form {
   }
 
   .section-heading th {
-    color: $subheading-text-color;
+    color: colors.$subheading-text-color;
   }
 
   .field-label {
-    padding-right: $horizontal-spacing;
+    padding-right: grid.$horizontal-spacing;
 
     font-weight: normal;
 

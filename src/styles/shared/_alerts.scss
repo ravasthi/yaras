@@ -1,5 +1,8 @@
 /*----------[ alerts ]----------------------------------------------------------
 */
+@use "../basics/colors";
+@use "../basics/grid";
+@use "../basics/typography";
 @use "sass:math";
 
 .alerts {
@@ -10,9 +13,9 @@
   .message {
     display: flex;
 
-    margin-bottom: $vertical-nudge;
+    margin-bottom: grid.$vertical-nudge;
     border: 1px solid transparent;
-    border-radius: $default-border-radius;
+    border-radius: grid.$default-border-radius;
 
     .icon,
     .message-content {
@@ -20,11 +23,11 @@
     }
 
     .icon {
-      border-top-left-radius: $default-border-radius;
-      border-bottom-left-radius: $default-border-radius;
+      border-top-left-radius: grid.$default-border-radius;
+      border-bottom-left-radius: grid.$default-border-radius;
 
-      padding-top: $vertical-nudge;
-      width: 2 * $horizontal-spacing;
+      padding-top: grid.$vertical-nudge;
+      width: 2 * grid.$horizontal-spacing;
 
       font-size: 0;
 
@@ -36,28 +39,28 @@
     }
 
     .message-content {
-      padding: $vertical-nudge math.div($horizontal-spacing, 2);
+      padding: grid.$vertical-nudge math.div(grid.$horizontal-spacing, 2);
     }
 
     &.success {
-      border-color: $success-feedback;
+      border-color: colors.$success-feedback;
 
       .icon {
-        color: $success-feedback;
-        background-color: $success-feedback-bg;
+        color: colors.$success-feedback;
+        background-color: colors.$success-feedback-bg;
 
-        font-size: $large-text-size;
+        font-size: typography.$large-text-size;
       }
     }
 
     &.warning {
-      border-color: $warning-feedback;
+      border-color: colors.$warning-feedback;
 
       .icon {
-        color: $warning-feedback;
-        background-color: $warning-feedback-bg;
+        color: colors.$warning-feedback;
+        background-color: colors.$warning-feedback-bg;
 
-        font-size: $large-text-size;
+        font-size: typography.$large-text-size;
 
         svg {
           top: 1px;
@@ -66,24 +69,24 @@
     }
 
     &.error {
-      border-color: $error-feedback;
+      border-color: colors.$error-feedback;
 
       .icon {
-        color: $error-feedback;
-        background-color: $error-feedback-bg;
+        color: colors.$error-feedback;
+        background-color: colors.$error-feedback-bg;
 
-        font-size: $large-text-size;
+        font-size: typography.$large-text-size;
       }
     }
 
     &.info {
-      border-color: $info-feedback;
+      border-color: colors.$info-feedback;
 
       .icon {
-        color: $info-feedback;
-        background-color: $info-feedback-bg;
+        color: colors.$info-feedback;
+        background-color: colors.$info-feedback-bg;
 
-        font-size: $large-text-size;
+        font-size: typography.$large-text-size;
 
         svg {
           top: 1px;

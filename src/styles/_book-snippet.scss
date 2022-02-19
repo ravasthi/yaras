@@ -1,11 +1,15 @@
 /*-----[ book snippets ]--------------------------------------------------------
 | Styles for the book snippets used in the typeface tester
 */
+@use "basics/colors";
+@use "basics/grid";
+@use "basics/typography";
+@use "shared/mixins";
 @use "sass:math";
 
-$snippet-subtitle-color: $secondary-text-color;
-$snippet-meta-color: $light-text-color;
-$snippet-divider-color: $light-gold;
+$snippet-subtitle-color: colors.$secondary-text-color;
+$snippet-meta-color: colors.$light-text-color;
+$snippet-divider-color: colors.$light-gold;
 
 $snippet-title-size: 3.3333333333rem; // 60px
 $snippet-title-line-height: 4rem; // 72px
@@ -14,7 +18,7 @@ $snippet-divider-height: 2px;
 $snippet-width: 37em;
 
 .book-snippet {
-  margin-top: $section-spacing;
+  margin-top: grid.$section-spacing;
   max-width: $snippet-width;
 
   .book-info,
@@ -31,17 +35,17 @@ $snippet-width: 37em;
   }
 
   .subtitle {
-    margin-top: math.div($vertical-spacing, 2);
+    margin-top: math.div(grid.$vertical-spacing, 2);
 
     color: $snippet-subtitle-color;
 
     font-style: italic;
 
-    @include large-text();
+    @include mixins.large-text();
   }
 
   .author {
-    @include large-text();
+    @include mixins.large-text();
 
     &::before {
       display: inline-block;
@@ -55,7 +59,7 @@ $snippet-width: 37em;
   }
 
   hr {
-    $body-text-line-height-px: rem-to-px($body-text-line-height);
+    $body-text-line-height-px: rem-to-px(typography.$body-text-line-height);
     margin: (math.div($body-text-line-height-px, 2) - 1) auto;
     height: $snippet-divider-height;
 
@@ -64,7 +68,7 @@ $snippet-width: 37em;
 
   .story-info,
   .chapter-info {
-    margin-bottom: $vertical-spacing;
+    margin-bottom: grid.$vertical-spacing;
   }
 
   .story-number,
@@ -76,7 +80,7 @@ $snippet-width: 37em;
 
   .story-title,
   .chapter-title {
-    color: $body-text-color;
+    color: colors.$body-text-color;
   }
 
   .chapter-info {

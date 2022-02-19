@@ -2,6 +2,7 @@
 | Style specifying the dimensions of the basic page grid and other common
 | measures.
 */
+@use "typography";
 @use "sass:math";
 
 $horizontal-spacing: 20px;
@@ -50,7 +51,7 @@ $default-border-radius: 3px;
 
 $button-border-radius: $default-border-radius;
 $button-height: 2rem;
-$button-vertical-padding: math.div(($button-height - $button-text-size), 2);
+$button-vertical-padding: math.div(($button-height - typography.$button-text-size), 2);
 
 $form-input-border-radius: $default-border-radius;
 

@@ -1,12 +1,14 @@
 /*----------[ color swatch ]----------------------------------------------------
 */
+@use "../basics/grid";
+@use "../basics/typography";
 @use "sass:math";
 
 .color-swatch-container {
-  margin-bottom: math.div($vertical-spacing, 2);
+  margin-bottom: math.div(grid.$vertical-spacing, 2);
 
   .swatch-name {
-    margin-top: $vertical-nudge;
+    margin-top: grid.$vertical-nudge;
 
     &::first-letter {
       text-transform: uppercase;
@@ -14,6 +16,6 @@
   }
 
   .swatch-value {
-    font-family: $monospace-text-family;
+    font-family: typography.$monospace-text-family;
   }
 }

@@ -1,6 +1,8 @@
 /*-----[ style guide ]----------------------------------------------------------
 | Overrides of default style-guide styles, and custom styles for content.
 */
+@use "basics/grid";
+
 [class^='rsg--body'] {
   h1,
   h2 {
@@ -25,5 +27,5 @@
 .palette-colors {
   display: grid;
   grid-template-columns: repeat(5, 150px);
-  grid-gap: $gutter-width;
+  grid-gap: grid.$gutter-width;
 }

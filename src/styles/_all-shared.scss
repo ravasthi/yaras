@@ -8,34 +8,34 @@
 | of the directory organization.
 ------------------------------------------------------------------------------*/
 
-@import 'reset-css/sass/reset';
+@use '~reset-css/sass/reset';
 
 // Third-party mixins
-@import 'susy/sass/susy';
+@use '~susy/sass/susy';
 
 // Basics
-@import 'basics/colors';
-@import 'basics/typography';
-@import 'basics/grid';
+@use 'basics/colors';
+@use 'basics/typography';
+@use 'basics/grid';
 
 // Shared
-@import 'shared/animations';
-@import 'shared/functions';
-@import 'shared/mixins';
-@import 'shared/foundation';
-@import 'shared/page';
-@import 'shared/forms';
-@import 'shared/alerts';
-@import 'shared/color-swatch';
-@import 'shared/pagination';
-@import 'shared/nav';
-@import 'shared/header';
-@import 'shared/footer';
+@use 'shared/animations';
+@use 'shared/functions';
+@use 'shared/mixins';
+@use 'shared/foundation';
+@use 'shared/page';
+@use 'shared/forms';
+@use 'shared/alerts';
+@use 'shared/color-swatch';
+@use 'shared/pagination';
+@use 'shared/nav';
+@use 'shared/header';
+@use 'shared/footer';
 
 // Feature-/page-specific
-@import 'style-guide';
-@import 'home';
-@import 'font-weight-previewer';
-@import 'typeface-previewer';
-@import 'book-snippet';
-// @import 'feature-1';
+@use 'style-guide';
+@use 'home';
+@use 'font-weight-previewer';
+@use 'typeface-previewer';
+@use 'book-snippet';
+// @use 'feature-1';

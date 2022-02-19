@@ -1,5 +1,10 @@
 /*-----[ font-weight-previewer ]---------------------------------------------------
 */
+@use "basics/colors";
+@use "basics/grid";
+@use "basics/typography";
+@use "shared/mixins";
+
 #font-weight-previewer {
   $module-gutter-width: 100px;
 
@@ -13,9 +18,9 @@
         position: absolute;
         left: -$module-gutter-width;
 
-        width: $module-gutter-width - $horizontal-spacing;
+        width: $module-gutter-width - grid.$horizontal-spacing;
 
-        color: $secondary-text-color;
+        color: colors.$secondary-text-color;
 
         font-weight: normal;
 
@@ -26,30 +31,30 @@
   }
 
   code {
-    @include keep-together;
+    @include mixins.keep-together;
   }
 
   .instructions {
     position: relative;
 
-    margin-bottom: $body-text-line-height;
+    margin-bottom: typography.$body-text-line-height;
   }
 
   input.family {
-    margin-right: $horizontal-spacing;
+    margin-right: grid.$horizontal-spacing;
     min-width: 350px;
-    height: $button-height;
+    height: grid.$button-height;
   }
 
   .family-under-test {
-    margin-bottom: $body-text-line-height;
+    margin-bottom: typography.$body-text-line-height;
 
     font-weight: 600;
 
-    @include large-text;
+    @include mixins.large-text;
   }
 
   .module {
-    padding-left: $horizontal-spacing + $module-gutter-width;
+    padding-left: grid.$horizontal-spacing + $module-gutter-width;
   }
 }

@@ -3,6 +3,11 @@
 | headers, body text, clearfix, etc. here. See the readme for information on
 | recommended rule order.
 */
+@use "../basics/colors";
+@use "../basics/grid";
+@use "../basics/typography";
+@use "animations";
+@use "mixins";
 @use "sass:math";
 
 /*----------[ table of contents ]-----------------------------------------------
@@ -19,7 +24,7 @@
 html {
   box-sizing: border-box;
 
-  @include body-text;
+  @include mixins.body-text;
 }
 
 *,
@@ -29,22 +34,22 @@ html {
 }
 
 a {
-  color: $link;
+  color: colors.$link;
 
   font-weight: 500;
 
-  transition: color $default-transition-duration
-    $default-transition-timing-function;
+  transition: color animations.$default-transition-duration
+    animations.$default-transition-timing-function;
 
   text-decoration: none;
 
   &:visited {
-    color: $visited-link;
+    color: colors.$visited-link;
   }
 
   &:hover,
   &:active {
-    color: $active-link;
+    color: colors.$active-link;
   }
 }
 
@@ -55,22 +60,22 @@ p,
 pre,
 table,
 ul {
-  margin: $body-text-line-height 0;
+  margin: typography.$body-text-line-height 0;
 }
 
 blockquote {
-  margin-left: $horizontal-spacing;
+  margin-left: grid.$horizontal-spacing;
 
-  color: $secondary-text-color;
+  color: colors.$secondary-text-color;
 }
 
 body {
-  color: $body-text-color;
-  background-color: $page-bg;
+  color: colors.$body-text-color;
+  background-color: colors.$page-bg;
 
-  font-family: $body-text-family;
+  font-family: typography.$body-text-family;
 
-  @include body-text;
+  @include mixins.body-text;
 
   /*
   ** Turn off automatic text resizing in MobileSafari for iPhone. This assumes
@@ -92,7 +97,7 @@ dt {
 }
 
 dd {
-  margin: 0 0 $body-text-line-height;
+  margin: 0 0 typography.$body-text-line-height;
 }
 
 em {
@@ -100,26 +105,26 @@ em {
 }
 
 h1 {
-  margin-bottom: $body-text-line-height * 3 - $page-heading-text-line-height;
+  margin-bottom: typography.$body-text-line-height * 3 - typography.$page-heading-text-line-height;
   padding: 0;
 
-  color: $heading-text-color;
+  color: colors.$heading-text-color;
 
-  @include heading-text;
+  @include mixins.heading-text;
 }
 
 h2 {
-  margin: $body-text-line-height 0 math.div($body-text-line-height, 2);
+  margin: typography.$body-text-line-height 0 math.div(typography.$body-text-line-height, 2);
 
-  color: $subheading-text-color;
+  color: colors.$subheading-text-color;
 
-  @include subheading-text;
+  @include mixins.subheading-text;
 }
 
 h3 {
-  margin: 0.75 * $body-text-line-height 0 0;
+  margin: 0.75 * typography.$body-text-line-height 0 0;
 
-  @include large-text;
+  @include mixins.large-text;
 }
 
 h1,
@@ -140,19 +145,19 @@ h3 {
 }
 
 hr {
-  $body-text-line-height-px: rem-to-px($body-text-line-height);
+  $body-text-line-height-px: rem-to-px(typography.$body-text-line-height);
   margin: (math.div($body-text-line-height-px, 2) - 1) auto
     math.div($body-text-line-height-px, 2);
   border-style: none;
   height: 1px;
 
-  background-color: $stroke;
+  background-color: colors.$stroke;
 }
 
 /* stylelint-disable no-descending-specificity */
 ol,
 ul {
-  margin-left: $horizontal-spacing;
+  margin-left: grid.$horizontal-spacing;
 }
 /* stylelint-enable no-descending-specificity */
 
@@ -178,21 +183,21 @@ ol {
 
 code,
 pre {
-  font-family: $monospace-text-family;
+  font-family: typography.$monospace-text-family;
 }
 
 code {
   padding: 2px 3px;
 
-  background-color: $code-snippet-bg;
+  background-color: colors.$code-snippet-bg;
 }
 
 pre {
   overflow: auto;
 
-  padding: math.div($vertical-spacing, 2) math.div($horizontal-spacing, 2);
+  padding: math.div(grid.$vertical-spacing, 2) math.div(grid.$horizontal-spacing, 2);
 
-  background-color: $code-snippet-bg;
+  background-color: colors.$code-snippet-bg;
 }
 
 strong {
@@ -225,21 +230,21 @@ table {
 
 table,
 thead th {
-  border-bottom: 2px solid $light-stroke;
+  border-bottom: 2px solid colors.$light-stroke;
 }
 
 /* stylelint-disable no-descending-specificity */
 td,
 th {
-  padding: $vertical-nudge 0;
-  padding-right: $horizontal-spacing;
+  padding: grid.$vertical-nudge 0;
+  padding-right: grid.$horizontal-spacing;
 
   &:first-of-type {
-    padding-left: $horizontal-nudge;
+    padding-left: grid.$horizontal-nudge;
   }
 
   &:last-of-type {
-    padding-right: $horizontal-nudge;
+    padding-right: grid.$horizontal-nudge;
   }
 }
 
@@ -249,7 +254,7 @@ th {
 
 tbody th,
 td {
-  border-bottom: 1px solid $light-stroke;
+  border-bottom: 1px solid colors.$light-stroke;
 }
 /* stylelint-enable no-descending-specificity */
 
@@ -275,11 +280,11 @@ ul {
 
 /* Clearfix style from <https://css-tricks.com/snippets/css/clear-fix/> */
 .group {
-  @include clearfix;
+  @include mixins.clearfix;
 }
 
 span.keep-together {
-  @include keep-together;
+  @include mixins.keep-together;
 }
 
 .reset {
@@ -294,7 +299,7 @@ span.keep-together {
 
 .spacer {
   padding: 0;
-  height: math.div($body-text-line-height, 2);
+  height: math.div(typography.$body-text-line-height, 2);
 
   font-size: 0;
 }

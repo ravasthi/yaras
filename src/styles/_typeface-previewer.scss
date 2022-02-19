@@ -1,24 +1,27 @@
 /*-----[ typeface tester ]------------------------------------------------------
 */
+@use "basics/colors";
+@use "basics/grid";
+@use "shared/mixins";
 
 #typeface-previewer {
   .field {
     display: inline-block;
 
-    margin-right: $horizontal-spacing;
+    margin-right: grid.$horizontal-spacing;
 
     label {
       display: block;
 
-      color: $secondary-text-color;
+      color: colors.$secondary-text-color;
 
-      @include secondary-text();
+      @include mixins.secondary-text();
     }
   }
 
   select,
   input[type='text'] {
-    height: $button-height;
+    height: grid.$button-height;
   }
 
   input.family {
@@ -26,11 +29,11 @@
   }
 
   .displayed-font {
-    margin-bottom: $vertical-spacing;
-    border-bottom: 1px solid $light-stroke;
-    padding-bottom: $vertical-nudge;
+    margin-bottom: grid.$vertical-spacing;
+    border-bottom: 1px solid colors.$light-stroke;
+    padding-bottom: grid.$vertical-nudge;
 
-    @include large-text();
+    @include mixins.large-text();
 
     .family-name {
       font-weight: 600;

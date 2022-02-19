@@ -1,15 +1,19 @@
 /*-----[ page ]-----------------------------------------------------------------
 | Top-level styles for content. Otherwise unqualified styles should go here.
 */
+@use "../basics/colors";
+@use "../basics/grid";
+@use "mixins";
+
 .page {
   .page-content-container {
-    margin-left: $primary-nav-width;
+    margin-left: grid.$primary-nav-width;
   }
 
   .page-content-header {
-    background-color: $pale-grey;
+    background-color: colors.$pale-grey;
 
-    @include module-padding();
+    @include mixins.module-padding();
 
     h1 {
       margin: 0;
@@ -17,17 +21,17 @@
   }
 
   .module {
-    margin: $vertical-spacing $horizontal-spacing;
+    margin: grid.$vertical-spacing grid.$horizontal-spacing;
     border-style: none;
-    border-radius: $module-border-radius;
+    border-radius: grid.$module-border-radius;
 
-    background-color: $content-bg;
+    background-color: colors.$content-bg;
 
     box-shadow:
-      $module-shadow-offset $module-shadow-offset
-      $module-shadow-blur $module-shadow-spread $module-shadow-color;
+      grid.$module-shadow-offset grid.$module-shadow-offset
+      grid.$module-shadow-blur grid.$module-shadow-spread colors.$module-shadow-color;
 
-    @include module-padding;
+    @include mixins.module-padding;
 
     & > p:first-of-type {
       margin-top: 0;
@@ -41,7 +45,7 @@
   .annotation,
   .fine-print,
   .form-help {
-    color: $secondary-text-color;
+    color: colors.$secondary-text-color;
 
     font-weight: normal;
     font-style: italic;
@@ -51,7 +55,7 @@
   .form-help {
     margin: 0;
 
-    @include small-text;
+    @include mixins.small-text;
   }
 
   .subtitle {

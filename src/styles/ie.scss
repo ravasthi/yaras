@@ -13,9 +13,9 @@
 | for details.
 ------------------------------------------------------------------------------*/
 
-@import 'susy/sass/susy';
-@import 'basics/typography';
-@import 'basics/grid';
+@use 'susy/sass/susy';
+@use 'basics/typography';
+@use 'basics/grid';
 
 /*-----[ general ]--------------------------------------------------------------
 */

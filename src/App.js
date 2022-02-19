@@ -1,4 +1,4 @@
-import 'app/styles/app.css';
+import 'app/app.scss';
 
 import storeGetters from 'app/store';
 
