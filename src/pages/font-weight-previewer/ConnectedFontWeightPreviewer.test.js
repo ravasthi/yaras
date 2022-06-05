@@ -1,9 +1,9 @@
-import { addGlobalSetting } from 'app/actions/settings';
+import { addGlobalSetting } from 'app/actions/settings.js';
 
 import {
   mapDispatchToProps,
   mapStateToProps,
-} from 'app/pages/font-weight-previewer/ConnectedFontWeightPreviewer';
+} from 'app/pages/font-weight-previewer/ConnectedFontWeightPreviewer.js';
 
 describe('ConnectedFontWeightPreviewer', () => {
   let mockDispatch;

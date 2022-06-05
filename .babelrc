@@ -1,11 +1,17 @@
 {
   "presets": [
-    "react-app",
+    ["react-app", {
+      "useESModules": true
+    }],
     ["@babel/preset-env", {
       "targets": {
        "node": "current"
       }
-    }]
+    }],
+    ["@babel/plugin-transform-runtime", {
+        "useESModules": true
+      }
+    ]
   ],
   "plugins": ["@babel/plugin-proposal-class-properties"],
   "env": {

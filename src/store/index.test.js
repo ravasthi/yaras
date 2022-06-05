@@ -1,6 +1,6 @@
-import * as initializers from 'app/store/initializers';
+import * as initializers from 'app/store/initializers.js';
 
-import storeGetters from 'app/store';
+import storeGetters from 'app/store.js';
 
 describe('Redux store utilities', () => {
   let mockInitStore;

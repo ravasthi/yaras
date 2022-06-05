@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Home from 'app/pages/home/Home';
+import Home from 'app/pages/home/Home.js';
 import React from 'react';
 
 describe('Home', () => {

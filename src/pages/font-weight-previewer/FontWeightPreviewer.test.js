@@ -1,6 +1,6 @@
 import { act, fireEvent, render } from '@testing-library/react';
 
-import FontWeightPreviewer from 'app/pages/font-weight-previewer/FontWeightPreviewer';
+import FontWeightPreviewer from 'app/pages/font-weight-previewer/FontWeightPreviewer.js';
 import React from 'react';
 
 describe('FontWeightPreviewer', () => {

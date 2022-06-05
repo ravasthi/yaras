@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { isUndefinedOrEmpty } from 'app/lib/common';
+import { isUndefinedOrEmpty } from 'app/lib/common.js';
 
 import _ from 'lodash';
 

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Alert from './Alert';
+import Alert from './Alert.js';
 import React from 'react';
 
 describe('Alert', () => {

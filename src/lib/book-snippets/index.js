@@ -1,8 +1,8 @@
-import CountOfMonteCristo from 'app/lib/book-snippets/CountOfMonteCristo';
-import PictureOfDorianGray from 'app/lib/book-snippets/PictureOfDorianGray';
-import PrideAndPrejudice from 'app/lib/book-snippets/PrideAndPrejudice';
-import ScandalInBohemia from 'app/lib/book-snippets/ScandalInBohemia';
-import TaleOfTwoCities from 'app/lib/book-snippets/TaleOfTwoCities';
+import CountOfMonteCristo from 'app/lib/book-snippets/CountOfMonteCristo.js';
+import PictureOfDorianGray from 'app/lib/book-snippets/PictureOfDorianGray.js';
+import PrideAndPrejudice from 'app/lib/book-snippets/PrideAndPrejudice.js';
+import ScandalInBohemia from 'app/lib/book-snippets/ScandalInBohemia.js';
+import TaleOfTwoCities from 'app/lib/book-snippets/TaleOfTwoCities.js';
 
 const snippets = {
   'count-of-monte-cristo': {

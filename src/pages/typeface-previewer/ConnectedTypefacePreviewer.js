@@ -1,7 +1,7 @@
-import { addGlobalSetting, addSettingForPage } from 'app/actions/settings';
+import { addGlobalSetting, addSettingForPage } from 'app/actions/settings.js';
 import { connect } from 'react-redux';
 
-import TypefacePreviewer from 'app/pages/typeface-previewer/TypefacePreviewer';
+import TypefacePreviewer from 'app/pages/typeface-previewer/TypefacePreviewer.js';
 
 function mapStateToProps(state) {
   const { settings } = state;

@@ -1,4 +1,4 @@
-import { getPageTitle } from 'app/lib/common';
+import { getPageTitle } from 'app/lib/common.js';
 
 import React, { useEffect } from 'react';
 

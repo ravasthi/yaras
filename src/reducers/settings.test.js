@@ -3,9 +3,9 @@ import {
   addSettingForPage,
   removeGlobalSetting,
   removeSettingForPage,
-} from 'app/actions/settings';
+} from 'app/actions/settings.js';
 
-import settingsReducer from 'app/reducers/settings';
+import settingsReducer from 'app/reducers/settings.js';
 
 describe('reducers for settings', () => {
   let priorStateEmpty;

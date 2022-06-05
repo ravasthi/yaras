@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
-import Alert from 'app/components/Alert';
-import AlertContainer from 'app/components/AlertContainer';
+import Alert from 'app/components/Alert.js';
+import AlertContainer from 'app/components/AlertContainer.js';
 import React from 'react';
 
 describe('AlertContainer', () => {

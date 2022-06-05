@@ -1,9 +1,9 @@
-import { addGlobalSetting, addSettingForPage } from 'app/actions/settings';
+import { addGlobalSetting, addSettingForPage } from 'app/actions/settings.js';
 
 import {
   mapDispatchToProps,
   mapStateToProps,
-} from 'app/pages/typeface-previewer/ConnectedTypefacePreviewer';
+} from 'app/pages/typeface-previewer/ConnectedTypefacePreviewer.js';
 
 describe('ConnectedTypefacePreviewer', () => {
   let mockDispatch;
